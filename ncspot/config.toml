@@ -1,0 +1,19 @@
+use_nerdfont = true
+audio_cache_size = 2048
+library_tabs = ["playlists", "podcasts", "browse"]
+
+[keybindings]
+"Esc" = "quit"
+"q" = "queue"
+"Space" = "toggleplay"
+"a" = "add"
+
+[theme]
+cmdline = "#cdd6f4"
+cmdline_bg = "#1e1e2e"
+playing = "#f9e2af"
+playing_bg = "#1e1e2e"
+highlight = "#89dceb"
+highlight_bg = "#1e1e2e"
+error = "#f38ba8"
+error_bg = "#1e1e2e"
