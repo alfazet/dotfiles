@@ -11,6 +11,13 @@ map("n", "k", "gk")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
+-- keep the cursor centered when scrolling through search results
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+
+-- keep the cursor in place when joining lines
+map("n", "J", "mzJ`z")
+
 -- faster scrolling
 map("n", "<C-e>", "3<C-e>")
 map("n", "<C-y>", "3<C-y>")
@@ -31,6 +38,11 @@ map("n", "<C-S-k>", ":move .-2<CR>")
 map("x", "<C-S-j>", ":m'>+<CR>gv=gv")
 map("x", "<C-S-k>", ":m-2<CR>gv=gv")
 
--- change buffers
-map("n", "<Tab>", ":bn<CR>")
-map("n", "<S-Tab>", ":bp<CR>")
+-- toggle line wrapping
+map("n", "<Leader>ww", ":set wrap!<CR>")
+
+-- view all buffers as vertical windows
+map("n", "<Leader>vv", ":vertical ball<CR>")
+
+-- <Esc> to change to normal mode in the terminal
+map("t", "<Esc>", "<C-\\><C-n>")

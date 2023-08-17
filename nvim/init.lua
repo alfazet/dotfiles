@@ -35,7 +35,10 @@ vim.opt.undofile = true
 -- keep 10 lines of space above and below the cursor
 vim.opt.scrolloff = 10
 
--- wrap only on full words
+-- disable wrap by default
+vim.opt.wrap = false
+
+-- (if set) wrap only on full words
 vim.opt.linebreak = true
 
 -- line numbers
@@ -55,6 +58,12 @@ vim.opt.signcolumn = "yes"
 -- 24-bit colors
 vim.opt.termguicolors = true
 
+-- stop comments from continuing on the next line
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o"
+})
+
 -- start the plugin manager
 -- vim.loader().enable()
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -70,20 +79,19 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- load plugins
+-- load plugins and themes
 require("lazy").setup("core.plugins", {
     change_detection = {
-        -- automatically check for config file changes and reload the ui
         enabled = true,
         notify = false,
     },
 })
+
+-- set theme
+vim.cmd.colorscheme("catppuccin-mocha")
 
 -- load snippets
 require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/core/snippets/"})
 
 -- load keymaps
 require("core.keymaps")
-
--- set theme
-vim.cmd.colorscheme("catppuccin")
