@@ -4,10 +4,12 @@ import re
 import subprocess
 
 LOGO = "󰖀"
+LOGO_BT = ""
 LOGO_MUTE = "󰝟" 
 
 def main():
     mute = "yes" in subprocess.getoutput("pactl get-sink-mute 3")
+    # mute_bt = "yes" in subprocess.getoutput("pactl get-sink-mute 4")
     if mute:
         print(f"{LOGO_MUTE}")
     else:
