@@ -1,0 +1,27 @@
+# NEVER USE "~" instead of $HOME in env variables
+export ZSH="$HOME/.local/share/oh-my-zsh"
+ZSH_THEME="steeef"
+
+# plugins
+source $HOME/.local/share/oh-my-zsh/plugins/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+plugins=(zsh-syntax-highlighting zsh-autosuggestions pass safe-paste themes)
+
+# plugin configs
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+source $ZSH/oh-my-zsh.sh
+
+# aliases
+alias vim='nvim'
+alias ls='exa --all --icons --group-directories-first'
+alias rip='rip --graveyard ~/.local/share/trash'
+alias wget='wget --hsts-file="~/.cache/wget-hsts"'
+
+# keymaps
+bindkey "^[[1;3C" forward-word # <Alt-Right>
+bindkey "^[[1;3D" backward-word # <Alt-Left>
+
+ZSH_DISABLE_COMPFIX=true
+unsetopt IGNORE_EOF 
+autoload -Uz compinit
+compinit
