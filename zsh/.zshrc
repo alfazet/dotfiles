@@ -4,10 +4,11 @@ ZSH_THEME="steeef"
 
 # plugins
 source $HOME/.local/share/oh-my-zsh/plugins/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
-plugins=(zsh-syntax-highlighting zsh-autosuggestions pass safe-paste themes)
+plugins=(zsh-syntax-highlighting zsh-autosuggestions pass safe-paste themes copypath z)
 
 # plugin configs
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+export ZSHZ_DATA="$HOME/.cache/z-cache"
 
 source $ZSH/oh-my-zsh.sh
 

@@ -1,3 +1,6 @@
+-- 24-bit colors
+vim.opt.termguicolors = true
+
 -- set <Space> as the leader key
 vim.keymap.set("", "<Space>", "<NOP>")
 vim.g.mapleader = " "
@@ -52,11 +55,15 @@ vim.opt.cursorlineopt = "number"
 -- don't show mode (a plugin will take care of that)
 vim.opt.showmode = false
 
--- always show the signcolumn
-vim.opt.signcolumn = "yes"
+-- show the signcolumn if its needed
+vim.opt.signcolumn = "auto"
 
--- 24-bit colors
-vim.opt.termguicolors = true
+-- dimensions of popup windows
+vim.opt.pumheight = 8
+vim.opt.pumwidth = 10
+
+-- reduce update time so that LSP diagnostic have less lag
+vim.opt.updatetime = 250
 
 -- stop comments from continuing on the next line
 vim.api.nvim_create_autocmd("FileType", {
