@@ -52,11 +52,11 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 
--- don't show mode (a plugin will take care of that)
+-- don't show the mode (a plugin will take care of that)
 vim.opt.showmode = false
 
--- show the signcolumn if its needed
-vim.opt.signcolumn = "auto"
+-- always show the signcolumn 
+vim.opt.signcolumn = "yes"
 
 -- dimensions of popup windows
 vim.opt.pumheight = 8
@@ -71,8 +71,13 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o"
 })
 
+-- recognize Asymptote (.asy) files
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"},{
+    pattern = "*.asy",
+    command = "set filetype=asy commentstring=//%s"
+})
+
 -- start the plugin manager
--- vim.loader().enable()
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -80,13 +85,13 @@ if not vim.loop.fs_stat(lazypath) then
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
+        "--branch=stable",
         lazypath,
     })
 end
 vim.opt.rtp:prepend(lazypath)
 
--- load plugins and themes
+-- load plugins and colorschemes
 require("lazy").setup("core.plugins", {
     change_detection = {
         enabled = true,

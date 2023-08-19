@@ -8,7 +8,9 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
-            require("mason-lspconfig").setup({})
+            require("mason-lspconfig").setup({
+                ensure_installed = {"jedi_language_server", "clangd", "rust_analyzer",},
+            })
         end,
     }, 
     {
@@ -33,7 +35,7 @@ return {
                     callback = function()
                         local opts = {
                             focusable = false,
-                            close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+                            close_events = {"BufLeave", "CursorMoved", "InsertEnter", "FocusLost"},
                             border = "rounded",
                             source = "always",
                             prefix = " ",
@@ -43,12 +45,17 @@ return {
                     end
                 })
             end
-            local get_servers = require("mason-lspconfig").get_installed_servers
 
+            local get_servers = require("mason-lspconfig").get_installed_servers
             for _, server_name in ipairs(get_servers()) do
                 lspconfig[server_name].setup({
                     capabilities = lsp_capabilities,
                     on_attach = lsp_on_attach,
+                    settings = {
+                        completions = {
+                            completeFunctionCalls = true,
+                        },
+                    },
                 })
             end
         end,
