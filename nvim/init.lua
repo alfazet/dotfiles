@@ -52,8 +52,8 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 
--- don't show the mode (a plugin will take care of that)
-vim.opt.showmode = false
+-- don't show the default statusline (lualine is better)
+vim.opt.cmdheight = 0
 
 -- always show the signcolumn 
 vim.opt.signcolumn = "yes"
@@ -99,8 +99,8 @@ require("lazy").setup("core.plugins", {
     },
 })
 
--- set theme
-vim.cmd.colorscheme("catppuccin-mocha")
+-- set theme and transparency
+vim.cmd.colorscheme("rose-pine")
 
 -- load snippets
 require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/core/snippets/"})

@@ -1,6 +1,6 @@
 return {
     "lervag/vimtex",
-    lazy = false,
+    ft = {"tex"},
     config = function()
         vim.cmd([[syntax on]])
         vim.cmd([[let maplocalleader = ' ']])

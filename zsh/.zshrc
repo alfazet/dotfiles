@@ -3,7 +3,7 @@ export ZSH="$HOME/.local/share/oh-my-zsh"
 ZSH_THEME="steeef"
 
 # plugins
-source $HOME/.local/share/oh-my-zsh/plugins/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source $HOME/.local/share/oh-my-zsh/plugins/zsh-syntax-highlighting/themes/rose-pine-zsh-syntax-highlighting.zsh
 plugins=(zsh-syntax-highlighting zsh-autosuggestions pass safe-paste themes copypath z)
 
 # plugin configs

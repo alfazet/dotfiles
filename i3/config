@@ -168,9 +168,6 @@ bindsym $mod+r mode "resize"
 bar {
     status_command py3status --config ~/.config/i3/i3status.conf
     tray_output none
-    colors {
-        # focused_workspace #749ded #74c9ed #ffffff
-    }
 }
 # custom config starts here
 
