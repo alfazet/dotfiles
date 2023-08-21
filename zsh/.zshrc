@@ -1,6 +1,6 @@
 # NEVER USE "~" instead of $HOME in env variables
 export ZSH="$HOME/.local/share/oh-my-zsh"
-ZSH_THEME="steeef"
+ZSH_THEME="theunraveler"
 
 # plugins
 source $HOME/.local/share/oh-my-zsh/plugins/zsh-syntax-highlighting/themes/rose-pine-zsh-syntax-highlighting.zsh

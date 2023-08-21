@@ -91,7 +91,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- load plugins and colorschemes
+-- load plugins
 require("lazy").setup("core.plugins", {
     change_detection = {
         enabled = true,
@@ -99,7 +99,7 @@ require("lazy").setup("core.plugins", {
     },
 })
 
--- set theme and transparency
+-- set theme
 vim.cmd.colorscheme("rose-pine")
 
 -- load snippets
