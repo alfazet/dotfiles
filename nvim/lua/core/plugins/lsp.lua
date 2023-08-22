@@ -8,9 +8,7 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = {"jedi_language_server", "clangd", "rust_analyzer",},
-            })
+            require("mason-lspconfig").setup({})
         end,
     }, 
     {
@@ -21,9 +19,11 @@ return {
             local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lsp_on_attach = function(client)
                 client.server_capabilities.semanticTokensProvider = nil
-                vim.keymap.set("n", "gmn", ":lua vim.lsp.buf.hover()<CR> :lua vim.lsp.buf.hover()<CR>") -- "mn" -> manual
-                vim.keymap.set("n", "gdf", ":lua vim.lsp.buf.definition()<CR>") -- "df" -> definition
-                vim.keymap.set("n", "gdc", ":lua vim.lsp.buf.declaration()<CR>") -- "dc" -> declaration
+                vim.keymap.set("n", "<Leader>mn", ":lua vim.lsp.buf.hover()<CR> :lua vim.lsp.buf.hover()<CR>")
+                vim.keymap.set("n", "<Leader>df", ":lua vim.lsp.buf.definition()<CR>")
+                vim.keymap.set("n", "<Leader>dc", ":lua vim.lsp.buf.declaration()<CR>")
+                vim.keymap.set("n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>")
+                vim.keymap.set("n", "<Leader>rf", ":lua vim.lsp.buf.references()<CR>")
                 vim.cmd([[:hi DiagnosticUnderlineWarn cterm=undercurl gui=undercurl]])
                 vim.cmd([[:hi DiagnosticUnderlineError cterm=undercurl gui=undercurl]])
                 vim.cmd([[:hi DiagnosticUnderlineHint cterm=undercurl gui=undercurl]])
@@ -42,6 +42,12 @@ return {
                             scope = "cursor",
                         }
                         vim.diagnostic.open_float(nil, opts)
+                    end
+                })
+                vim.api.nvim_create_autocmd("BufWrite", {
+                    buffer = bufnr,
+                    callback = function()
+                        vim.diagnostic.setqflist()
                     end
                 })
             end

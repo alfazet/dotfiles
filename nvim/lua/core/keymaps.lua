@@ -1,8 +1,3 @@
--- utility function
---[[ local function map(modes, keys, result)
-    vim.keymap.set(modes, keys, result, {noremap = true, silent = true})
-end ]]
-
 -- move by one line even through wraps
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
@@ -49,5 +44,23 @@ vim.keymap.set("n", "<Leader>ww", ":set wrap!<CR>")
 -- view all buffers as vertical windows
 vim.keymap.set("n", "<Leader>vv", ":vertical ball<CR>")
 
--- <Esc> to change to normal mode in the terminal
+-- sane terminal mode bindings
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<Leader>tt", "<C-d>")
+
+-- quickfix list
+vim.keymap.set("n", "<Leader>qq", function()
+    local qf_exists = false
+    for _, win in pairs(vim.fn.getwininfo()) do
+        if win["quickfix"] == 1 then
+            qf_exists = true
+        end
+    end
+    if qf_exists == true then
+        vim.cmd("cclose")
+        return
+    end
+    if not vim.tbl_isempty(vim.fn.getqflist()) then
+        vim.cmd("copen")
+    end
+end)

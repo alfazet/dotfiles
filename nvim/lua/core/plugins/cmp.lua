@@ -6,17 +6,6 @@ return {
             "L3MON4D3/LuaSnip",
         },
         {
-            "windwp/nvim-autopairs",
-            config = function()
-                require("nvim-autopairs").setup({
-                    fast_wrap = {},
-                    disable_filetype = {"TelescopePrompt"},
-                })
-                local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-                require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-            end,
-        },
-        {
             "saadparwaiz1/cmp_luasnip",
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-nvim-lsp",
@@ -42,8 +31,8 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ["<C-[>"] = cmp.mapping.select_prev_item(),
-                ["<C-]>"] = cmp.mapping.select_next_item(),
+                ["<C-[>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
+                ["<C-]>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
                 ["<Tab>"] = cmp.mapping.confirm({select = true}),
                 ["<Esc>"] = cmp.mapping({
                     i = function()
