@@ -2,6 +2,10 @@ use_nerdfont = true
 audio_cache_size = 2048
 library_tabs = ["playlists", "podcasts", "browse"]
 
+[credentials]
+username_cmd = "echo AnZa"
+password_cmd = "pass spotify"
+
 [keybindings]
 "Esc" = "quit"
 "q" = "queue"
@@ -9,11 +13,11 @@ library_tabs = ["playlists", "podcasts", "browse"]
 "a" = "add"
 
 [theme]
-cmdline = "#cdd6f4"
-cmdline_bg = "#1e1e2e"
-playing = "#f9e2af"
-playing_bg = "#181825"
-highlight = "#89dceb"
-highlight_bg = "#313244"
-error = "#f38ba8"
-error_bg = "#1e1e2e"
+cmdline = "#e0def4"
+cmdline_bg = "#191724"
+playing = "#f6c177"
+playing_bg = "#191724"
+highlight = "#31748f"
+highlight_bg = "#21202e"
+error = "#eb6f92"
+error_bg = "#191724"

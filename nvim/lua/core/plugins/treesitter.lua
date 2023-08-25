@@ -6,6 +6,9 @@ return {
             "windwp/nvim-ts-autotag",
             ft = {"html",},
         },
+        {
+            "nvim-treesitter/nvim-treesitter-context",
+        },
     },
     config = function()
         require("nvim-treesitter.configs").setup({

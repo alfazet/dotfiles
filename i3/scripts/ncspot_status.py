@@ -8,10 +8,10 @@ import json
 import sys
 from os.path import expanduser
 
-LOGO = "" # this should show Spotify's logo, if it doesn't then i3's bar's configuration isn't using a "nerd font".
-OFFLINE_COLOR = "#f38ba8" 
-PLAYING_COLOR = "#a6e3a1"
-PAUSED_COLOR = "#f9e2af"
+LOGO = "" # this should show Spotify's logo, if it doesn't then i3's bar's configuration isn't using a font that support such symbols
+OFFLINE_COLOR = "#eb6f92" 
+PLAYING_COLOR = "#31748f"
+PAUSED_COLOR = "#f6c177"
 NOTIFY_WHEN_OFF = False
 
 # thank you SO: https://stackoverflow.com/questions/65910282/jsondecodeerror-invalid-escape-when-parsing-from-python

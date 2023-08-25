@@ -31,9 +31,9 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ["<C-[>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
-                ["<C-]>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
-                ["<Tab>"] = cmp.mapping.confirm({select = true}),
+                ["<C-p>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
+                ["<C-n>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
+                ["<C-f>"] = cmp.mapping.confirm({select = true}),
                 ["<Esc>"] = cmp.mapping({
                     i = function()
                         cmp.close()
