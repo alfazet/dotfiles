@@ -7,7 +7,7 @@ source $HOME/.local/share/oh-my-zsh/plugins/zsh-syntax-highlighting/themes/rose-
 plugins=(zsh-syntax-highlighting zsh-autosuggestions pass safe-paste themes copypath z)
 
 # plugin configs
-ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZSHZ_DATA="$HOME/.cache/z-cache"
 
 source $ZSH/oh-my-zsh.sh

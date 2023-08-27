@@ -1,33 +1,11 @@
 #!/usr/bin/env python
 
-# TODO: add elapsed time
-
-import re
 import socket
 import json
-import sys
 from os.path import expanduser
 
-LOGO = "" # this should show Spotify's logo, if it doesn't then i3's bar's configuration isn't using a font that support such symbols
-OFFLINE_COLOR = "#eb6f92" 
-PLAYING_COLOR = "#31748f"
+PLAYING_COLOR = "#e0def4"
 PAUSED_COLOR = "#f6c177"
-NOTIFY_WHEN_OFF = False
-
-# thank you SO: https://stackoverflow.com/questions/65910282/jsondecodeerror-invalid-escape-when-parsing-from-python
-class Decoder(json.JSONDecoder):
-    def decode(self, s, **kwargs):
-        regex_replacements = [
-            (re.compile(r'([^\\])\\([^\\])'), r'\1\\\\\2'),
-            (re.compile(r',(\s*])'), r'\1'),
-        ]
-        for regex, replacement in regex_replacements:
-            s = regex.sub(replacement, s)
-        return super().decode(s, **kwargs)
-
-def print_to_stdout(msg):
-    sys.stdout.write(f"{msg}\n")
-    sys.stdout.flush()
 
 def main():
     try:
@@ -36,32 +14,27 @@ def main():
         recv_data = s.recv(1024)
         s.close()
 
-        data = json.loads(str(recv_data)[2:-3], cls = Decoder)
-
+        data = json.loads(recv_data.decode())
         if "Playing" in data["mode"]:
             color = PLAYING_COLOR 
         else:
             color = PAUSED_COLOR 
-        part_string = ""
+
+        res = ""
         if data["playable"]["type"] == "Episode":
             title = data["playable"]["name"]
-            part_string = f"{title}"
-            if len(part_string) > 64:
-                part_string = part_string[:64] + "..."
+            res = f"{title}"
+            if len(res) > 64:
+                res = res[:64] + "..."
         else:
             artists, title = ", ".join(data["playable"]["artists"]), data["playable"]["title"]
-            part_string = f"{artists} - {title}"
-            if len(part_string) > 64:
-                part_string = part_string[:64] + "..."
+            res = f"{artists} - {title}"
+            if len(res) > 64:
+                res = res[:64] + "..."
+        print(f" {res}")
 
-        part_string = part_string.replace("\\\'", "\'").replace('\\\"', '\"').replace("\\\\", "\\")
-        full_string = f"{LOGO} {part_string}"
-        print_to_stdout(full_string)
-        print_to_stdout(color)
-
-    except Exception:
-        print_to_stdout("no music playing" if NOTIFY_WHEN_OFF else "")
-        print(OFFLINE_COLOR)
+    except Exception as e:
+        print(e)
 
 if __name__ == "__main__":
     main()

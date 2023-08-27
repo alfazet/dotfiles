@@ -1,1 +1,5 @@
-i3lock -u -i ~/Pictures/wallpapers/main-lock.png
+img=~/.cache/i3/temp.png
+
+maim -o $img 
+convert $img -scale 10% -scale 1000% $img
+i3lock -u -i $img

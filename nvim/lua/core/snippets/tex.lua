@@ -312,6 +312,16 @@ return {
     ),
     {condition = tex.in_mathzone}
     ),
+    s({trig = "([^%\\])cb", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    fmta(
+    "<>\\sqrt[3]{<>}",
+    {
+        f( function(_, snip) return snip.captures[1] end ),
+        d(1, get_visual),
+    }
+    ),
+    {condition = tex.in_mathzone}
+    ),
     s({trig = "([^%\\])bnn", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
     "<>\\binom{<>}{<>}",

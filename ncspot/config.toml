@@ -7,7 +7,7 @@ username_cmd = "echo AnZa"
 password_cmd = "pass spotify"
 
 [keybindings]
-"Esc" = "quit"
+"Q" = "quit"
 "q" = "queue"
 "Space" = "toggleplay"
 "a" = "add"

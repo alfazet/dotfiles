@@ -3,19 +3,18 @@
 import re
 import subprocess
 
-LOGO = "󰖀"
-LOGO_BT = ""
-LOGO_MUTE = "󰝟" 
-
 def main():
-    mute = "yes" in subprocess.getoutput("pactl get-sink-mute 3")
-    # mute_bt = "yes" in subprocess.getoutput("pactl get-sink-mute 4")
+    is_bt = int(subprocess.getoutput("pactl list sinks short | wc | awk '{print $1}'")) > 4
+    sink = subprocess.getoutput("pactl list sinks short | grep 'blue' | awk '{print $1}'") if is_bt else "3"
+    mute = "yes" in subprocess.getoutput(f"pactl get-sink-mute {sink}")
     if mute:
-        print(f"{LOGO_MUTE}")
+        print("󰝟")
     else:
-        match = re.search(r"\d+%", subprocess.getoutput("pactl get-sink-volume 3"))
-        if match and not mute:
-            print(f"{LOGO} {match.group(0)}")
+        match = re.search(r"\d+%", subprocess.getoutput(f"pactl get-sink-volume {sink}"))
+        if match:
+            print(f"{'' if is_bt else '󰖀'} {match.group(0)}")
+        else:
+            print("Error")
 
 if __name__ == "__main__":
     main()
