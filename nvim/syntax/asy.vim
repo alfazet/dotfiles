@@ -15,10 +15,10 @@ elseif exists("b:current_syntax")
 endif
 
 " useful C/C++/Java keywords
-syn keyword     asyStatement     break return continue unravel
+syn keyword     asyStatement     break return continue
 syn keyword     asyConditional   if else
 syn keyword     asyRepeat        while for do
-syn keyword     asyExternal      access from import include
+syn keyword     asyExternal      import include
 syn keyword     asyOperator      new operator
 
 " basic asymptote keywords
@@ -95,6 +95,9 @@ syn keyword asyConstant      nolight nullpens
 syn keyword asyConstant      unitsphere unithemisphere unitplane octant1
 syn keyword asyConstant      unitcone unitsolidcone unitcube unitcylinder
 syn keyword asyConstant      unitdisk unittube
+syn keyword asyFunc      length cyclic pop push append insert delete initialized
+syn keyword asyFunc      keys complement copy sequence reverse map uniform concat sort search find
+syn keyword asyFunc      fill label clip rgb cmyk hex hsv draw drawline Label dot
 
 " string constants
 syn region asyCString start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=asyCSpecial
@@ -208,6 +211,7 @@ if version >= 508 || !exists("did_asy_syn_inits")
   HiLink asyCSpecial             SpecialChar
   HiLink asyTodo                 Todo
   HiLink asyPathSpec             Statement
+  HiLink asyFunc                 Function
 
   delcommand HiLink
 endif

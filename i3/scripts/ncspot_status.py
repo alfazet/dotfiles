@@ -4,6 +4,7 @@ import socket
 import json
 from os.path import expanduser
 
+DEBUG = False
 PLAYING_COLOR = "#e0def4"
 PAUSED_COLOR = "#f6c177"
 
@@ -34,7 +35,8 @@ def main():
         print(f" {res}")
 
     except Exception as e:
-        print(e)
+        if DEBUG:
+            print(e)
 
 if __name__ == "__main__":
     main()

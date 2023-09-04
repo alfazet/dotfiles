@@ -1,7 +1,10 @@
 return {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    dependencies = {"nvim-lua/plenary.nvim"},
+    dependencies = 
+    {
+        "nvim-lua/plenary.nvim",
+    },
     config = function()
         require("telescope").setup({
             defaults = {
@@ -10,6 +13,15 @@ return {
                     horizontal = {
                         preview_cutoff = 0,
                     },
+                },
+                file_ignore_patterns = {
+                    "python3",
+                    ".*%.fdb_latexmk",
+                    ".*%.thm",
+                    ".*%.synctex.gz",
+                    ".*%.fls",
+                    ".*%.aux",
+                    ".*%.pre",
                 },
             },
         })

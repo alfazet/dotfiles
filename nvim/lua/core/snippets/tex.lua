@@ -251,9 +251,7 @@ return {
       fmta(
         [[
         \begin{itemize}
-
             \item <>
-
         \end{itemize}
       ]],
         {
@@ -262,12 +260,25 @@ return {
       ),
       {condition = line_begin}
     ),
-    s({trig = "fig"},
+    s({trig="enu", snippetType="autosnippet"},
       fmta(
         [[
-        \begin{figure}[htb!]
+        \begin{enumerate}[a)]
+            \item <>
+        \end{enumerate}
+      ]],
+        {
+          i(0),
+        }
+      ),
+      {condition = line_begin}
+    ),
+    s({trig = "asy", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{figure}[H]
           \centering
-          \includegraphics[width=<>\linewidth]{<>}
+          \asyinclude{asy/<>.asy} 
           \caption{<>}
           \label{fig:<>}
         \end{figure}
@@ -276,7 +287,6 @@ return {
           i(1),
           i(2),
           i(3),
-          i(4),
         }
       ),
       { condition = line_begin }
@@ -594,7 +604,7 @@ return {
     ),
     {condition = tex.in_text}
     ),
-    s({trig = "([^%\\])it", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    s({trig = "([^%\\])ita", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
     "<>\\textit{<>}",
     {
