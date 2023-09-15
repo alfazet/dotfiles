@@ -14,8 +14,8 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias vim="nvim"
 alias cat="bat --style=plain --paging=never"
-alias ls="exa --all --icons --group-directories-first"
-alias ll="exa --all --icons --group-directories-first -l --git"
+alias ls="eza --all --icons --group-directories-first"
+alias ll="eza --all --icons --group-directories-first -l --git"
 alias rip="rip --graveyard ~/.local/share/trash"
 alias wget='wget --hsts-file="~/.cache/wget-hsts"'
 alias ff="cd ~/Documents && cd \$(find ~/Documents -type d \( -name debug -o -name .git \) -prune -o -name '*' -type d -print | fzf)"

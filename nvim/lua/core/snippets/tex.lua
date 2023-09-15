@@ -260,7 +260,7 @@ return {
       ),
       {condition = line_begin}
     ),
-    s({trig="enu", snippetType="autosnippet"},
+    s({trig="enn", snippetType="autosnippet"},
       fmta(
         [[
         \begin{enumerate}[a)]
@@ -322,12 +322,13 @@ return {
     ),
     {condition = tex.in_mathzone}
     ),
-    s({trig = "([^%\\])cb", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    s({trig = "([^%\\])rt", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
-    "<>\\sqrt[3]{<>}",
+    "<>\\sqrt[<>]{<>}",
     {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),
+        i(2),
     }
     ),
     {condition = tex.in_mathzone}
@@ -346,26 +347,6 @@ return {
     s({trig = "([^%a%\\])log", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
     "<>\\log_{<>}",
-    {
-        f( function(_, snip) return snip.captures[1] end ),
-        i(1),
-    }
-    ),
-    {condition = tex.in_mathzone}
-    ),
-    s({trig = "^", wordTrig = true, snippetType="autosnippet"},
-    fmta(
-    "<>^{<>}",
-    {
-        f( function(_, snip) return snip.captures[1] end ),
-        i(1),
-    }
-    ),
-    {condition = tex.in_mathzone}
-    ),
-    s({trig = "_", wordTrig = true, snippetType="autosnippet"},
-    fmta(
-    "<>_{<>}",
     {
         f( function(_, snip) return snip.captures[1] end ),
         i(1),
@@ -408,157 +389,157 @@ return {
     ),
     s({trig = "ln", snippetType="autosnippet"},
     {
-        t("\\ln "),
+        t("\\ln"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "sin", snippetType="autosnippet"},
     {
-        t("\\sin "),
+        t("\\sin"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "cos", snippetType="autosnippet"},
     {
-        t("\\cos "),
+        t("\\cos"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "tg", snippetType="autosnippet"},
     {
-        t("\\tg "),
+        t("\\tg"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "ctg", snippetType="autosnippet"},
     {
-        t("\\ctg "),
+        t("\\ctg"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "asin", snippetType="autosnippet"},
     {
-        t("\\arcsin "),
+        t("\\arcsin"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "acos", snippetType="autosnippet"},
     {
-        t("\\arccos "),
+        t("\\arccos"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "atg", snippetType="autosnippet"},
     {
-        t("\\arctg "),
+        t("\\arctg"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "actg", snippetType="autosnippet"},
     {
-        t("\\arcctg "),
+        t("\\arcctg"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "..", snippetType="autosnippet"},
     {
-        t("\\cdot "),
+        t("\\cdot"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "inf", snippetType="autosnippet"},
     {
-        t("\\infty "),
+        t("\\infty"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "dd", snippetType="autosnippet"},
     {
-        t("\\dd "),
+        t("\\dd"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = ">>", snippetType="autosnippet"},
     {
-        t("\\implies "),
+        t("\\implies"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "vv", snippetType="autosnippet"},
     {
-        t("\\lor "),
+        t("\\lor"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "ww", snippetType="autosnippet"},
     {
-        t("\\land "),
+        t("\\land"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "uu", snippetType="autosnippet"},
     {
-        t("\\cup "),
+        t("\\cup"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "aa", snippetType="autosnippet"},
     {
-        t("\\cap "),
+        t("\\cap"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "inn", snippetType="autosnippet"},
     {
-        t("\\in "),
+        t("\\in"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "nin", snippetType="autosnippet"},
     {
-        t("\\in "),
+        t("\\in"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "fora", snippetType="autosnippet"},
     {
-        t("\\forall "),
+        t("\\forall"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "exi", snippetType="autosnippet"},
     {
-        t("\\exists "),
+        t("\\exists"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "NN", snippetType="autosnippet"},
     {
-        t("\\N "),
+        t("\\N"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "ZZ", snippetType="autosnippet"},
     {
-        t("\\Z "),
+        t("\\Z"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "QQ", snippetType="autosnippet"},
     {
-        t("\\Q "),
+        t("\\Q"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "RR", snippetType="autosnippet"},
     {
-        t("\\R "),
+        t("\\R"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "CC", snippetType="autosnippet"},
     {
-        t("\\C "),
+        t("\\C"),
     },
     {condition = tex.in_mathzone}
     ),

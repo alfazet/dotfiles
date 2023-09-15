@@ -2,8 +2,9 @@ return {
     "lervag/vimtex",
     ft = {"tex"},
     config = function()
-        vim.cmd([[syntax on]])
+        -- vim.cmd([[syntax on]])
         vim.cmd([[let maplocalleader = ' ']])
+        vim.cmd([[let g:tex_fast = ""]])
         vim.g.vimtex_view_method = "zathura"
         vim.g.vimtex_log_verbose = 1
         vim.g.vimtex_view_forward_search_on_start = 0

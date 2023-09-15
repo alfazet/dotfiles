@@ -29,7 +29,7 @@ vim.opt.swapfile = false
 vim.opt.mouse = ""
 
 -- cursor 
-vim.opt.guicursor = "n:block-blinkon530,v:block,i:ver25-blinkon530"
+vim.opt.guicursor = "n:block-blinkon530,v:block,i:block-blinkon530"
 
 -- save undo history between sessions
 vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim_undodir"
