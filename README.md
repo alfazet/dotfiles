@@ -1,2 +1,2 @@
 # dotfiles
-My dotfiles (the ``` ~/.config ``` directory) for Arch Linux.
+My dotfiles (some directories from ``` ~/.config ```).
