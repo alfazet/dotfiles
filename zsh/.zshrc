@@ -12,13 +12,7 @@ export ZSHZ_DATA="$HOME/.cache/z-cache"
 source $ZSH/oh-my-zsh.sh
 
 # aliases
-alias vim="nvim"
-alias cat="bat --style=plain --paging=never"
-alias ls="eza --all --icons --group-directories-first"
-alias ll="eza --all --icons --group-directories-first -l --git"
-alias rip="rip --graveyard ~/.local/share/trash"
-alias wget='wget --hsts-file="~/.cache/wget-hsts"'
-alias ff="cd ~/Documents && cd \$(find ~/Documents -type d \( -name debug -o -name .git \) -prune -o -name '*' -type d -print | fzf)"
+[ -f "$HOME/.config/zsh/aliases" ] && source "$HOME/.config/zsh/aliases"
 
 # keymaps
 bindkey "^[[1;3C" forward-word # <Alt-Right>
@@ -32,6 +26,7 @@ setopt APPEND_HISTORY
 ZSH_DISABLE_COMPFIX=true
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' menu select
 
 precmd() {
     precmd() {

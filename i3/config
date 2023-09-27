@@ -54,7 +54,7 @@ floating_maximum_size 1200 x 1200
 for_window [floating] move position center
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
