@@ -171,6 +171,15 @@ return {
     }
     )
     ),
+    s({trig = "([^%a])l%|", regTrig = true, wordTrig = false, snippetType="autosnippet"},
+    fmta(
+    "<>\\left|<>\\right|",
+    {
+        f( function(_, snip) return snip.captures[1] end ),
+        d(1, get_visual),
+    }
+    )
+    ),
     s({trig = "([^%a])b%(", regTrig = true, wordTrig = false, snippetType="autosnippet"},
     fmta(
     "<>\\big(<>\\big)",
@@ -247,6 +256,71 @@ return {
       ),
       {condition = line_begin}
     ),
+    s({trig="prb", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{problem}
+            <>
+        \end{problem}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
+    s({trig="sln", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{solution}
+            <>
+        \end{solution}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
+    s({trig="slp", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{solproof}
+            <>
+        \end{solproof}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
+    s({trig="thm", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{theorem}
+            <>
+        \end{theorem}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
+    s({trig="prf", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{proof}
+            <>
+        \end{proof}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
     s({trig="itt", snippetType="autosnippet"},
       fmta(
         [[
@@ -263,12 +337,26 @@ return {
     s({trig="enn", snippetType="autosnippet"},
       fmta(
         [[
-        \begin{enumerate}[a)]
+        \begin{enumerate}[label=\alph*)]
             \item <>
         \end{enumerate}
       ]],
         {
           i(0),
+        }
+      ),
+      {condition = line_begin}
+    ),
+    s({trig="tsk", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{tasks}(<>)
+            \task <>
+        \end{tasks}
+      ]],
+        {
+          i(1),
+          i(2),
         }
       ),
       {condition = line_begin}
@@ -318,17 +406,6 @@ return {
     {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),
-    }
-    ),
-    {condition = tex.in_mathzone}
-    ),
-    s({trig = "([^%\\])rt", wordTrig = false, regTrig = true, snippetType="autosnippet"},
-    fmta(
-    "<>\\sqrt[<>]{<>}",
-    {
-        f( function(_, snip) return snip.captures[1] end ),
-        d(1, get_visual),
-        i(2),
     }
     ),
     {condition = tex.in_mathzone}
@@ -575,25 +652,15 @@ return {
     ),
     {condition = tex.in_mathzone}
     ),
-    s({trig = "([^%\\])bf", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    s({trig = "([^%\\])comm", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
-    "<>\\textbf{<>}",
+    "<>\\intertext{ <> }",
     {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),
     }
     ),
-    {condition = tex.in_text}
-    ),
-    s({trig = "([^%\\])ita", wordTrig = false, regTrig = true, snippetType="autosnippet"},
-    fmta(
-    "<>\\textit{<>}",
-    {
-        f( function(_, snip) return snip.captures[1] end ),
-        d(1, get_visual),
-    }
-    ),
-    {condition = tex.in_text}
+    {condition = tex.in_mathzone}
     ),
     s({trig = "([^%\\])mk", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(

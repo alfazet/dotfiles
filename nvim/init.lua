@@ -29,7 +29,7 @@ vim.opt.swapfile = false
 vim.opt.mouse = ""
 
 -- cursor 
-vim.opt.guicursor = "n:block-blinkon530,v:block,i:block-blinkon530"
+vim.opt.guicursor = "n:block,v:block,i:block"
 
 -- save undo history between sessions
 vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim_undodir"
@@ -51,9 +51,6 @@ vim.opt.relativenumber = true
 -- highlight the number of the active line
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
-
--- don't show the default statusline (lualine is better)
-vim.opt.cmdheight = 0
 
 -- always show the signcolumn 
 vim.opt.signcolumn = "yes"

@@ -2,7 +2,6 @@ return {
     "lervag/vimtex",
     ft = {"tex"},
     config = function()
-        -- vim.cmd([[syntax on]])
         vim.cmd([[let maplocalleader = ' ']])
         vim.cmd([[let g:tex_fast = ""]])
         vim.g.vimtex_view_method = "zathura"
@@ -13,7 +12,6 @@ return {
             ["continuous"] = 0,
             ["options"] = {
                 "-pdf",
-                "-synctex=1",
                 "-verbose",
                 "-file-line-error",
                 "-halt-on-error",

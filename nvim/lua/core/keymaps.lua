@@ -41,13 +41,6 @@ vim.keymap.set("v", "<Leader>d", "\"_d")
 -- toggle line wrapping
 vim.keymap.set("n", "<Leader>ww", ":set wrap!<CR>")
 
--- view all buffers as vertical windows
-vim.keymap.set("n", "<Leader>vv", ":vertical ball<CR>")
-
--- switch between adjacent buffers
-vim.keymap.set("n", "<Tab>", ":bn<CR>")
-vim.keymap.set("n", "<S-Tab>", ":bp<CR>")
-
 -- sane terminal mode bindings
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "<Leader>tt", "<C-d>")

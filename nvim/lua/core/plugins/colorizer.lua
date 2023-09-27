@@ -4,6 +4,7 @@ return {
         require("colorizer").setup({
             "css";
             "html";
+            "javascript";
         }, {
             names = false
         })
