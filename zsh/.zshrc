@@ -1,20 +1,19 @@
-# NEVER USE "~" instead of $HOME in env variables
-export ZSH="$HOME/.local/share/oh-my-zsh"
-ZSH_THEME="theunraveler"
+# theme
+source $HOME/.config/zsh/theme.zsh
 
 # plugins
-source $HOME/.local/share/oh-my-zsh/plugins/zsh-syntax-highlighting/themes/rose-pine-zsh-syntax-highlighting.zsh
-plugins=(zsh-syntax-highlighting zsh-autosuggestions pass safe-paste themes copypath z)
-
-# plugin configs
+source $HOME/.local/share/zsh/plugins/zsh-z/zsh-z.plugin.zsh
+source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/themes/rose-pine-zsh-syntax-highlighting.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZSHZ_DATA="$HOME/.cache/z-cache"
-source $ZSH/oh-my-zsh.sh
 
 # aliases
 [ -f "$HOME/.config/zsh/aliases" ] && source "$HOME/.config/zsh/aliases"
 
 # keymaps
+bindkey -e
 bindkey "^[[1;3C" forward-word # <Alt-Right>
 bindkey "^[[1;3D" backward-word # <Alt-Left>
 bindkey "^ " autosuggest-accept # <C-Space>
