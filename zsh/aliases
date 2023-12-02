@@ -3,7 +3,7 @@
 # better safe than sorry
 alias mv="mv -vi"
 alias cp="cp -vi"
-alias rm="rm -vI"
+alias rm="rm -vi"
 alias mkdir="mkdir -pv"
 
 # bat - cat replacement

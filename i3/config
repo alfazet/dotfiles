@@ -180,11 +180,12 @@ set $active #393552
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    i3bar_command i3bar --transparency 
     status_command py3status --config ~/.config/i3/i3status.conf
     tray_output none
 
     colors{
-        background $base
+        background #000000C0
         statusline $text
         separator  $muted
 
@@ -236,5 +237,5 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 bindsym $mod+Shift+b bar mode toggle
-bindsym $mod+Shift+f exec firefox --force-dark-mode
+bindsym $mod+Shift+f exec "firefox --force-dark-mode"
 bindsym $mod+Shift+d exec "rofi -modi drun,emoji,calc -show drun"
