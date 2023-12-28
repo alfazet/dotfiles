@@ -1,8 +1,9 @@
 local helpers = require("core.snippets.helper-functions")
 local get_visual = helpers.get_visual
+local ts_in_mathzone = helpers.in_mathzone
 
 local tex = {}
-tex.in_mathzone = function() return vim.fn['vimtex#syntax#in_mathzone']() == 1 end
+tex.in_mathzone = ts_in_mathzone
 tex.in_text = function() return not tex.in_mathzone() end
 
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
@@ -180,13 +181,16 @@ return {
     }
     )
     ),
-    s({trig = "``", snippetType="autosnippet"},
-    fmta(
-    ",,<>''",
-    {
-        d(1, get_visual),
-    }
-    )
+    s({trig="eqn", snippetType="autosnippet"},
+      fmta(
+        [[
+        $$ <> $$
+      ]],
+        {
+          d(1, get_visual),
+        }
+      ),
+      {condition = line_begin}
     ),
     s({trig="env", snippetType="autosnippet"},
       fmta(
@@ -203,194 +207,18 @@ return {
       ),
       {condition = line_begin}
     ),
-    s({trig="eqn", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{equation*}
-            <>
-        \end{equation*}
-      ]],
-        {
-          i(1),
-        }
-      ),
-      { condition = line_begin }
-    ),
-    s({trig="aln", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{align*}
-            <>
-        \end{align*}
-      ]],
-        {
-          i(1),
-        }
-      ),
-      {condition = line_begin}
-    ),
-    s({trig="gth", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{gather*}
-            <>
-        \end{gather*}
-      ]],
-        {
-          i(1),
-        }
-      ),
-      {condition = line_begin}
-    ),
-    s({trig="prb", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{problem}
-            <>
-        \end{problem}
-      ]],
-        {
-          i(1),
-        }
-      ),
-      { condition = line_begin }
-    ),
-    s({trig="sln", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{solution}
-            <>
-        \end{solution}
-      ]],
-        {
-          i(1),
-        }
-      ),
-      { condition = line_begin }
-    ),
-    s({trig="slp", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{solproof}
-            <>
-        \end{solproof}
-      ]],
-        {
-          i(1),
-        }
-      ),
-      { condition = line_begin }
-    ),
-    s({trig="thm", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{theorem}
-            <>
-        \end{theorem}
-      ]],
-        {
-          i(1),
-        }
-      ),
-      { condition = line_begin }
-    ),
-    s({trig="prf", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{proof}
-            <>
-        \end{proof}
-      ]],
-        {
-          i(1),
-        }
-      ),
-      { condition = line_begin }
-    ),
-    s({trig="itt", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{itemize}
-            \item <>
-        \end{itemize}
-      ]],
-        {
-          i(0),
-        }
-      ),
-      {condition = line_begin}
-    ),
-    s({trig="enn", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{enumerate}[label=(\Roman*)]
-            \item <>
-        \end{enumerate}
-      ]],
-        {
-          i(0),
-        }
-      ),
-      {condition = line_begin}
-    ),
-    s({trig="tsk", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{tasks}[label=\textbf{\alph*})](<>)
-            \task <>
-        \end{tasks}
-      ]],
-        {
-          i(1),
-          i(2),
-        }
-      ),
-      {condition = line_begin}
-    ),
     s({trig="bmat", snippetType="autosnippet"},
       fmta(
         [[
-        \begin{bmatrix}[<>]
+        \begin{bmatrix}
             <>
         \end{bmatrix}
       ]],
         {
           i(1),
-          i(2),
         }
       ),
-      {condition = line_bgein and tex.in_mathzone}
-    ),
-    s({trig = "fig", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{figure}[H]
-          \centering
-          \caption{<>}
-          \label{fig:<>}
-        \end{figure}
-        ]],
-        {
-          i(1),
-          i(2),
-        }
-      ),
-      { condition = line_begin }
-    ),
-    s({trig = "frm", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{frame}
-        \frametitle{<>}
-            <>
-        \end{frame}
-        ]],
-        {
-          i(1),
-          i(2),
-        }
-      ),
-      { condition = line_begin }
+      {condition = line_begin and tex.in_mathzone}
     ),
     s({trig = "([^%a])vv", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
@@ -488,6 +316,12 @@ return {
     ),
     {condition = tex.in_mathzone}
     ),
+    s({trig = "=lh", snippetType="autosnippet"},
+    {
+        t("\\stackrel{\\rm H}{=}"),
+    },
+    {condition = tex.in_mathzone}
+    ),
     s({trig = "lg", snippetType="autosnippet"},
     {
         t("\\ln"),
@@ -508,13 +342,13 @@ return {
     ),
     s({trig = "tg", snippetType="autosnippet"},
     {
-        t("\\tg"),
+        t("\\tan"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "ctg", snippetType="autosnippet"},
     {
-        t("\\ctg"),
+        t("\\cot"),
     },
     {condition = tex.in_mathzone}
     ),
@@ -532,13 +366,13 @@ return {
     ),
     s({trig = "atg", snippetType="autosnippet"},
     {
-        t("\\arctg"),
+        t("\\arctan"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "actg", snippetType="autosnippet"},
     {
-        t("\\arcctg"),
+        t("\\arccot"),
     },
     {condition = tex.in_mathzone}
     ),
@@ -562,55 +396,43 @@ return {
     ),
     s({trig = "ii", snippetType="autosnippet"},
     {
-        t("\\ii"),
+        t("\\mathrm{i}"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "ee", snippetType="autosnippet"},
     {
-        t("\\ee"),
+        t("\\mathrm{e}"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "dd", snippetType="autosnippet"},
     {
-        t("\\dd"),
-    },
-    {condition = tex.in_mathzone}
-    ),
-    s({trig = "<-", snippetType="autosnippet"},
-    {
-        t("\\Leftarrow"),
-    },
-    {condition = tex.in_mathzone}
-    ),
-    s({trig = "->", snippetType="autosnippet"},
-    {
-        t("\\Rightarrow"),
+        t("\\mathrm{d}"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "<->", snippetType="autosnippet"},
     {
-        t("\\Leftrightarrow"),
-    },
-    {condition = tex.in_mathzone}
-    ),
-    s({trig = "<-->", snippetType="autosnippet"},
-    {
         t("\\xleftrightarrow"),
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = "=>", snippetType="autosnippet"},
+    s({trig = "->", snippetType="autosnippet"},
     {
-        t("\\implies"),
+        t("\\Leftrightarrow"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "<=>", snippetType="autosnippet"},
     {
         t("\\iff"),
+    },
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "=>", snippetType="autosnippet"},
+    {
+        t("\\implies"),
     },
     {condition = tex.in_mathzone}
     ),
@@ -676,31 +498,31 @@ return {
     ),
     s({trig = "NN", snippetType="autosnippet"},
     {
-        t("\\N"),
+        t("\\mathbb{N}"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "ZZ", snippetType="autosnippet"},
     {
-        t("\\Z"),
+        t("\\mathbb{Z}"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "QQ", snippetType="autosnippet"},
     {
-        t("\\Q"),
+        t("\\mathbb{Q}"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "RR", snippetType="autosnippet"},
     {
-        t("\\R"),
+        t("\\mathbb{R}"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "CC", snippetType="autosnippet"},
     {
-        t("\\C"),
+        t("\\mathbb{C}"),
     },
     {condition = tex.in_mathzone}
     ),
@@ -714,29 +536,9 @@ return {
     ),
     {condition = tex.in_mathzone}
     ),
-    s({trig = "([^%\\])inter", wordTrig = false, regTrig = true, snippetType="autosnippet"},
-    fmta(
-    "<>\\intertext{ <> }",
-    {
-        f( function(_, snip) return snip.captures[1] end ),
-        d(1, get_visual),
-    }
-    ),
-    {condition = tex.in_mathzone}
-    ),
     s({trig = "([^%\\])mk", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
-    "<>\\(<>\\)",
-    {
-        f( function(_, snip) return snip.captures[1] end ),
-        d(1, get_visual),
-    }
-    ),
-    {condition = tex.in_text}
-    ),
-    s({trig = "([^%\\])emph", wordTrig = false, regTrig = true, snippetType="autosnippet"},
-    fmta(
-    "<>\\emph{<>}",
+    "<>$<>$",
     {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),

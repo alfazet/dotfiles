@@ -17,6 +17,7 @@ alias tree="ls --tree"
 # rip - safer rm
 alias rip="rip --graveyard ~/.local/share/trash"
 
+# others
 alias tmux="tmux -2"
 alias vim="nvim"
 alias ff="cd ~/Documents && cd \$(find ~/Documents -type d \( -name debug -o -name .git \) -prune -o -name '*' -type d -print | fzf)"

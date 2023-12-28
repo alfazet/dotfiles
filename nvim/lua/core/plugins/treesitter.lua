@@ -12,9 +12,11 @@ return {
     },
     config = function()
         require("nvim-treesitter.configs").setup({
-            ensure_installed = {"c", "cpp", "css", "html", "javascript", "lua", "python", "rust",},
+            ensure_installed = {"c", "cpp", "css", "html", "javascript", "markdown", "markdown_inline", "latex", "lua", "python", "rust",},
             highlight = {
                 enable = true,
+                disable = {"latex",},
+                additional_vim_regex_highlighting = {"latex", "markdown",},
             },
             indent = {
                 enable = false,

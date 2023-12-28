@@ -13,16 +13,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- keep the cursor in place when joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 
--- faster scrolling
-vim.keymap.set("n", "<C-e>", "3<C-e>")
-vim.keymap.set("n", "<C-y>", "3<C-y>")
-
--- move between windows
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-
 -- stay in visual mode when indenting selected text
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -40,10 +30,6 @@ vim.keymap.set("v", "<Leader>d", "\"_d")
 
 -- toggle line wrapping
 vim.keymap.set("n", "<Leader>ww", ":set wrap!<CR>")
-
--- sane terminal mode bindings
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.keymap.set("t", "<Leader>tt", "<C-d>")
 
 -- quickfix list
 vim.keymap.set("n", "<Leader>qq", function()
