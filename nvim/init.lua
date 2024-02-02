@@ -6,7 +6,7 @@ vim.keymap.set("", "<Space>", "<NOP>")
 vim.g.mapleader = " "
 
 -- use system clipboard
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 -- indentation
 vim.opt.tabstop = 4
@@ -55,12 +55,18 @@ vim.opt.cursorlineopt = "number"
 -- always show the signcolumn 
 vim.opt.signcolumn = "yes"
 
+-- hidden command-line
+vim.opt.cmdheight = 0
+
 -- dimensions of popup windows
 vim.opt.pumheight = 8
 vim.opt.pumwidth = 10
 
 -- reduce update time so that LSP diagnostic have less lag
 vim.opt.updatetime = 250
+
+-- syntax conceal
+vim.opt.conceallevel = 2
 
 -- stop comments from continuing on the next line
 vim.api.nvim_create_autocmd("FileType", {

@@ -16,6 +16,9 @@ return {
         using namespace std;
         typedef long long int lli;
 
+        #define ff first
+        #define ss second
+
         int main() {
             ios_base::sync_with_stdio(false);
             cin.tie(NULL);

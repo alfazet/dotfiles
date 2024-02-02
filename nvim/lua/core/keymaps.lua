@@ -21,12 +21,15 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- don't replace register when pasting over something
-vim.keymap.set("x", "<Leader>p", "\"_dP")
-
 -- delete to the black hole register
 vim.keymap.set("n", "<Leader>d", "\"_d")
 vim.keymap.set("v", "<Leader>d", "\"_d")
+
+-- paste from/yank to system clipboard
+vim.keymap.set("n", "<Leader>p", "\"+p")
+vim.keymap.set("v", "<Leader>p", "\"+p")
+vim.keymap.set("n", "<Leader>y", "\"+y")
+vim.keymap.set("v", "<Leader>y", "\"+y")
 
 -- toggle line wrapping
 vim.keymap.set("n", "<Leader>ww", ":set wrap!<CR>")

@@ -16,14 +16,10 @@ return {
                 },
                 file_ignore_patterns = {
                     "python3",
-                    ".*%.fdb_latexmk",
-                    ".*%.thm",
-                    ".*%.synctex.gz",
-                    ".*%.fls",
-                    ".*%.aux",
-                    ".*%.pre",
+                    ".*%.eps",
                     ".*%.pdf",
                     ".*%.svg",
+                    ".*%.synctex.gz",
                 },
             },
         })

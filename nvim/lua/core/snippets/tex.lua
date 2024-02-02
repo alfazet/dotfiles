@@ -180,14 +180,6 @@ return {
     }
     )
     ),
-    s({trig = "``", snippetType="autosnippet"},
-    fmta(
-    ",,<>''",
-    {
-        d(1, get_visual),
-    }
-    )
-    ),
     s({trig="env", snippetType="autosnippet"},
       fmta(
         [[
@@ -347,50 +339,31 @@ return {
       ),
       {condition = line_begin}
     ),
+    s({trig="asy", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{center}
+            \asyinclude{rysunki/<>.asy}
+        \end{center}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
     s({trig="bmat", snippetType="autosnippet"},
       fmta(
         [[
-        \begin{bmatrix}[<>]
+        \begin{bmatrix}
             <>
         \end{bmatrix}
       ]],
         {
           i(1),
-          i(2),
         }
       ),
       {condition = line_bgein and tex.in_mathzone}
-    ),
-    s({trig = "fig", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{figure}[H]
-          \centering
-          \caption{<>}
-          \label{fig:<>}
-        \end{figure}
-        ]],
-        {
-          i(1),
-          i(2),
-        }
-      ),
-      { condition = line_begin }
-    ),
-    s({trig = "frm", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{frame}
-        \frametitle{<>}
-            <>
-        \end{frame}
-        ]],
-        {
-          i(1),
-          i(2),
-        }
-      ),
-      { condition = line_begin }
     ),
     s({trig = "([^%a])vv", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
@@ -429,17 +402,6 @@ return {
     {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),
-    }
-    ),
-    {condition = tex.in_mathzone}
-    ),
-    s({trig = "([^%\\])bnn", wordTrig = false, regTrig = true, snippetType="autosnippet"},
-    fmta(
-    "<>\\binom{<>}{<>}",
-    {
-        f( function(_, snip) return snip.captures[1] end ),
-        i(1),
-        i(2),
     }
     ),
     {condition = tex.in_mathzone}
@@ -578,18 +540,6 @@ return {
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = "<-", snippetType="autosnippet"},
-    {
-        t("\\Leftarrow"),
-    },
-    {condition = tex.in_mathzone}
-    ),
-    s({trig = "->", snippetType="autosnippet"},
-    {
-        t("\\Rightarrow"),
-    },
-    {condition = tex.in_mathzone}
-    ),
     s({trig = "<->", snippetType="autosnippet"},
     {
         t("\\Leftrightarrow"),
@@ -599,6 +549,18 @@ return {
     s({trig = "<-->", snippetType="autosnippet"},
     {
         t("\\xleftrightarrow"),
+    },
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "mbc", snippetType="autosnippet"},
+    {
+        t("M_\\casis^\\basis"),
+    },
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "mcb", snippetType="autosnippet"},
+    {
+        t("M_\\basis^\\casis"),
     },
     {condition = tex.in_mathzone}
     ),
@@ -653,6 +615,12 @@ return {
     s({trig = "smi", snippetType="autosnippet"},
     {
         t("\\setminus"),
+    },
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "lsl", snippetType="autosnippet"},
+    {
+        t("\\leqslant"),
     },
     {condition = tex.in_mathzone}
     ),
@@ -714,9 +682,9 @@ return {
     ),
     {condition = tex.in_mathzone}
     ),
-    s({trig = "([^%\\])inter", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    s({trig = "([^%\\])set", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
-    "<>\\intertext{ <> }",
+    "<>\\{ <> \\}",
     {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),
@@ -734,14 +702,46 @@ return {
     ),
     {condition = tex.in_text}
     ),
-    s({trig = "([^%\\])emph", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    s({trig = "([^%\\])ibp", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
-    "<>\\emph{<>}",
+    [[ 
+                <> \left[
+                \begin{alignedat}{2}
+            &\text{D} \qquad &\text{I}\\
+            <>
+                \end{alignedat}
+                \right]
+    ]],
     {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),
     }
     ),
-    {condition = tex.in_text}
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "([^%\\])usub", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    fmta(
+    [[ 
+                <> \left[
+                \begin{alignedat}{2}
+            u &= <>
+                \end{alignedat}
+                \right]
+    ]],
+    {
+        f( function(_, snip) return snip.captures[1] end ),
+        d(1, get_visual),
+    }
+    ),
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "([^%\\])lhop", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    fmta(
+    "<>\\stackrel{\\text{H}}{=}",
+    {
+        f( function(_, snip) return snip.captures[1] end ),
+    }
+    ),
+    {condition = tex.in_mathzone}
     ),
 }

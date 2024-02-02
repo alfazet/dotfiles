@@ -39,3 +39,5 @@ set recolor-darkcolor           "#e0def4"
 
 set recolor                     "false"
 set recolor-keephue             "false"
+
+set statusbar-basename "true"

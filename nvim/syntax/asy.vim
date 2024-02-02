@@ -9,9 +9,9 @@
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
 if version < 600
-  syn clear
+    syn clear
 elseif exists("b:current_syntax")
-  finish
+    finish
 endif
 
 " useful C/C++/Java keywords
@@ -110,7 +110,7 @@ syn match  asySpecial  display contained +\(\\\)\@1<!\(\\\\\)*\zs\\"+
 
 " number constants
 syn match  asyNumbers     display transparent "\<\d\|\.\d"
-                        \ contains=asyNumber,asyNumberError
+            \ contains=asyNumber,asyNumberError
 syn match  asyNumber      display contained "\d*\.\=\d*\(e[-+]\=\d\+\)\="
 " highlight number constants with two '.' or with '.' after an 'e'
 syn match  asyNumberError display contained "\d*\.\(\d\|e[-+]\=\)*\.[0-9.]*"
@@ -121,33 +121,33 @@ syn match  asyNumberError display contained "\d*e[-+]\=\(e[-+]\=\)*\.[0-9.]*"
 syn keyword  asyTodo            contained TODO FIXME XXX
 syn sync     ccomment           asyComment minlines=15
 if exists("asy_comment_strings")
-  " A comment can contain asyString, asyCString, and asyNumber. But a "*/"
-  " inside a asy*String in a asyComment DOES end the comment!  So we need to
-  " use a special type of asy*String: asyComment*String, which also ends on
-  " "*/", and sees a "*" at the start of the line as comment again.
-  " Unfortunately this doesn't very well work for // type of comments :-(
-  syn match  asyCommentSkip     contained "^\s*\*\($\|\s\+\)"
-  syn region asyCommentString   contained start=+"+ skip=+\\\\\|\\"+ end=+"+
-                              \ end=+\*/+me=s-1
-                              \ contains=asySpecial,asyCommentSkip
-  syn region asyCommentCString  contained start=+'+ skip=+\\\\\|\\'+ end=+'+
-                              \ end=+\*/+me=s-1
-                              \ contains=asyCSpecial,asyCommentSkip
-  syn region asyCommentLString  contained start=+"+ skip=+\\\\\|\\"+ end=+"+
-                              \ end="$" contains=asySpecial
-  syn region asyCommentLCString contained start=+'+ skip=+\\\\\|\\'+ end=+'+
-                              \ end="$" contains=asyCSpecial
-  syn region asyCommentL        start="//" skip="\\$" end="$" keepend
-                              \ contains=asyTodo,asyCommentLString,
-                              \ asyCommentLCString,asyNumbers
-  syn region asyComment         matchgroup=asyComment start="/\*" end="\*/"
-                              \ contains=asyTodo,asyCommentStartError,
-                              \ asyCommentString,asyCommentCString,asyNumbers
+    " A comment can contain asyString, asyCString, and asyNumber. But a "*/"
+    " inside a asy*String in a asyComment DOES end the comment!  So we need to
+    " use a special type of asy*String: asyComment*String, which also ends on
+    " "*/", and sees a "*" at the start of the line as comment again.
+    " Unfortunately this doesn't very well work for // type of comments :-(
+    syn match  asyCommentSkip     contained "^\s*\*\($\|\s\+\)"
+    syn region asyCommentString   contained start=+"+ skip=+\\\\\|\\"+ end=+"+
+                \ end=+\*/+me=s-1
+                \ contains=asySpecial,asyCommentSkip
+    syn region asyCommentCString  contained start=+'+ skip=+\\\\\|\\'+ end=+'+
+                \ end=+\*/+me=s-1
+                \ contains=asyCSpecial,asyCommentSkip
+    syn region asyCommentLString  contained start=+"+ skip=+\\\\\|\\"+ end=+"+
+                \ end="$" contains=asySpecial
+    syn region asyCommentLCString contained start=+'+ skip=+\\\\\|\\'+ end=+'+
+                \ end="$" contains=asyCSpecial
+    syn region asyCommentL        start="//" skip="\\$" end="$" keepend
+                \ contains=asyTodo,asyCommentLString,
+                \ asyCommentLCString,asyNumbers
+    syn region asyComment         matchgroup=asyComment start="/\*" end="\*/"
+                \ contains=asyTodo,asyCommentStartError,
+                \ asyCommentString,asyCommentCString,asyNumbers
 else
-  syn region asyCommentL        start="//" skip="\\$" end="$" keepend
-                              \ contains=asyTodo
-  syn region asyComment         matchgroup=asyComment start="/\*" end="\*/"
-                              \ contains=asyTodo,asyCommentStartError
+    syn region asyCommentL        start="//" skip="\\$" end="$" keepend
+                \ contains=asyTodo
+    syn region asyComment         matchgroup=asyComment start="/\*" end="\*/"
+                \ contains=asyTodo,asyCommentStartError
 endif
 
 " highlight common errors when starting/ending C comments
@@ -156,64 +156,64 @@ syn match    asyCommentStartError display "/\*"me=e-1 contained
 
 " delimiter matching errors
 syn region asyCurly      transparent start='{'  end='}'
-                       \ contains=TOP,asyCurlyError
+            \ contains=TOP,asyCurlyError
 syn region asyBrack      transparent start='\[' end='\]' matchgroup=asyError
-                       \ end=';' contains=TOP,asyBrackError
+            \ end=';' contains=TOP,asyBrackError
 syn region asyParen      transparent start='('  end=')'  matchgroup=asyError
-                       \ end=';' contains=TOP,asyParenError
+            \ end=';' contains=TOP,asyParenError
 syn match  asyCurlyError display '}'
 syn match  asyBrackError display '\]'
 syn match  asyParenError display ')'
 " for (;;) constructs are exceptions that allow ; inside parenthesis
 syn region asyParen      transparent matchgroup=asyParen
-                       \ start='\(for\s*\)\@<=(' end=')'
-                       \ contains=TOP,asyParenError
+            \ start='\(for\s*\)\@<=(' end=')'
+            \ contains=TOP,asyParenError
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
 " For version 5.8 and later: only when an item doesn't have highlighting yet
 if version >= 508 || !exists("did_asy_syn_inits")
-  if version < 508
-    let did_asy_syn_inits = 1
-    command -nargs=+ HiLink hi link <args>
-  else
-    command -nargs=+ HiLink hi def link <args>
-  endif
+    if version < 508
+        let did_asy_syn_inits = 1
+        command -nargs=+ HiLink hi link <args>
+    else
+        command -nargs=+ HiLink hi def link <args>
+    endif
 
-  HiLink asyCommentL             asyComment
-  HiLink asyConditional          Conditional
-  HiLink asyRepeat               Repeat
-  HiLink asyNumber               Number
-  HiLink asyNumberError          asyError
-  HiLink asyCurlyError           asyError
-  HiLink asyBracketError         asyError
-  HiLink asyParenError           asyError
-  HiLink asyCommentError         asyError
-  HiLink asyCommentStartError    asyError
-  HiLink asyOperator             Operator
-  HiLink asyStructure            Structure
-  HiLink asyStorageClass         StorageClass
-  HiLink asyExternal             Include
-  HiLink asyDefine               Macro
-  HiLink asyError                Error
-  HiLink asyStatement            Statement
-  HiLink asyType                 Type
-  HiLink asyConstant             Constant
-  HiLink asyCommentString        asyString
-  HiLink asyCommentCString       asyString
-  HiLink asyCommentLString       asyString
-  HiLink asyCommentLCString      asyString
-  HiLink asyCommentSkip          asyComment
-  HiLink asyString               String
-  HiLink asyCString              String
-  HiLink asyComment              Comment
-  HiLink asySpecial              SpecialChar
-  HiLink asyCSpecial             SpecialChar
-  HiLink asyTodo                 Todo
-  HiLink asyPathSpec             Statement
-  HiLink asyFunc                 Function
+    HiLink asyCommentL             asyComment
+    HiLink asyConditional          Conditional
+    HiLink asyRepeat               Repeat
+    HiLink asyNumber               Number
+    HiLink asyNumberError          asyError
+    HiLink asyCurlyError           asyError
+    HiLink asyBracketError         asyError
+    HiLink asyParenError           asyError
+    HiLink asyCommentError         asyError
+    HiLink asyCommentStartError    asyError
+    HiLink asyOperator             Operator
+    HiLink asyStructure            Structure
+    HiLink asyStorageClass         StorageClass
+    HiLink asyExternal             Include
+    HiLink asyDefine               Macro
+    HiLink asyError                Error
+    HiLink asyStatement            Statement
+    HiLink asyType                 Type
+    HiLink asyConstant             Constant
+    HiLink asyCommentString        asyString
+    HiLink asyCommentCString       asyString
+    HiLink asyCommentLString       asyString
+    HiLink asyCommentLCString      asyString
+    HiLink asyCommentSkip          asyComment
+    HiLink asyString               String
+    HiLink asyCString              String
+    HiLink asyComment              Comment
+    HiLink asySpecial              SpecialChar
+    HiLink asyCSpecial             SpecialChar
+    HiLink asyTodo                 Todo
+    HiLink asyPathSpec             Statement
+    HiLink asyFunc                 Function
 
-  delcommand HiLink
+    delcommand HiLink
 endif
 
 let b:current_syntax = "c"

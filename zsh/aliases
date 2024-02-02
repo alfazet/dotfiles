@@ -17,7 +17,10 @@ alias tree="ls --tree"
 # rip - safer rm
 alias rip="rip --graveyard ~/.local/share/trash"
 
+# cp compilation
+alias comp='make CXXFLAGS="-std=c++17 -Wall -Wextra -Wno-unused-parameter -Wshadow -Wfatal-errors -fsanitize=address,undefined -D_GLIBCXX_DEBUG"'
+
 # others
 alias tmux="tmux -2"
 alias vim="nvim"
-alias ff="cd ~/Documents && cd \$(find ~/Documents -type d \( -name debug -o -name .git \) -prune -o -name '*' -type d -print | fzf)"
+# alias ff="cd ~/Documents && cd \$(find ~/Documents -type d \( -name debug -o -name .git \) -prune -o -name '*' -type d -print | fzf)"

@@ -15,8 +15,8 @@ return {
         vim.cmd([[imap <silent><expr> <jk> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<jk>']])
 
         -- jump to the next anchor point
-        vim.cmd([[imap <silent><expr> <C-j> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-j>']])
-        vim.cmd([[smap <silent><expr> <C-j> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-j>']])
+        vim.cmd([[imap <silent><expr> <C-l> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-l>']])
+        vim.cmd([[smap <silent><expr> <C-l> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-l>']])
 
         -- jump to the prev anchor point
         vim.cmd([[imap <silent><expr> <C-f> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<C-f>']])

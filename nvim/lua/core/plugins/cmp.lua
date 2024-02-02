@@ -44,7 +44,7 @@ return {
             sources = cmp.config.sources({
                 {name = "nvim_lsp"},
                 {name = "luasnip"},
-                {name = "buffer"},
+                {name = "buffer", option = {keyword_pattern = [[\%C\k\+]],},},
                 {name = "nvim_lsp_signature_help"},
             }),
             completion = {
