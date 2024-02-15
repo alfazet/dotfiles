@@ -15,11 +15,9 @@ return {
                     },
                 },
                 file_ignore_patterns = {
-                    "python3",
-                    ".*%.eps",
+                    "venv",
+                    "aux",
                     ".*%.pdf",
-                    ".*%.svg",
-                    ".*%.synctex.gz",
                 },
             },
         })

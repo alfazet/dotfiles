@@ -34,6 +34,9 @@ vim.keymap.set("v", "<Leader>y", "\"+y")
 -- toggle line wrapping
 vim.keymap.set("n", "<Leader>ww", ":set wrap!<CR>")
 
+-- gf creates a new file if it doesn't exist already
+vim.keymap.set("n", "gf", ":e<cfile><CR>")
+
 -- quickfix list
 vim.keymap.set("n", "<Leader>qq", function()
     local qf_exists = false

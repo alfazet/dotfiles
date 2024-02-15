@@ -23,4 +23,4 @@ alias comp='make CXXFLAGS="-std=c++17 -Wall -Wextra -Wno-unused-parameter -Wshad
 # others
 alias tmux="tmux -2"
 alias vim="nvim"
-# alias ff="cd ~/Documents && cd \$(find ~/Documents -type d \( -name debug -o -name .git \) -prune -o -name '*' -type d -print | fzf)"
+alias py="python"

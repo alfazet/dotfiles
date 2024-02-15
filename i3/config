@@ -238,4 +238,4 @@ for_window [window_role="task_dialog"] floating enable
 
 bindsym $mod+Shift+b bar mode toggle
 bindsym $mod+Shift+f exec "firefox --force-dark-mode"
-bindsym $mod+Shift+d exec "rofi -modi drun,emoji,calc -show drun"
+bindsym $mod+Shift+d exec "rofi -modi drun -show drun"

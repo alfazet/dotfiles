@@ -1,5 +1,5 @@
-local helpers = require("core.snippets.helper-functions")
-local get_visual = helpers.get_visual
+local utils = require("core.snippets.helper-functions")
+local get_visual = utils.get_visual
 
 local tex = {}
 tex.in_mathzone = function() return vim.fn['vimtex#syntax#in_mathzone']() == 1 end
@@ -20,10 +20,6 @@ return {
     {
         t("\\gamma"),
     }),
-    s({trig=";G", snippetType="autosnippet"},
-    {
-        t("\\Gamma"),
-    }),
     s({trig=";d", snippetType="autosnippet"},
     {
         t("\\delta"),
@@ -34,83 +30,23 @@ return {
     }),
     s({trig=";e", snippetType="autosnippet"},
     {
-        t("\\epsilon"),
-    }),
-    s({trig=";ve", snippetType="autosnippet"},
-    {
         t("\\varepsilon"),
-    }),
-    s({trig=";z", snippetType="autosnippet"},
-    {
-        t("\\zeta"),
-    }),
-    s({trig=";h", snippetType="autosnippet"},
-    {
-        t("\\eta"),
-    }),
-    s({trig=";o", snippetType="autosnippet"},
-    {
-        t("\\theta"),
-    }),
-    s({trig=";vo", snippetType="autosnippet"},
-    {
-        t("\\vartheta"),
-    }),
-    s({trig=";O", snippetType="autosnippet"},
-    {
-        t("\\Theta"),
-    }),
-    s({trig=";k", snippetType="autosnippet"},
-    {
-        t("\\kappa"),
     }),
     s({trig=";l", snippetType="autosnippet"},
     {
         t("\\lambda"),
     }),
-    s({trig=";L", snippetType="autosnippet"},
-    {
-        t("\\Lambda"),
-    }),
-    s({trig=";m", snippetType="autosnippet"},
-    {
-        t("\\mu"),
-    }),
-    s({trig=";n", snippetType="autosnippet"},
-    {
-        t("\\nu"),
-    }),
     s({trig=";x", snippetType="autosnippet"},
     {
         t("\\xi"),
-    }),
-    s({trig=";X", snippetType="autosnippet"},
-    {
-        t("\\Xi"),
     }),
     s({trig=";i", snippetType="autosnippet"},
     {
         t("\\pi"),
     }),
-    s({trig=";I", snippetType="autosnippet"},
-    {
-        t("\\Pi"),
-    }),
-    s({trig=";r", snippetType="autosnippet"},
-    {
-        t("\\rho"),
-    }),
     s({trig=";s", snippetType="autosnippet"},
     {
         t("\\sigma"),
-    }),
-    s({trig=";S", snippetType="autosnippet"},
-    {
-        t("\\Sigma"),
-    }),
-    s({trig=";t", snippetType="autosnippet"},
-    {
-        t("\\tau"),
     }),
     s({trig=";f", snippetType="autosnippet"},
     {
@@ -120,10 +56,6 @@ return {
     {
         t("\\varphi"),
     }),
-    s({trig=";F", snippetType="autosnippet"},
-    {
-        t("\\Phi"),
-    }),
     s({trig=";c", snippetType="autosnippet"},
     {
         t("\\chi"),
@@ -132,17 +64,9 @@ return {
     {
         t("\\psi"),
     }),
-    s({trig=";P", snippetType="autosnippet"},
-    {
-        t("\\Psi"),
-    }),
     s({trig=";w", snippetType="autosnippet"},
     {
         t("\\omega"),
-    }),
-    s({trig=";W", snippetType="autosnippet"},
-    {
-        t("\\Omega"),
     }),
     s({trig = "([^%a])l%(", regTrig = true, wordTrig = false, snippetType="autosnippet"},
     fmta(
@@ -299,6 +223,45 @@ return {
       ),
       { condition = line_begin }
     ),
+    s({trig="cor", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{corollary}
+            <>
+        \end{corollary}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
+    s({trig="def", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{definition}
+            <>
+        \end{definition}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
+    s({trig="exa", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{example}
+            <>
+        \end{example}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
     s({trig="itt", snippetType="autosnippet"},
       fmta(
         [[
@@ -315,7 +278,7 @@ return {
     s({trig="enn", snippetType="autosnippet"},
       fmta(
         [[
-        \begin{enumerate}[label=(\Roman*)]
+        \begin{enumerate}
             \item <>
         \end{enumerate}
       ]],
@@ -367,7 +330,7 @@ return {
     ),
     s({trig = "([^%a])vv", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
-      "<>\\vec{<>}",
+      "<>\\vc{<>}",
       {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),
@@ -377,7 +340,7 @@ return {
     ),
     s({trig = "([^%a])bar", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
-      "<>\\overline{<>}",
+      "<>\\ol{<>}",
       {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),
@@ -448,6 +411,18 @@ return {
         i(2),
     }
     ),
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "..", snippetType="autosnippet"},
+    {
+        t("\\dots"),
+    },
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "inv", snippetType="autosnippet"},
+    {
+        t("\\^{-1}"),
+    },
     {condition = tex.in_mathzone}
     ),
     s({trig = "lg", snippetType="autosnippet"},
@@ -552,18 +527,6 @@ return {
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = "mbc", snippetType="autosnippet"},
-    {
-        t("M_\\casis^\\basis"),
-    },
-    {condition = tex.in_mathzone}
-    ),
-    s({trig = "mcb", snippetType="autosnippet"},
-    {
-        t("M_\\basis^\\casis"),
-    },
-    {condition = tex.in_mathzone}
-    ),
     s({trig = "=>", snippetType="autosnippet"},
     {
         t("\\implies"),
@@ -618,12 +581,6 @@ return {
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = "lsl", snippetType="autosnippet"},
-    {
-        t("\\leqslant"),
-    },
-    {condition = tex.in_mathzone}
-    ),
     s({trig = "inn", snippetType="autosnippet"},
     {
         t("\\in"),
@@ -644,31 +601,31 @@ return {
     ),
     s({trig = "NN", snippetType="autosnippet"},
     {
-        t("\\N"),
+        t("\\NN"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "ZZ", snippetType="autosnippet"},
     {
-        t("\\Z"),
+        t("\\ZZ"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "QQ", snippetType="autosnippet"},
     {
-        t("\\Q"),
+        t("\\QQ"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "RR", snippetType="autosnippet"},
     {
-        t("\\R"),
+        t("\\RR"),
     },
     {condition = tex.in_mathzone}
     ),
     s({trig = "CC", snippetType="autosnippet"},
     {
-        t("\\C"),
+        t("\\CC"),
     },
     {condition = tex.in_mathzone}
     ),
@@ -735,11 +692,31 @@ return {
     ),
     {condition = tex.in_mathzone}
     ),
-    s({trig = "([^%\\])lhop", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    -- s({trig = "([^%\\])lhop", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    -- fmta(
+    -- "<>\\stackrel{\\text{H}}{=}",
+    -- {
+    --     f( function(_, snip) return snip.captures[1] end ),
+    -- }
+    -- ),
+    -- {condition = tex.in_mathzone}
+    -- ),
+    s({trig = "([%w%)%]%}])^([%w])", regTrig = true, wordTrig = false, snippetType="autosnippet"},
     fmta(
-    "<>\\stackrel{\\text{H}}{=}",
+    "<>^{<>}",
     {
         f( function(_, snip) return snip.captures[1] end ),
+        f( function(_, snip) return snip.captures[2] end ),
+    }
+    ),
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "([%w%)%]%}])_([%w])", regTrig = true, wordTrig = false, snippetType="autosnippet"},
+    fmta(
+    "<>_{<>}",
+    {
+        f( function(_, snip) return snip.captures[1] end ),
+        f( function(_, snip) return snip.captures[2] end ),
     }
     ),
     {condition = tex.in_mathzone}

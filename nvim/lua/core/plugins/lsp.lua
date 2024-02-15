@@ -46,12 +46,6 @@ return {
                         vim.diagnostic.open_float(nil, opts)
                     end
                 })
-                --[[ vim.api.nvim_create_autocmd("BufWrite", {
-                    buffer = bufnr,
-                    callback = function()
-                        vim.diagnostic.setqflist()
-                    end
-                }) ]]
             end
 
             local get_servers = require("mason-lspconfig").get_installed_servers
