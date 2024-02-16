@@ -236,19 +236,19 @@ return {
       ),
       { condition = line_begin }
     ),
-    s({trig="def", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{definition}
-            <>
-        \end{definition}
-      ]],
-        {
-          i(1),
-        }
-      ),
-      { condition = line_begin }
-    ),
+    -- s({trig="def", snippetType="autosnippet"},
+    --   fmta(
+    --     [[
+    --     \begin{definition}
+    --         <>
+    --     \end{definition}
+    --   ]],
+    --     {
+    --       i(1),
+    --     }
+    --   ),
+    --   { condition = line_begin }
+    -- ),
     s({trig="exa", snippetType="autosnippet"},
       fmta(
         [[
@@ -328,9 +328,19 @@ return {
       ),
       {condition = line_bgein and tex.in_mathzone}
     ),
-    s({trig = "([^%a])vv", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    s({trig = "([^%a])vc", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
       "<>\\vc{<>}",
+      {
+        f( function(_, snip) return snip.captures[1] end ),
+        d(1, get_visual),
+      }
+    ),
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "([^%a])tl", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    fmta(
+      "<>\\tl{<>}",
       {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),
@@ -491,9 +501,9 @@ return {
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = ":=", snippetType="autosnippet"},
+    s({trig = "::", snippetType="autosnippet"},
     {
-        t("\\coloneqq"),
+        t("\\colon"),
     },
     {condition = tex.in_mathzone}
     ),
@@ -527,15 +537,15 @@ return {
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = "=>", snippetType="autosnippet"},
+    s({trig = ">>", snippetType="autosnippet"},
     {
         t("\\implies"),
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = "<=>", snippetType="autosnippet"},
+    s({trig = "xx", snippetType="autosnippet"},
     {
-        t("\\iff"),
+        t("\\times"),
     },
     {condition = tex.in_mathzone}
     ),
@@ -641,10 +651,21 @@ return {
     ),
     s({trig = "([^%\\])set", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
-    "<>\\{ <> \\}",
+    "<>\\{<>\\}",
     {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),
+    }
+    ),
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "([^%\\])bnn", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    fmta(
+    "<>\\binom{<>}{<>}",
+    {
+        f( function(_, snip) return snip.captures[1] end ),
+        d(1, get_visual),
+        d(2, get_visual),
     }
     ),
     {condition = tex.in_mathzone}
@@ -692,31 +713,33 @@ return {
     ),
     {condition = tex.in_mathzone}
     ),
-    -- s({trig = "([^%\\])lhop", wordTrig = false, regTrig = true, snippetType="autosnippet"},
-    -- fmta(
-    -- "<>\\stackrel{\\text{H}}{=}",
-    -- {
-    --     f( function(_, snip) return snip.captures[1] end ),
-    -- }
-    -- ),
-    -- {condition = tex.in_mathzone}
-    -- ),
-    s({trig = "([%w%)%]%}])^([%w])", regTrig = true, wordTrig = false, snippetType="autosnippet"},
+    s({trig = "([%w%)%]%}])'", wordTrig=false, regTrig = true, snippetType="autosnippet"},
     fmta(
     "<>^{<>}",
     {
         f( function(_, snip) return snip.captures[1] end ),
-        f( function(_, snip) return snip.captures[2] end ),
+        d(1, get_visual),
     }
     ),
     {condition = tex.in_mathzone}
     ),
-    s({trig = "([%w%)%]%}])_([%w])", regTrig = true, wordTrig = false, snippetType="autosnippet"},
+    s({trig = "([%w%)%]%}]);", wordTrig=false, regTrig = true, snippetType="autosnippet"},
     fmta(
     "<>_{<>}",
     {
         f( function(_, snip) return snip.captures[1] end ),
-        f( function(_, snip) return snip.captures[2] end ),
+        d(1, get_visual),
+    }
+    ),
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "([%w%)%]%}])__", wordTrig=false, regTrig = true, snippetType="autosnippet"},
+    fmta(
+    "<>^{<>}_{<>}",
+    {
+        f( function(_, snip) return snip.captures[1] end ),
+        i(1),
+        i(2),
     }
     ),
     {condition = tex.in_mathzone}

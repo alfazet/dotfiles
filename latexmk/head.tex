@@ -1,0 +1,163 @@
+%%% Load packages
+\usepackage{amssymb, gensymb, marvosym}
+\usepackage{graphicx}
+\usepackage[x11names]{xcolor}
+\usepackage{mathrsfs}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage[margin=2cm]{geometry}
+\usepackage{framed}
+\usepackage[amsmath, thmmarks, framed]{ntheorem}
+\usepackage{polski}
+\usepackage{array}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{tabto}
+\usepackage{titlesec}
+\usepackage{ragged2e} 
+\usepackage{tasks}
+\usepackage{asymptote}
+\usepackage{tocloft}
+\usepackage{lastpage}
+\usepackage{fancyhdr} 
+\usepackage{tcolorbox}
+\usepackage[utf8]{inputenc} 
+\usepackage{mlmodern}
+\usepackage[T1]{fontenc}
+\usepackage[final, colorlinks = true, linkcolor = Blue3, citecolor = Black]{hyperref} 
+\usepackage{cleveref}
+
+%%% Custom emph
+\renewcommand\emph[1]{\textcolor{Blue3}{\textbf{#1}}}
+
+%%% Lengths
+\setlength\parindent{0pt}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\baselinestretch}{1.1} 
+
+%%% Footer and header
+\pagestyle{fancy} 
+\pagenumbering{arabic}
+\fancyfoot[L]{} 
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage} 
+\fancyhead[R]{}
+
+%%% Periods after section numbers
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftpartaftersnum}{.}
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecaftersnum}{.}
+
+%%% Cleveref fix
+\crefname{equation}{}{}
+\crefname{theorem}{}{}
+\crefname{corollary}{}{}
+\crefname{definition}{}{}
+
+%%% Title
+\titlelabel{\thetitle.\quad}
+
+%%% Macros
+\providecommand{\ol}{\overline}
+\providecommand{\ul}{\underline}
+\providecommand{\tl}{\widetilde}
+\providecommand{\vc}{\boldsymbol}
+\providecommand{\half}{\frac{1}{2}}
+\providecommand{\inv}{^{-1}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\ii}{\mathrm{i}}
+\providecommand{\ee}{\mathrm{e}}
+\providecommand{\dd}{\,\mathrm{d}}
+\providecommand{\tsp}{\textsuperscript}
+\providecommand{\tsb}{\textsubscript}
+\DeclareMathOperator*{\arctg}{arctg}
+\DeclareMathOperator*{\arcctg}{arcctg}
+
+%%% Augmented matrix
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+%%% Column type for math-mode tables
+\newcolumntype{C}{>{\(}c<{\)}}
+
+%%% Theorem-like environments
+
+%%% Change font in parentheses
+\makeatletter
+\renewtheoremstyle{break}%
+    {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+##1\ ##2\theorem@separator}\hbox{\strut}}}]}%
+    {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+##1\ ##2\ \mdseries (##3)\theorem@separator}\hbox{\strut}}}]}
+\makeatother
+
+\theoremstyle{break}
+\theoremheaderfont{\sffamily\bfseries\color{Blue4}}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{}
+\newtheorem{theorem}{Twierdzenie}[section]
+\tcolorboxenvironment{theorem}{colframe=Azure2, colback=Azure2!33, sharp corners = all}
+
+% \vspace{-\belowdisplayskip}\[\] - put this hack at the end of proof if it doesn't want to behave
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{\ensuremath\square}
+\theoremseparator{:}
+\newtheorem{proof}{Dowód}
+
+\theoremstyle{break}
+\theoremheaderfont{\sffamily\bfseries\color{Blue4}}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{}
+\newtheorem{corollary}{Wniosek}[theorem]
+\tcolorboxenvironment{corollary}{colframe=Azure2, colback=Azure2!33, sharp corners = all}
+
+% \theoremstyle{plain}
+% \theoremheaderfont{\bfseries}
+% \theorembodyfont{\mdseries}
+% \theoremsymbol{}
+% \theoremseparator{.}
+% \newtheorem{definition}{Definicja}[section]
+
+\theoremstyle{break}
+\theoremheaderfont{\sffamily\bfseries\color{DarkOliveGreen4}}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{}
+\newtheorem{example}[theorem]{Przykład}
+\tcolorboxenvironment{example}{colframe=DarkOliveGreen2, colback=DarkOliveGreen2!33, sharp corners = all}
+
+\theoremstyle{plain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{}
+\newtheorem{problem}{Zadanie}[section]
+
+\theoremstyle{nonumberbreak}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{}
+\newtheorem{solution}{}
+
+\theoremstyle{nonumberbreak}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{\ensuremath\square}
+\theoremseparator{}
+\newtheorem{solproof}{}
