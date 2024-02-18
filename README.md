@@ -1,2 +1,2 @@
 # dotfiles
-My dotfiles (some directories from ``` ~/.config ```).
+Some of my Linux dotfiles.

@@ -328,9 +328,9 @@ return {
       ),
       {condition = line_bgein and tex.in_mathzone}
     ),
-    s({trig = "([^%a])vc", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    s({trig = "([^%a])vv", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
-      "<>\\vc{<>}",
+      "<>\\vec{<>}",
       {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),

@@ -1,11 +1,9 @@
+# Sometimes the first one works, and sometimes the second one, I love latex.
 # sub asy {return system("asy -o '$_[0]' '$_[0]'");}
 sub asy {return system("asy '$_[0]'");}
-add_cus_dep("asy","eps",0,"asy");
-add_cus_dep("asy","pdf",0,"asy");
-add_cus_dep("asy","tex",0,"asy");
+add_cus_dep("asy", "eps", 0, "asy");
+add_cus_dep("asy", "pdf", 0, "asy");
+add_cus_dep("asy", "tex", 0, "asy");
 
-# push @generated_exts, "pre";
-# push @generated_exts, "synctex.gz";
-# $success_cmd = "\\rm -f *.aux *.asy *.dvi *.fdb_latexmk *.fls *.log *.out *.thm *.toc *.err *.inf *.pre";
 ensure_path("TEXINPUTS", "~/.config/latexmk//");
 $success_cmd = "\\mv -f *.aux *.asy *.dvi *.fdb_latexmk *.fls *.log *.out *.thm *.toc *.err *.inf *.pre *.synctex.gz *-[0-9].pdf aux";

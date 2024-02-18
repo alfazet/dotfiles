@@ -1,6 +1,0 @@
--x
---audio-format mp3
---restrict-filenames
---buffer-size 32K
---http-chunk-size 100M
--o "/home/antek/Music/%(playlist_index)s_%(title)s.%(ext)s"

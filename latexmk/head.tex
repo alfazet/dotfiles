@@ -41,8 +41,8 @@
 \pagestyle{fancy} 
 \pagenumbering{arabic}
 \fancyfoot[L]{} 
-\fancyfoot[C]{}
-\fancyfoot[R]{\thepage} 
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{} 
 \fancyhead[R]{}
 
 %%% Periods after section numbers
@@ -64,7 +64,6 @@
 \providecommand{\ol}{\overline}
 \providecommand{\ul}{\underline}
 \providecommand{\tl}{\widetilde}
-\providecommand{\vc}{\boldsymbol}
 \providecommand{\half}{\frac{1}{2}}
 \providecommand{\inv}{^{-1}}
 \providecommand{\NN}{\mathbb{N}}
@@ -72,13 +71,17 @@
 \providecommand{\QQ}{\mathbb{Q}}
 \providecommand{\RR}{\mathbb{R}}
 \providecommand{\CC}{\mathbb{C}}
+\providecommand{\KK}{\mathbb{K}}
 \providecommand{\ii}{\mathrm{i}}
 \providecommand{\ee}{\mathrm{e}}
 \providecommand{\dd}{\,\mathrm{d}}
 \providecommand{\tsp}{\textsuperscript}
 \providecommand{\tsb}{\textsubscript}
+
 \DeclareMathOperator*{\arctg}{arctg}
 \DeclareMathOperator*{\arcctg}{arcctg}
+
+\renewcommand{\vec}{\boldsymbol}
 
 %%% Augmented matrix
 \makeatletter
@@ -93,7 +96,7 @@
 
 %%% Theorem-like environments
 
-%%% Change font in parentheses
+%%% Change font in parentheses to normal (not bold like the title)
 \makeatletter
 \renewtheoremstyle{break}%
     {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
@@ -126,12 +129,12 @@
 \newtheorem{corollary}{Wniosek}[theorem]
 \tcolorboxenvironment{corollary}{colframe=Azure2, colback=Azure2!33, sharp corners = all}
 
-% \theoremstyle{plain}
-% \theoremheaderfont{\bfseries}
-% \theorembodyfont{\mdseries}
-% \theoremsymbol{}
-% \theoremseparator{.}
-% \newtheorem{definition}{Definicja}[section]
+\theoremstyle{plain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{}
+\newtheorem{definition}[theorem]{Definicja}
 
 \theoremstyle{break}
 \theoremheaderfont{\bfseries\color{Blue4}}
