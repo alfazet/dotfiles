@@ -21,7 +21,7 @@
 \usepackage{tocloft}
 \usepackage{lastpage}
 \usepackage{fancyhdr} 
-\usepackage{tcolorbox}
+\usepackage[breakable]{tcolorbox}
 \usepackage[utf8]{inputenc} 
 \usepackage{mlmodern}
 \usepackage[T1]{fontenc}
@@ -29,7 +29,7 @@
 \usepackage{cleveref}
 
 %%% Custom emph
-\renewcommand\emph[1]{\textcolor{Blue3}{\textbf{#1}}}
+\renewcommand\emph[1]{\textcolor{black}{\textbf{#1}}}
 
 %%% Lengths
 \setlength\parindent{0pt}
@@ -72,14 +72,24 @@
 \providecommand{\RR}{\mathbb{R}}
 \providecommand{\CC}{\mathbb{C}}
 \providecommand{\KK}{\mathbb{K}}
+\providecommand{\B}{\mathcal{B}}
+\providecommand{\C}{\mathcal{C}}
 \providecommand{\ii}{\mathrm{i}}
 \providecommand{\ee}{\mathrm{e}}
 \providecommand{\dd}{\,\mathrm{d}}
 \providecommand{\tsp}{\textsuperscript}
 \providecommand{\tsb}{\textsubscript}
 
-\DeclareMathOperator*{\arctg}{arctg}
-\DeclareMathOperator*{\arcctg}{arcctg}
+\DeclareMathOperator{\arctg}{arctg}
+\DeclareMathOperator{\arcctg}{arcctg}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Id}{Id}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
 
 \renewcommand{\vec}{\boldsymbol}
 
@@ -95,7 +105,6 @@
 \newcolumntype{C}{>{\(}c<{\)}}
 
 %%% Theorem-like environments
-
 %%% Change font in parentheses to normal (not bold like the title)
 \makeatletter
 \renewtheoremstyle{break}%
@@ -105,13 +114,18 @@
 ##1\ ##2\ \mdseries (##3)\theorem@separator}\hbox{\strut}}}]}
 \makeatother
 
+%%% Colors
+\colorlet{headcolor}{Cornsilk4!50!black}
+\colorlet{framecolor}{Cornsilk3}
+\colorlet{bkgcolor}{Cornsilk1!33}
+
 \theoremstyle{break}
-\theoremheaderfont{\bfseries\color{Blue4}}
+\theoremheaderfont{\bfseries\color{headcolor}}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
 \theoremseparator{}
 \newtheorem{theorem}{Twierdzenie}[section]
-\tcolorboxenvironment{theorem}{colframe=Azure2, colback=Azure2!33, sharp corners = all}
+\tcolorboxenvironment{theorem}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
 
 % \vspace{-\belowdisplayskip}\[\] - put this hack at the end of proof if it doesn't want to behave
 \theoremstyle{nonumberplain}
@@ -122,27 +136,37 @@
 \newtheorem{proof}{Dowód}
 
 \theoremstyle{break}
-\theoremheaderfont{\bfseries\color{Blue4}}
+\theoremheaderfont{\bfseries\color{headcolor}}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
 \theoremseparator{}
 \newtheorem{corollary}{Wniosek}[theorem]
-\tcolorboxenvironment{corollary}{colframe=Azure2, colback=Azure2!33, sharp corners = all}
+\tcolorboxenvironment{corollary}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
 
-\theoremstyle{plain}
-\theoremheaderfont{\bfseries}
+\theoremstyle{break}
+\theoremheaderfont{\bfseries\color{headcolor}}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
 \theoremseparator{}
 \newtheorem{definition}[theorem]{Definicja}
+\tcolorboxenvironment{definition}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
 
 \theoremstyle{break}
-\theoremheaderfont{\bfseries\color{Blue4}}
+\theoremheaderfont{\bfseries\color{headcolor}}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
 \theoremseparator{}
 \newtheorem{example}[theorem]{Przykład}
-\tcolorboxenvironment{example}{colframe=Azure2, colback=Azure2!33, sharp corners = all}
+\tcolorboxenvironment{example}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
+
+\theoremstyle{nonumberplain}
+\theoremheaderfont{}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{}
+\newtheorem{remark}{}
+\tcolorboxenvironment{remark}{colframe=framecolor, colback=bkgcolor, 
+toprule=0mm, bottomrule=0mm, rightrule=0mm, leftrule=2.5mm, sharp corners = all}
 
 \theoremstyle{plain}
 \theoremheaderfont{\bfseries}

@@ -236,19 +236,32 @@ return {
       ),
       { condition = line_begin }
     ),
-    -- s({trig="def", snippetType="autosnippet"},
-    --   fmta(
-    --     [[
-    --     \begin{definition}
-    --         <>
-    --     \end{definition}
-    --   ]],
-    --     {
-    --       i(1),
-    --     }
-    --   ),
-    --   { condition = line_begin }
-    -- ),
+    s({trig="def", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{definition}
+            <>
+        \end{definition}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
+    s({trig="rem", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{remark}
+            <>
+        \end{remark}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
     s({trig="exa", snippetType="autosnippet"},
       fmta(
         [[
@@ -429,12 +442,6 @@ return {
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = "inv", snippetType="autosnippet"},
-    {
-        t("\\^{-1}"),
-    },
-    {condition = tex.in_mathzone}
-    ),
     s({trig = "lg", snippetType="autosnippet"},
     {
         t("\\ln"),
@@ -504,6 +511,12 @@ return {
     s({trig = "::", snippetType="autosnippet"},
     {
         t("\\colon"),
+    },
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = ":=", snippetType="autosnippet"},
+    {
+        t("\\coloneq"),
     },
     {condition = tex.in_mathzone}
     ),
@@ -639,6 +652,12 @@ return {
     },
     {condition = tex.in_mathzone}
     ),
+    s({trig = "KK", snippetType="autosnippet"},
+    {
+        t("\\KK"),
+    },
+    {condition = tex.in_mathzone}
+    ),
     s({trig = "([^%\\])tt", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
     "<>\\text{ <> }",
@@ -740,6 +759,26 @@ return {
         f( function(_, snip) return snip.captures[1] end ),
         i(1),
         i(2),
+    }
+    ),
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = '([%w%)%]%}])"([%w])', regTrig = true, wordTrig = false, snippetType="autosnippet"},
+    fmta(
+    "<>^{<>}",
+    {
+        f( function(_, snip) return snip.captures[1] end ),
+        f( function(_, snip) return snip.captures[2] end ),
+    }
+    ),
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "([%w%)%]%}]):([%w])", regTrig = true, wordTrig = false, snippetType="autosnippet"},
+    fmta(
+    "<>_{<>}",
+    {
+        f( function(_, snip) return snip.captures[1] end ),
+        f( function(_, snip) return snip.captures[2] end ),
     }
     ),
     {condition = tex.in_mathzone}
