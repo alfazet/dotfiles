@@ -21,6 +21,7 @@
 \usepackage{tocloft}
 \usepackage{lastpage}
 \usepackage{fancyhdr} 
+\usepackage{cancel}
 \usepackage[breakable]{tcolorbox}
 \usepackage[utf8]{inputenc} 
 \usepackage{mlmodern}
@@ -74,6 +75,7 @@
 \providecommand{\KK}{\mathbb{K}}
 \providecommand{\B}{\mathcal{B}}
 \providecommand{\C}{\mathcal{C}}
+\providecommand{\LL}{\mathcal{L}}
 \providecommand{\ii}{\mathrm{i}}
 \providecommand{\ee}{\mathrm{e}}
 \providecommand{\dd}{\,\mathrm{d}}
@@ -82,6 +84,8 @@
 
 \DeclareMathOperator{\arctg}{arctg}
 \DeclareMathOperator{\arcctg}{arcctg}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Ker}{Ker}
@@ -112,6 +116,9 @@
 ##1\ ##2\theorem@separator}\hbox{\strut}}}]}%
     {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
 ##1\ ##2\ \mdseries (##3)\theorem@separator}\hbox{\strut}}}]}
+\renewtheoremstyle{plain}%
+  {\item[\hskip\labelsep \theorem@headerfont ##1\ ##2\theorem@separator]}%
+  {\item[\hskip\labelsep \theorem@headerfont ##1\ ##2 \mdseries (##3)\theorem@separator]}
 \makeatother
 
 %%% Colors
