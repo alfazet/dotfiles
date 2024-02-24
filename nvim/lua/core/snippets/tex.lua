@@ -68,6 +68,15 @@ return {
     {
         t("\\omega"),
     }),
+    s({trig = "([^%a])ang", regTrig = true, wordTrig = false, snippetType="autosnippet"},
+    fmta(
+    "<>\\langle<>\\rangle",
+    {
+        f( function(_, snip) return snip.captures[1] end ),
+        d(1, get_visual),
+    }
+    )
+    ),
     s({trig = "([^%a])l%(", regTrig = true, wordTrig = false, snippetType="autosnippet"},
     fmta(
     "<>\\left(<>\\right)",
