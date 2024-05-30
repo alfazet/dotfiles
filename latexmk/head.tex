@@ -12,11 +12,13 @@
 \usepackage{polski}
 \usepackage{array}
 \usepackage{float}
+\usepackage{caption}
 \usepackage{setspace}
 \usepackage{tabto}
 \usepackage{titlesec}
 \usepackage{ragged2e} 
 \usepackage{tasks}
+\usepackage{listings}
 \usepackage{asymptote}
 \usepackage{tocloft}
 \usepackage{lastpage}
@@ -25,12 +27,30 @@
 \usepackage[breakable]{tcolorbox}
 \usepackage[utf8]{inputenc} 
 \usepackage{mlmodern}
+% \usepackage{newpxtext,eulerpx}
 \usepackage[T1]{fontenc}
-\usepackage[final, colorlinks = true, linkcolor = Blue3, citecolor = Black]{hyperref} 
+\usepackage[final, colorlinks = true, linkcolor = Blue3, citecolor = Black, urlcolor = darkgray]{hyperref} 
 \usepackage{cleveref}
 
-%%% Custom emph
-\renewcommand\emph[1]{\textcolor{black}{\textbf{#1}}}
+%%% Listing
+\lstdefinestyle{code}{
+    % backgroundcolor=\color[HTML]{FDF6E3},   
+    keywordstyle=\color[HTML]{859900},
+    numberstyle=\scriptsize\color[HTML]{93A1A1},
+    stringstyle=\color[HTML]{2AA198},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=code}
 
 %%% Lengths
 \setlength\parindent{0pt}
@@ -55,7 +75,7 @@
 %%% Cleveref fix
 \crefname{equation}{}{}
 \crefname{theorem}{}{}
-\crefname{corollary}{}{}
+\crefname{example}{}{}
 \crefname{definition}{}{}
 
 %%% Title
@@ -63,6 +83,7 @@
 
 %%% Macros
 \providecommand{\ol}{\overline}
+\providecommand{\oa}{\overrightarrow}
 \providecommand{\ul}{\underline}
 \providecommand{\tl}{\widetilde}
 \providecommand{\inv}{^{-1}}
@@ -75,6 +96,7 @@
 \providecommand{\BB}{\mathcal{B}}
 \providecommand{\CC}{\mathcal{C}}
 \providecommand{\LL}{\mathcal{L}}
+\providecommand{\EE}{\mathcal{E}}
 \providecommand{\PP}{\mathcal{P}}
 \providecommand{\ii}{\mathrm{i}}
 \providecommand{\ee}{\mathrm{e}}
@@ -85,10 +107,15 @@
 \DeclareMathOperator{\arcctg}{arcctg}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\proj}{proj}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rd}{rd}
+\DeclareMathOperator{\fl}{fl}
+\DeclareMathOperator{\spann}{span}
 \let\Im\relax
 \DeclareMathOperator{\Im}{Im}
 \let\Re\relax
@@ -115,24 +142,47 @@
     {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
 ##1\ ##2\theorem@separator}\hbox{\strut}}}]}%
     {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
-##1\ ##2\ \mdseries (##3)\theorem@separator}\hbox{\strut}}}]}
+##1\ ##2\theorem@separator \mdseries\ (##3)}\hbox{\strut}}}]}
 \renewtheoremstyle{plain}%
   {\item[\hskip\labelsep \theorem@headerfont ##1\ ##2\theorem@separator]}%
   {\item[\hskip\labelsep \theorem@headerfont ##1\ ##2 \mdseries (##3)\theorem@separator]}
+\renewtheoremstyle{nonumberplain}%
+  {\item[\theorem@headerfont\hskip\labelsep ##1\theorem@separator]}%
+  {\item[\theorem@headerfont\hskip \labelsep ##1\ \mdseries (##3)\theorem@separator]}
 \makeatother
 
 %%% Colors
-\colorlet{headcolor}{Cornsilk4!50!black}
+% \colorlet{headcolor}{Cornsilk4!50!black}
 \colorlet{framecolor}{Cornsilk3}
 \colorlet{bkgcolor}{Cornsilk1!33}
 
+% \colorlet{exheadcolor}{LavenderBlush4!50!black}
+\colorlet{exframecolor}{LavenderBlush3}
+\colorlet{exbkgcolor}{LavenderBlush1!33}
+
+\colorlet{algoframecolor}{LightSteelBlue3}
+\colorlet{algobkgcolor}{LightSteelBlue1!33}
+
+\colorlet{emphcolor}{RoyalBlue4}
+\colorlet{red}{IndianRed4}
+%%% Custom emph
+\renewcommand\emph[1]{\textcolor{emphcolor}{\textbf{#1}}}
+
 \theoremstyle{break}
-\theoremheaderfont{\bfseries\color{headcolor}}
+\theoremheaderfont{\bfseries}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
-\theoremseparator{}
+\theoremseparator{.}
 \newtheorem{theorem}{Twierdzenie}[section]
 \tcolorboxenvironment{theorem}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
+
+\theoremstyle{break}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{.}
+\newtheorem{algorithm}[theorem]{Algorytm}
+\tcolorboxenvironment{algorithm}{colframe=algoframecolor, colback=algobkgcolor, sharp corners = all, breakable}
 
 % \vspace{-\belowdisplayskip}\[\] - put this hack at the end of proof if it doesn't want to behave
 \theoremstyle{nonumberplain}
@@ -142,38 +192,37 @@
 \theoremseparator{:}
 \newtheorem{proof}{Dowód}
 
-\theoremstyle{break}
-\theoremheaderfont{\bfseries\color{headcolor}}
+\theoremstyle{plain}
+\theoremheaderfont{\bfseries}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
-\theoremseparator{}
-\newtheorem{corollary}{Wniosek}[theorem]
-\tcolorboxenvironment{corollary}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
-
-\theoremstyle{break}
-\theoremheaderfont{\bfseries\color{headcolor}}
-\theorembodyfont{\mdseries}
-\theoremsymbol{}
-\theoremseparator{}
+\theoremseparator{.}
 \newtheorem{definition}[theorem]{Definicja}
-\tcolorboxenvironment{definition}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
+
+% \theoremstyle{break}
+% \theoremheaderfont{\bfseries\color{headcolor}}
+% \theorembodyfont{\mdseries}
+% \theoremsymbol{}
+% \theoremseparator{}
+% \newtheorem{definition}[theorem]{Definicja}
+% \tcolorboxenvironment{definition}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
 
 \theoremstyle{break}
-\theoremheaderfont{\bfseries\color{headcolor}}
+\theoremheaderfont{\bfseries}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
-\theoremseparator{}
+\theoremseparator{.}
 \newtheorem{example}[theorem]{Przykład}
-\tcolorboxenvironment{example}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
+\tcolorboxenvironment{example}{colframe=exframecolor, colback=exbkgcolor, sharp corners = all, breakable}
 
-\theoremstyle{nonumberplain}
-\theoremheaderfont{}
-\theorembodyfont{\mdseries}
-\theoremsymbol{}
-\theoremseparator{}
-\newtheorem{remark}{}
-\tcolorboxenvironment{remark}{colframe=framecolor, colback=bkgcolor, 
-toprule=0mm, bottomrule=0mm, rightrule=0mm, leftrule=2.5mm, sharp corners = all}
+% \theoremstyle{nonumberplain}
+% \theoremheaderfont{}
+% \theorembodyfont{\mdseries}
+% \theoremsymbol{}
+% \theoremseparator{}
+% \newtheorem{remark}{}
+% \tcolorboxenvironment{remark}{colframe=framecolor, colback=bkgcolor, 
+% toprule=0mm, bottomrule=0mm, rightrule=0mm, leftrule=2.5mm, sharp corners = all}
 
 \theoremstyle{plain}
 \theoremheaderfont{\bfseries}

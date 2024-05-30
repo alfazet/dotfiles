@@ -49,7 +49,7 @@ white = "#e0def4"
 yellow = "#f6c177"
 
 [colors.primary]
-background = "#000000"
+background = "#191724"
 bright_foreground = "#e0def4"
 dim_foreground = "#908caa"
 foreground = "#e0def4"

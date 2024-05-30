@@ -20,6 +20,10 @@ return {
     {
         t("\\gamma"),
     }),
+    s({trig=";G", snippetType="autosnippet"},
+    {
+        t("\\Gamma"),
+    }),
     s({trig=";d", snippetType="autosnippet"},
     {
         t("\\delta"),
@@ -36,6 +40,10 @@ return {
     {
         t("\\lambda"),
     }),
+    s({trig=";m", snippetType="autosnippet"},
+    {
+        t("\\mu"),
+    }),
     s({trig=";x", snippetType="autosnippet"},
     {
         t("\\xi"),
@@ -44,17 +52,21 @@ return {
     {
         t("\\pi"),
     }),
+    s({trig=";r", snippetType="autosnippet"},
+    {
+        t("\\rho"),
+    }),
     s({trig=";s", snippetType="autosnippet"},
     {
         t("\\sigma"),
     }),
     s({trig=";f", snippetType="autosnippet"},
     {
-        t("\\phi"),
-    }),
-    s({trig=";vf", snippetType="autosnippet"},
-    {
         t("\\varphi"),
+    }),
+    s({trig=";F", snippetType="autosnippet"},
+    {
+        t("\\Phi"),
     }),
     s({trig=";c", snippetType="autosnippet"},
     {
@@ -68,15 +80,6 @@ return {
     {
         t("\\omega"),
     }),
-    s({trig = "([^%a])ang", regTrig = true, wordTrig = false, snippetType="autosnippet"},
-    fmta(
-    "<>\\langle<>\\rangle",
-    {
-        f( function(_, snip) return snip.captures[1] end ),
-        d(1, get_visual),
-    }
-    )
-    ),
     s({trig = "([^%a])l%(", regTrig = true, wordTrig = false, snippetType="autosnippet"},
     fmta(
     "<>\\left(<>\\right)",
@@ -232,38 +235,12 @@ return {
       ),
       { condition = line_begin }
     ),
-    s({trig="cor", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{corollary}
-            <>
-        \end{corollary}
-      ]],
-        {
-          i(1),
-        }
-      ),
-      { condition = line_begin }
-    ),
     s({trig="def", snippetType="autosnippet"},
       fmta(
         [[
         \begin{definition}
             <>
         \end{definition}
-      ]],
-        {
-          i(1),
-        }
-      ),
-      { condition = line_begin }
-    ),
-    s({trig="rem", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{remark}
-            <>
-        \end{remark}
       ]],
         {
           i(1),
@@ -547,15 +524,39 @@ return {
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = "<->", snippetType="autosnippet"},
+    s({trig = "pd", snippetType="autosnippet"},
     {
-        t("\\Leftrightarrow"),
+        t("\\partial"),
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = "<-->", snippetType="autosnippet"},
+    s({trig = "<->", snippetType="autosnippet"},
     {
         t("\\xleftrightarrow"),
+    },
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "<--", snippetType="autosnippet"},
+    {
+        t("\\xleftarrow"),
+    },
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "-->", snippetType="autosnippet"},
+    {
+        t("\\xrightarrow"),
+    },
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "->->", snippetType="autosnippet"},
+    {
+        t("\\rightrightarrows"),
+    },
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "<-<-", snippetType="autosnippet"},
+    {
+        t("\\leftleftarrows"),
     },
     {condition = tex.in_mathzone}
     ),
@@ -661,12 +662,6 @@ return {
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = "KK", snippetType="autosnippet"},
-    {
-        t("\\KK"),
-    },
-    {condition = tex.in_mathzone}
-    ),
     s({trig = "([^%\\])tt", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
     "<>\\text{ <> }",
@@ -680,6 +675,16 @@ return {
     s({trig = "([^%\\])set", wordTrig = false, regTrig = true, snippetType="autosnippet"},
     fmta(
     "<>\\{<>\\}",
+    {
+        f( function(_, snip) return snip.captures[1] end ),
+        d(1, get_visual),
+    }
+    ),
+    {condition = tex.in_mathzone}
+    ),
+    s({trig = "([^%\\])ang", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    fmta(
+    "<>\\langle<>\\rangle",
     {
         f( function(_, snip) return snip.captures[1] end ),
         d(1, get_visual),
@@ -712,8 +717,7 @@ return {
     fmta(
     [[ 
                 <> \left[
-                \begin{alignedat}{2}
-            &\text{D} \qquad &\text{I}\\
+                \begin{alignedat}{3}
             <>
                 \end{alignedat}
                 \right]
@@ -772,22 +776,11 @@ return {
     ),
     {condition = tex.in_mathzone}
     ),
-    s({trig = '([%w%)%]%}])"([%w])', regTrig = true, wordTrig = false, snippetType="autosnippet"},
+    s({trig = '([%w%)%]%}])"', regTrig = true, wordTrig = false, snippetType="autosnippet"},
     fmta(
-    "<>^{<>}",
+    "<>'",
     {
         f( function(_, snip) return snip.captures[1] end ),
-        f( function(_, snip) return snip.captures[2] end ),
-    }
-    ),
-    {condition = tex.in_mathzone}
-    ),
-    s({trig = "([%w%)%]%}]):([%w])", regTrig = true, wordTrig = false, snippetType="autosnippet"},
-    fmta(
-    "<>_{<>}",
-    {
-        f( function(_, snip) return snip.captures[1] end ),
-        f( function(_, snip) return snip.captures[2] end ),
     }
     ),
     {condition = tex.in_mathzone}

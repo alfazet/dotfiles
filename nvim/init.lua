@@ -4,6 +4,7 @@ vim.opt.termguicolors = true
 -- set <Space> as the leader key
 vim.keymap.set("", "<Space>", "<NOP>")
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- use system clipboard
 -- vim.opt.clipboard = "unnamedplus"
@@ -66,7 +67,7 @@ vim.opt.pumwidth = 10
 vim.opt.updatetime = 250
 
 -- syntax conceal
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 1
 
 -- hide netrw banner
 vim.cmd([[let g:netrw_banner = 0]])

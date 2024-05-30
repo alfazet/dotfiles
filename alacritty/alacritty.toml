@@ -4,7 +4,7 @@ import = ["/home/antek/.config/alacritty/rose-pine.toml"]
 TERM = "alacritty"
 
 [font]
-size = 14
+size = 18
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"

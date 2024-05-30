@@ -43,7 +43,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +2%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 2%-
-bindsym Print exec --no-startup-id maim --select | tee ~/Pictures/screenshots/$(date +%s).png | xclip -selection clipboard -t image/png && notify-send "Screenshot saved and copied to clipboard."
+bindsym Print exec --no-startup-id maim -o --select | tee ~/Pictures/screenshots/$(date +%s).png | xclip -selection clipboard -t image/png && notify-send "Screenshot saved and copied to clipboard."
 
 bindsym Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/screenshots/$(date)" && notify-send "Screenshot saved."
 
@@ -185,7 +185,7 @@ bar {
     tray_output none
 
     colors{
-        background #000000C0
+        background #191724D9
         statusline $text
         separator  $muted
 
@@ -227,7 +227,9 @@ mode "$mode_system" {
 bindsym $mod+BackSpace mode "$mode_system"
 
 # wallpaper
-exec --no-startup-id feh --no-fehbg --bg-fill "$HOME/Pictures/wallpapers/main.jpg"
+# exec --no-startup-id feh --no-fehbg --bg-fill "$HOME/Pictures/wallpapers/main.png"
+exec --no-startup-id feh --no-fehbg --bg-fill "$HOME/Pictures/wallpapers/nebula_l.jpg"\
+--no-fehbg --bg-fill "$HOME/Pictures/wallpapers/nebula_r.jpg"
 
 # transparency
 exec --no-startup-id picom -b

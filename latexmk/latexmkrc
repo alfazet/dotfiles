@@ -6,4 +6,5 @@ add_cus_dep("asy", "pdf", 0, "asy");
 add_cus_dep("asy", "tex", 0, "asy");
 
 ensure_path("TEXINPUTS", "~/.config/latexmk//");
-$success_cmd = "\\mv -f *.aux *.asy *.dvi *.fdb_latexmk *.fls *.log *.out *.thm *.toc *.err *.inf *.pre *.synctex.gz *-[0-9].pdf aux";
+# $success_cmd = "\\mv -f *.aux *.asy *.dvi *.fdb_latexmk *.fls *.log *.out *.thm *.toc *.err *.inf *.pre *.synctex.gz *-[0-9].pdf aux";
+$success_cmd = "cleantex";
