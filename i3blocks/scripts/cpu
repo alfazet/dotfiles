@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+# get the CPU temperature
+temp=$(sensors | grep '^Tctl' | awk -F ' ' '{print $2;}' | cut -c 2-)
+tempval=$(echo $temp | cut -c 2)
+echo $temp
+echo
+if [[ $tempval -gt 80 ]]; then
+    echo "#EB6F92"
+elif [[ $tempval -gt 60 ]]; then
+    echo "#F6C177"
+else
+    echo "#9CCFD8"
+fi

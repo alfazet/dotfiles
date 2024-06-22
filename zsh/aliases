@@ -7,7 +7,7 @@ alias rm="rm -vi"
 alias mkdir="mkdir -pv"
 
 # bat - cat replacement
-alias cat="bat --style=plain --paging=never"
+# alias cat="bat --style=plain --paging=never"
 
 # eza - ls replacement 
 alias ls="eza --icons --group-directories-first"

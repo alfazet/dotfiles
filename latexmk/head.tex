@@ -19,7 +19,6 @@
 \usepackage{ragged2e} 
 \usepackage{tasks}
 \usepackage{listings}
-\usepackage{asymptote}
 \usepackage{tocloft}
 \usepackage{lastpage}
 \usepackage{fancyhdr} 
@@ -27,30 +26,14 @@
 \usepackage[breakable]{tcolorbox}
 \usepackage[utf8]{inputenc} 
 \usepackage{mlmodern}
-% \usepackage{newpxtext,eulerpx}
 \usepackage[T1]{fontenc}
 \usepackage[final, colorlinks = true, linkcolor = Blue3, citecolor = Black, urlcolor = darkgray]{hyperref} 
 \usepackage{cleveref}
 
-%%% Listing
-\lstdefinestyle{code}{
-    % backgroundcolor=\color[HTML]{FDF6E3},   
-    keywordstyle=\color[HTML]{859900},
-    numberstyle=\scriptsize\color[HTML]{93A1A1},
-    stringstyle=\color[HTML]{2AA198},
-    basicstyle=\ttfamily\small,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
-}
-\lstset{style=code}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, intersections}
+
+%% TODO: Code listings
 
 %%% Lengths
 \setlength\parindent{0pt}
@@ -81,12 +64,11 @@
 %%% Title
 \titlelabel{\thetitle.\quad}
 
-%%% Macros
+%%% Common math symbols and operators
 \providecommand{\ol}{\overline}
 \providecommand{\oa}{\overrightarrow}
 \providecommand{\ul}{\underline}
 \providecommand{\tl}{\widetilde}
-\providecommand{\inv}{^{-1}}
 \providecommand{\NN}{\mathbb{N}}
 \providecommand{\ZZ}{\mathbb{Z}}
 \providecommand{\QQ}{\mathbb{Q}}
@@ -98,6 +80,8 @@
 \providecommand{\LL}{\mathcal{L}}
 \providecommand{\EE}{\mathcal{E}}
 \providecommand{\PP}{\mathcal{P}}
+\providecommand{\UU}{\mathcal{U}}
+\providecommand{\VV}{\mathcal{V}}
 \providecommand{\ii}{\mathrm{i}}
 \providecommand{\ee}{\mathrm{e}}
 \providecommand{\dd}{\,\mathrm{d}}
@@ -115,6 +99,7 @@
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\rd}{rd}
 \DeclareMathOperator{\fl}{fl}
+\DeclareMathOperator{\af}{af}
 \DeclareMathOperator{\spann}{span}
 \let\Im\relax
 \DeclareMathOperator{\Im}{Im}
@@ -180,6 +165,14 @@
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
+\theoremseparator{}
+\renewtheorem*{theorem*}{Twierdzenie}
+\tcolorboxenvironment{theorem*}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
+
+\theoremstyle{break}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
 \theoremseparator{.}
 \newtheorem{algorithm}[theorem]{Algorytm}
 \tcolorboxenvironment{algorithm}{colframe=algoframecolor, colback=algobkgcolor, sharp corners = all, breakable}
@@ -199,14 +192,6 @@
 \theoremseparator{.}
 \newtheorem{definition}[theorem]{Definicja}
 
-% \theoremstyle{break}
-% \theoremheaderfont{\bfseries\color{headcolor}}
-% \theorembodyfont{\mdseries}
-% \theoremsymbol{}
-% \theoremseparator{}
-% \newtheorem{definition}[theorem]{Definicja}
-% \tcolorboxenvironment{definition}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
-
 \theoremstyle{break}
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\mdseries}
@@ -215,21 +200,12 @@
 \newtheorem{example}[theorem]{Przykład}
 \tcolorboxenvironment{example}{colframe=exframecolor, colback=exbkgcolor, sharp corners = all, breakable}
 
-% \theoremstyle{nonumberplain}
-% \theoremheaderfont{}
-% \theorembodyfont{\mdseries}
-% \theoremsymbol{}
-% \theoremseparator{}
-% \newtheorem{remark}{}
-% \tcolorboxenvironment{remark}{colframe=framecolor, colback=bkgcolor, 
-% toprule=0mm, bottomrule=0mm, rightrule=0mm, leftrule=2.5mm, sharp corners = all}
-
 \theoremstyle{plain}
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
-\theoremseparator{}
-\newtheorem{problem}{Zadanie}[section]
+\theoremseparator{.}
+\newtheorem{problem}{Zadanie}
 
 \theoremstyle{nonumberbreak}
 \theoremheaderfont{\bfseries}

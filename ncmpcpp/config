@@ -19,7 +19,7 @@ ncmpcpp_directory = ~/.config/ncmpcpp
 ## MPD clients (eg. ncmpc) also use that location.
 ##
 #
-#lyrics_directory = ~/.lyrics
+lyrics_directory = ~/.cache/mpd/lyrics
 #
 ##### connection settings #####
 #
@@ -233,7 +233,7 @@ message_delay_time = 3
 #
 #song_list_format = {%a - }{%t}|{$8%f$9}$R{$3%l$9}
 #
-#song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
+song_status_format = {{%a{ "%b"} - }{%t}}|{%f}
 #
 #song_library_format = {%n - }{%t}|{%f}
 #
@@ -312,6 +312,7 @@ message_delay_time = 3
 ##
 #
 #song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+song_columns_list_format = (20)[]{a} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
 #
 ##### various settings #####
 #
@@ -354,7 +355,7 @@ message_delay_time = 3
 #
 #incremental_seeking = yes
 #
-#seek_time = 1
+seek_time = 5
 #
 volume_change_step = 5
 #
@@ -382,9 +383,9 @@ progressbar_look = ==.
 ##
 #media_library_primary_tag = artist
 #
-#media_library_albums_split_by_date = yes
+media_library_albums_split_by_date = no
 #
-#media_library_hide_album_dates = no
+media_library_hide_album_dates = yes
 #
 ## Available values: wrapped, normal.
 ##
@@ -397,23 +398,23 @@ progressbar_look = ==.
 #statusbar_visibility = yes
 #
 ## Show the "Connected to ..." message on startup
-#connected_message_on_startup = yes
+connected_message_on_startup = no
 #
 #titles_visibility = yes
 #
 #header_text_scrolling = yes
 #
-#cyclic_scrolling = no
+cyclic_scrolling = yes
 #
 #lyrics_fetchers = azlyrics, genius, musixmatch, sing365, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, zeneszoveg, internet
 #
 #follow_now_playing_lyrics = no
 #
-#fetch_lyrics_for_current_song_in_background = no
+fetch_lyrics_for_current_song_in_background = no
 #
 #store_lyrics_in_song_dir = no
 #
-#generate_win32_compatible_filenames = yes
+generate_win32_compatible_filenames = yes
 #
 #allow_for_physical_item_deletion = no
 #

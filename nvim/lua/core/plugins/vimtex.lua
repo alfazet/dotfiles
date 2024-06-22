@@ -8,7 +8,7 @@ return {
         vim.cmd([[let g:vimtex_syntax_enabled = 1]])
         vim.g.vimtex_view_method = "zathura"
         vim.g.vimtex_log_verbose = 1
-        vim.g.vimtex_delim_stopline = 50
+        vim.g.vimtex_delim_stopline = 100
         vim.g.vimtex_view_automatic = 0
         vim.g.vimtex_view_forward_search_on_start = 0
         vim.g.latex_view_general_viewer = "zathura"

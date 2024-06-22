@@ -305,7 +305,9 @@ return {
       fmta(
         [[
         \begin{center}
-            \asyinclude{rysunki/<>.asy}
+            \begin{asy}[height=\asyh, attach=false, viewportwidth=\linewidth]
+                <>
+            \end{asy}
         \end{center}
       ]],
         {
@@ -506,12 +508,12 @@ return {
     },
     {condition = tex.in_mathzone}
     ),
-    s({trig = "ii", snippetType="autosnippet"},
-    {
-        t("\\ii"),
-    },
-    {condition = tex.in_mathzone}
-    ),
+    -- s({trig = "ii", snippetType="autosnippet"},
+    -- {
+    --     t("\\ii"),
+    -- },
+    -- {condition = tex.in_mathzone}
+    -- ),
     s({trig = "ee", snippetType="autosnippet"},
     {
         t("\\ee"),

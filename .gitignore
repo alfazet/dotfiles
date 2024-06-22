@@ -1,3 +1,4 @@
 userstate.cbor
 .zcompdump*
-btop/
+*.bak
+*.log
