@@ -2,3 +2,4 @@ userstate.cbor
 .zcompdump*
 *.bak
 *.log
+nvim/lazy-lock.json

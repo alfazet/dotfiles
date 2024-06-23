@@ -106,11 +106,12 @@ visualizer_type = spectrum
 #
 visualizer_look = ●▮
 #
-#visualizer_color = blue, cyan, green, yellow, magenta, red
+# visualizer_color = blue, cyan, green, yellow, magenta, red
 #
 ## Alternative subset of 256 colors for terminals that support it.
 ##
-visualizer_color = 47, 83, 119, 155, 191, 227, 221, 215, 209, 203, 197, 161
+# visualizer_color = 47, 83, 119, 155, 191, 227, 221, 215, 209, 203, 197, 161
+visualizer_color = 134, 133, 132, 131 
 #
 ##
 ## Note: The next few visualization options apply to the spectrum visualizer.
@@ -121,7 +122,7 @@ visualizer_color = 47, 83, 119, 155, 191, 227, 221, 215, 209, 203, 197, 161
 ## and visualizer_in_stereo set, artifacts may be visible on the bottom half of
 ## the visualization.
 #
-visualizer_spectrum_smooth_look = yes
+visualizer_spectrum_smooth_look = no
 #
 ## A value between 1 and 5 inclusive. Specifying a larger value makes the
 ## visualizer look at a larger slice of time, which results in less jumpy
@@ -241,7 +242,7 @@ song_status_format = {{%a{ "%b"} - }{%t}}|{%f}
 #
 #alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
 #
-#current_item_prefix = $(yellow)$r
+current_item_prefix = $r
 #
 #current_item_suffix = $/r$(end)
 #
@@ -312,7 +313,7 @@ song_status_format = {{%a{ "%b"} - }{%t}}|{%f}
 ##
 #
 #song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
-song_columns_list_format = (20)[]{a} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+song_columns_list_format = (20)[]{aE} (50)[white]{t|f:Title} (20)[cyan]{bE} (7f)[magenta]{l}
 #
 ##### various settings #####
 #

@@ -1,0 +1,8 @@
+-x
+--audio-format mp3
+--audio-quality 0
+--restrict-filenames
+--windows-filenames
+--embed-thumbnail
+--embed-metadata
+-o %(title)s.%(ext)s

@@ -6,9 +6,6 @@ vim.keymap.set("", "<Space>", "<NOP>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- use system clipboard
--- vim.opt.clipboard = "unnamedplus"
-
 -- indentation
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

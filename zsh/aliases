@@ -24,3 +24,4 @@ alias comp='make CXXFLAGS="-std=c++17 -Wall -Wextra -Wno-unused-parameter -Wshad
 alias tmux="tmux -2"
 alias vim="nvim"
 alias py="python"
+alias ncmpcpp="ncmpcpp -q"

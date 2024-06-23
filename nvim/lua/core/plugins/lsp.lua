@@ -48,18 +48,47 @@ return {
                 })
             end
 
-            local get_servers = require("mason-lspconfig").get_installed_servers
-            for _, server_name in ipairs(get_servers()) do
-                lspconfig[server_name].setup({
-                    capabilities = lsp_capabilities,
-                    on_attach = lsp_on_attach,
-                    settings = {
-                        completions = {
-                            completeFunctionCalls = true,
+            -- C++
+            lspconfig.clangd.setup({
+                capabilities = lsp_capabilities,
+                on_attach = lsp_on_attach,
+                cmd = {
+                    "clangd",
+                    "--offset-encoding=utf-16",
+                },
+            })
+            -- Rust
+            lspconfig.rust_analyzer.setup({
+                capabilities = lsp_capabilities,
+                on_attach = lsp_on_attach,
+                settings = {
+                    ["rust-analyzer"] = {
+                        checkOnSave = {
+                            command = "clippy",
                         },
                     },
-                })
-            end
+                },
+            })
+            -- Python (formatting, linting and organizing imports)
+            lspconfig.ruff.setup({
+                capabilities = lsp_capabilities,
+                on_attach = lsp_on_attach,
+            })
+            -- Python (autocompletion and suggestions)
+            lspconfig.pyright.setup({
+                capabilities = lsp_capabilities,
+                on_attach = lsp_on_attach,
+                settings = {
+                    pyright = {
+                        disableOrganizeImports = true,
+                    },
+                    python = {
+                        analysis = {
+                            ignore = { "*" },
+                        },
+                    },
+                },
+            })
         end,
     },
 }

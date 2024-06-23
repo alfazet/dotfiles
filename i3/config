@@ -17,6 +17,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +2%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 2%-
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioNext exec --no-startup-id mpc next
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
 
 # screenshots
 bindsym Print exec --no-startup-id screenshot
@@ -28,7 +31,7 @@ for_window [floating] move position center
 # shortcuts to things
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+f exec "firefox --force-dark-mode"
-bindsym $mod+Shift+d exec "rofi -modi drun -show drun"
+bindsym $mod+Shift+d exec "rofi -modes 'drun,emoji' -show drun"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -123,7 +126,7 @@ set $rose       #ebbcba
 set $pine       #31748f
 set $text       #e0def4
 set $bkg        #191724
-set $bar_bkg    #191724D9
+set $bar_bkg    #191724D0
 set $gray1      #6e6a86
 set $gray2      #403d52
 set $gray3      #26233a

@@ -7,6 +7,14 @@ return {
             styles = {
                 transparency = false,
             },
+            highlight_groups = {
+                MsgArea = {
+                    bg = "none",
+                },
+                StatusLine = {
+                    bg = "none",
+                },
+            },
         })
     end,
 }

@@ -1,11 +1,8 @@
 separator_block_width=15
 
-[eyedropper]
-command=scripts/eyedropper
-full_text=
-instance=#ffffff
-markup=pango
-CLIPBOARD=true
+[mpdstate]
+command=scripts/mpdstate
+interval=4
 
 [volume]
 command=scripts/volume

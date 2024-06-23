@@ -1,0 +1,64 @@
+[global]
+    monitor = 0
+    follow = keyboard
+
+    width = 300
+    origin = top-right
+    offset = 48x48
+
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 400
+    progress_bar_corner_radius = 0
+
+    indicate_hidden = yes
+    shrink = no
+    padding = 15
+    horizontal_padding = 15
+    frame_width = 1
+    corner_radius = 0
+    sort = yes
+    idle_threshold = 120
+
+    font = JetBrainsMono Nerd Font 10
+    line_height = 0
+    alignment = center
+    vertical_alignment = center
+    show_age_threshold = 60
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    enable_recursive_icon_lookup = true
+    icon_theme = Adwaita
+    icon_position = left
+    min_icon_size = 50
+    max_icon_size = 60
+    sticky_history = yes
+    history_length = 20
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    ignore_dbusclose = false
+    force_xwayland = false
+    force_xinerama = false
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+    format = "<b>%s</b>\n%b"
+
+[experimental]
+    per_monitor_dpi = false
+
+[urgency_normal]
+    background = "#191724"
+    foreground = "#E0DEF4"
+    highlight = "#524f67"
+    frame_color = "#31748F"
+    timeout = 5
+# vim: ft=cfg
