@@ -3,3 +3,4 @@ userstate.cbor
 *.bak
 *.log
 nvim/lazy-lock.json
+xournalpp/metadata/

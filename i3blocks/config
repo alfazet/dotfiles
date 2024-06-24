@@ -6,7 +6,6 @@ interval=1
 
 [volume]
 command=scripts/volume
-label=󰕾 
 interval=1
 
 [ssid]

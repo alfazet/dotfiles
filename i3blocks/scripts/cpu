@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # get the CPU temperature
-temp=$(sensors | grep '^Tctl' | awk -F ' ' '{print $2;}' | cut -c 2-)
+temp=$(cputemp)
 tempval=$(echo $temp | cut -c 2)
 echo $temp
 echo

@@ -77,7 +77,11 @@ format() {
   perl_filter+=$([[ $STEP = *dB ]] && echo '$3' || echo '$1')
   perl_filter+='"; exit}'
   output=$(perl -ne "$perl_filter")
-  echo "$LABEL$output"
+  if [[ $output == "MUTE" ]]; then
+      echo "󰝟"
+  else
+      echo "󰕾 $output"
+  fi
 }
 
 #------------------------------------------------------------------------
