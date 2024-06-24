@@ -2,7 +2,7 @@ separator_block_width=15
 
 [mpdstate]
 command=scripts/mpdstate
-interval=4
+interval=1
 
 [volume]
 command=scripts/volume
