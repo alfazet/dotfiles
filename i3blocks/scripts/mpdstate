@@ -5,10 +5,9 @@ mpc_out="$(mpc)"
 song=$(echo $mpc_out | sed -n "1p")
 state=$(echo $mpc_out | sed -n "2p" | grep -o "\[[a-z]*\]")
 if [[ $state == "[playing]" ]]; then
-    echo -n " "
+    echo " $song"
 elif [[ $state == "[paused]" ]]; then
-    echo -n " "
+    echo " $song"
 else
-    echo -n " "
+    echo "mpd stopped"
 fi
-echo $song

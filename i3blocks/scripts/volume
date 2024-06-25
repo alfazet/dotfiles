@@ -78,7 +78,7 @@ format() {
   perl_filter+='"; exit}'
   output=$(perl -ne "$perl_filter")
   if [[ $output == "MUTE" ]]; then
-      echo "󰝟"
+      echo " 󰝟 "
   else
       echo "󰕾 $output"
   fi
