@@ -1,6 +1,10 @@
 #!/usr/bin/env zsh
 
 percent=$(acpi -b | awk '{print $4}' | sed "$ s/.$//" | sed "$ s/.$//")
+if ! [[ $percent =~ "^[0-9]+$" ]]; then
+    exit
+fi
+
 if [[ $percent -eq 100 ]]; then
     echo -n "󰁹"
 elif [[ $percent -ge 90 ]]; then

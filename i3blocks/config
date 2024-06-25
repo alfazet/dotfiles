@@ -10,7 +10,6 @@ interval=1
 
 [ssid]
 command=scripts/ssid
-label= 
 interval=30
 INTERFACE=wlan0
 

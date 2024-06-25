@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# get the CPU temperature
+
 temp=$(cputemp)
 tempval=$(echo $temp | cut -c 2)
 echo $temp

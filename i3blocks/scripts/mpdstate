@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 # get the currenly playing song on MPD
+
 IFS= # so that newlines don't get lost in the next line
 mpc_out="$(mpc)"
 song=$(echo $mpc_out | sed -n "1p")
