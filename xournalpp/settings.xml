@@ -99,8 +99,8 @@
   <property name="audioSampleRate" value="44100"/>
   <property name="audioGain" value="1"/>
   <property name="defaultSeekTime" value="5"/>
-  <property name="pluginEnabled" value="/usr/share/xournalpp/plugins/Export"/>
-  <property name="pluginDisabled" value=""/>
+  <property name="pluginEnabled" value=""/>
+  <property name="pluginDisabled" value="/usr/share/xournalpp/plugins/MigrateFontSizes"/>
   <property name="strokeFilterIgnoreTime" value="150"/>
   <property name="strokeFilterIgnoreLength" value="1"/>
   <property name="strokeFilterSuccessiveTime" value="500"/>
@@ -322,7 +322,7 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="text">
-      <attribute name="color" type="hex" value="e0def4"/>
+      <attribute name="color" type="hex" value="f6c177"/>
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="verticalSpace">
