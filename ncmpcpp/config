@@ -242,13 +242,13 @@ song_status_format = {{%a{ "%b"} - }{%t}}|{%f}
 #
 #alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
 #
-current_item_prefix = $r
+current_item_prefix = $b$(magenta)
 #
-#current_item_suffix = $/r$(end)
+current_item_suffix = $9$/b$(end)
 #
-#current_item_inactive_column_prefix = $(white)$r
+current_item_inactive_column_prefix = $(magenta)
 #
-#current_item_inactive_column_suffix = $/r$(end)
+current_item_inactive_column_suffix = $9$(end)
 #
 #now_playing_prefix = $b
 #
@@ -376,7 +376,7 @@ progressbar_look = ==.
 #
 ## Available values: classic, alternative.
 ##
-#user_interface = classic
+user_interface = alternative
 #
 #data_fetching_delay = yes
 #
@@ -528,7 +528,7 @@ mouse_support = no
 #
 #search_engine_default_search_mode = 1
 #
-#external_editor = nano
+external_editor = nvim
 #
 ## Note: set to yes if external editor is a console application.
 ##
@@ -576,7 +576,7 @@ mouse_support = no
 #
 #state_flags_color = default:b
 #
-#main_window_color = yellow
+main_window_color = blue
 #
 #color1 = white
 #
