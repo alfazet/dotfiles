@@ -242,9 +242,9 @@ song_status_format = {{%a{ "%b"} - }{%t}}|{%f}
 #
 #alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
 #
-current_item_prefix = $b$u
+current_item_prefix = $b$r
 #
-current_item_suffix = $9$/b$/u$(end)
+current_item_suffix = $9$/r$/b$(end)
 #
 current_item_inactive_column_prefix = ""
 #
@@ -382,7 +382,7 @@ user_interface = alternative
 #
 ## Available values: artist, album_artist, date, genre, composer, performer.
 ##
-#media_library_primary_tag = artist
+media_library_primary_tag = album_artist
 #
 media_library_albums_split_by_date = no
 #
@@ -566,7 +566,7 @@ external_editor = nvim
 #
 #colors_enabled = yes
 #
-#empty_tag_color = cyan
+empty_tag_color = red
 #
 #header_window_color = default
 #
