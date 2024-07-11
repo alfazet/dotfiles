@@ -4,8 +4,8 @@ return {
     lazy = false,
     config = function()
         -- vim.cmd([[let maplocalleader = ' ']])
-        vim.cmd([[let g:tex_fast = ""]])
-        vim.cmd([[let g:vimtex_syntax_enabled = 1]])
+        vim.cmd('let g:tex_fast = ""')
+        vim.cmd("let g:vimtex_syntax_enabled = 1")
         vim.g.vimtex_view_method = "zathura"
         vim.g.vimtex_log_verbose = 1
         vim.g.vimtex_delim_stopline = 100

@@ -242,13 +242,13 @@ song_status_format = {{%a{ "%b"} - }{%t}}|{%f}
 #
 #alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
 #
-current_item_prefix = $b$(magenta)
+current_item_prefix = $b$u
 #
-current_item_suffix = $9$/b$(end)
+current_item_suffix = $9$/b$/u$(end)
 #
-current_item_inactive_column_prefix = $(magenta)
+current_item_inactive_column_prefix = ""
 #
-current_item_inactive_column_suffix = $9$(end)
+current_item_inactive_column_suffix = ""
 #
 #now_playing_prefix = $b
 #
@@ -313,7 +313,7 @@ current_item_inactive_column_suffix = $9$(end)
 ##
 #
 #song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
-song_columns_list_format = (20)[]{aE} (50)[white]{t|f:Title} (20)[cyan]{bE} (7f)[magenta]{l}
+song_columns_list_format = (20)[]{aE} (50)[white]{t|f:Title} (20)[blue]{bE} (7f)[magenta]{l}
 #
 ##### various settings #####
 #
@@ -576,7 +576,7 @@ external_editor = nvim
 #
 #state_flags_color = default:b
 #
-main_window_color = blue
+main_window_color = cyan
 #
 #color1 = white
 #

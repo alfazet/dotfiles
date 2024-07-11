@@ -15,7 +15,7 @@ vim.opt.expandtab = true
 vim.opt.shiftround = true
 vim.opt.smartindent = true
 
--- searching 
+-- searching
 vim.opt.ignorecase = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -26,7 +26,7 @@ vim.opt.swapfile = false
 -- disable the mouse completely
 vim.opt.mouse = ""
 
--- cursor 
+-- cursor
 vim.opt.guicursor = "n:block,v:block,i:block"
 
 -- save undo history between sessions
@@ -50,7 +50,7 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 
--- always show the signcolumn 
+-- always show the signcolumn
 vim.opt.signcolumn = "yes"
 
 -- hidden command-line
@@ -67,18 +67,26 @@ vim.opt.updatetime = 250
 vim.opt.conceallevel = 1
 
 -- hide netrw banner
-vim.cmd([[let g:netrw_banner = 0]])
+vim.cmd("let g:netrw_banner = 0")
 
 -- stop comments from continuing on the next line
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*",
-  command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o"
+    pattern = "*",
+    command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o"
 })
 
--- recognize Asymptote (.asy) files
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"},{
+-- set correct commentstring for .asy files
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.asy",
     command = "set filetype=asy commentstring=//%s"
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "*.tex",
+    callback = function()
+        local tex_root_dir = vim.api.nvim_buf_get_name(0):match("(.*/)")
+        vim.cmd(':silent exec "!inkman ' .. tex_root_dir .. '"')
+    end
 })
 
 -- start the plugin manager
@@ -107,7 +115,7 @@ require("lazy").setup("core.plugins", {
 vim.cmd.colorscheme("rose-pine")
 
 -- load snippets
-require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/core/snippets/"})
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/core/snippets/" })
 
 -- load keymaps
 require("core.keymaps")

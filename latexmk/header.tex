@@ -1,12 +1,16 @@
-%%% Load packages
-\usepackage{amssymb, gensymb, marvosym}
+\usepackage[utf8]{inputenc} 
+\usepackage{mlmodern}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{bm}
 \usepackage{graphicx}
 \usepackage[x11names]{xcolor}
 \usepackage{mathrsfs}
 \usepackage[shortlabels]{enumitem}
 \usepackage{mathtools}
 \usepackage{microtype}
-\usepackage[margin=2cm]{geometry}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{framed}
 \usepackage[amsmath, thmmarks, framed]{ntheorem}
 \usepackage{polski}
@@ -16,22 +20,25 @@
 \usepackage{setspace}
 \usepackage{tabto}
 \usepackage{titlesec}
-\usepackage{ragged2e} 
-\usepackage{tasks}
 \usepackage{listings}
 \usepackage{tocloft}
 \usepackage{lastpage}
 \usepackage{fancyhdr} 
 \usepackage{cancel}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xifthen}
+\usepackage{import}
+\usepackage{printlen}
 \usepackage[breakable]{tcolorbox}
-\usepackage[utf8]{inputenc} 
-\usepackage{mlmodern}
-\usepackage[T1]{fontenc}
 \usepackage[final, colorlinks = true, linkcolor = Blue3, citecolor = Black, urlcolor = darkgray]{hyperref} 
 \usepackage{cleveref}
 
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta, calc, intersections}
+%%% Snippet for Inkscape figures
+\newcommand{\incfig}[1]{%
+    \import{./figures/}{#1.pdf_tex}
+}
+\pdfsuppresswarningpagegroup=1
 
 %% TODO: Code listings
 
@@ -40,14 +47,6 @@
 \renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\baselinestretch}{1.1} 
-
-%%% Footer and header
-\pagestyle{fancy} 
-\pagenumbering{arabic}
-\fancyfoot[L]{} 
-\fancyfoot[C]{\thepage}
-\fancyfoot[R]{} 
-\fancyhead[R]{}
 
 %%% Periods after section numbers
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
@@ -106,8 +105,9 @@
 \let\Re\relax
 \DeclareMathOperator{\Re}{Re}
 
-\renewcommand{\vec}{\mathbf}
+\renewcommand{\vec}{\bm}
 \renewcommand{\AA}{\mathcal{A}}
+\let\svlim\lim\def\lim{\svlim\limits}
 
 %%% Augmented matrix
 \makeatletter
@@ -119,6 +119,25 @@
 
 %%% Column type for math-mode tables
 \newcolumntype{C}{>{\(}c<{\)}}
+
+%%% Lecture
+\makeatletter
+\def\@lecture{}%
+\newcommand{\lecture}[1]{
+    \def\@lecture{#1}
+    \section{\@lecture}
+}
+
+%%% Footer and header
+\pagestyle{fancy} 
+\pagenumbering{arabic}
+\fancyfoot[L]{} 
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{} 
+
+\fancyhead[L]{}
+\fancyhead[R]{Wykład \thesection: \@lecture}
+\makeatother
 
 %%% Theorem-like environments
 %%% Change font in parentheses to normal (not bold like the title)
