@@ -126,8 +126,8 @@
          id="rect"
          style="fill:none;stroke:black"
          usecurrent="0"
-         width="94.5343528206893"
-         height="94.5343528206893"
+         width="53.6841174748939"
+         height="53.6841174748939"
          ry="0" />
       <eventcontext
          id="3dbox"
@@ -164,14 +164,16 @@
          end="0"
          start="0"
          usecurrent="0"
-         rx="1.49999983667389"
-         ry="1.49999983667389"
+         rx="14.1518607852966"
+         ry="14.1518607852966"
          arc_type="0" />
       <eventcontext
          id="star"
          magnitude="5"
          style="fill:none;stroke:black"
-         usecurrent="0" />
+         usecurrent="0"
+         proportion="0.5"
+         isflatsided="0" />
       <eventcontext
          id="spiral"
          style="fill:none;stroke:black"
@@ -192,8 +194,8 @@
          shape="0"
          freehand-mode="0"
          base-simplify="25"
-         dot-size="2"
-         simplify="0" />
+         dot-size="6.5"
+         simplify="1" />
       <eventcontext
          id="pen"
          mode="drag"
@@ -350,8 +352,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="988.614727559056"
-       y="942.556922272976"
+       x="336.307524640147"
+       y="85.5755046396188"
        edit_clipping_paths="0"
        edit_masks="0" />
     <eventcontext
@@ -571,7 +573,7 @@
        panel_mode="1"
        panel_ratio="100"
        panel_wrap="0"
-       palette="Inkscape default"
+       palette="LaTeX"
        panel_border="0">
       <group
          id="pinned"
@@ -651,7 +653,7 @@
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/home/antek/Sync/notes/sem3/md2/lecture/figures"
+       path="/home/antek/.config/inkscape/templates"
        use_current_dir="1"
        enable_svgexport="1" />
     <group
@@ -663,7 +665,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="" />
+       path="/home/antek/.config/inkscape/templates/" />
     <group
        id="import"
        enable_preview="1"
@@ -1073,7 +1075,7 @@
      org.inkscape.input.svg.do_not_ask="1" />
   <group
      id="desktop"
-     style="fill:#d40000;font-size:16px;-inkscape-font-specification:'CMU Serif';font-family:'CMU Serif';line-height:1.2;stroke-miterlimit:10;letter-spacing:0px;opacity:0.55;stroke-width:0.98267717;stroke:#d40000;stroke-dasharray:0.98267719,1.96535437">
+     style="fill:#551a8b;font-size:16px;-inkscape-font-specification:'CMU Serif';font-family:'CMU Serif';line-height:1.2;stroke-miterlimit:10;letter-spacing:0px;opacity:0.55;stroke-width:0.98267717;stroke:#912cee;stroke-dasharray:1.96535437, 0.98267719">
     <group
        width="1900"
        height="1036"

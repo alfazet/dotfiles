@@ -81,11 +81,19 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     command = "set filetype=asy commentstring=//%s"
 })
 
+-- start the figure manager on opening a .tex file
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.tex",
     callback = function()
         local tex_root_dir = vim.api.nvim_buf_get_name(0):match("(.*/)")
-        vim.cmd(':silent exec "!inkman ' .. tex_root_dir .. '"')
+        vim.cmd(':silent exec "!inkman ' .. tex_root_dir .. ' figures observe"')
+    end
+})
+
+vim.api.nvim_create_autocmd({ "VimLeavePre", }, {
+    pattern = "*.tex",
+    callback = function()
+        vim.cmd(':silent exec "!inkman kill"')
     end
 })
 

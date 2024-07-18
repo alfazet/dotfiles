@@ -1,0 +1,36 @@
+GIMP Palette
+Name: LaTeX
+#
+0 0 0 Black
+64 64 64 DarkGray
+128 128 128 Gray
+191 191 191 LightGray
+255 255 255 White
+255 0 0 Red1
+238 0 0 Red2
+205 0 0 Red3
+139 0 0 Red4
+255 165 0 Orange1
+238 154 0 Orange2
+205 133 0 Orange3
+139 90 0 Orange4
+255 215 0 Gold1
+238 201 0 Gold2
+205 173 0 Gold3
+139 117 0 Gold4
+192 255 62 OliveDrab1
+178 238 58 OliveDrab2
+154 205 50 OliveDrab3
+105 139 34 OliveDrab4
+72 118 255 RoyalBlue1
+67 110 238 RoyalBlue2
+58 95 205 RoyalBlue3
+39 64 139 RoyalBlue4
+131 111 255 SlateBlue1
+122 103 238 SlateBlue2
+105 89 205 SlateBlue3
+71 60 139 SlateBlue4
+155 48 255 Purple1
+145 44 238 Purple2
+125 38 205 Purple3
+85 26 139 Purple4

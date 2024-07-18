@@ -583,3 +583,6 @@ def_key "space"
 
 def_key "p"
   add_item_to_playlist
+
+def_key "d"
+  delete_playlist_items

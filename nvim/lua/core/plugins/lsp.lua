@@ -10,10 +10,10 @@ return {
         config = function()
             require("mason-lspconfig").setup({})
         end,
-    }, 
+    },
     {
         "neovim/nvim-lspconfig",
-        dependencies = {"hrsh7th/cmp-nvim-lsp"},
+        dependencies = { "hrsh7th/cmp-nvim-lsp" },
         config = function()
             local lspconfig = require("lspconfig")
             local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -37,7 +37,7 @@ return {
                     callback = function()
                         local opts = {
                             focusable = false,
-                            close_events = {"BufLeave", "CursorMoved", "InsertEnter", "FocusLost"},
+                            close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
                             border = "rounded",
                             source = "always",
                             prefix = " ",
@@ -69,23 +69,12 @@ return {
                     },
                 },
             })
-            -- Python (formatting, linting and organizing imports)
-            lspconfig.ruff.setup({
-                capabilities = lsp_capabilities,
-                on_attach = lsp_on_attach,
-            })
-            -- Python (autocompletion and suggestions)
-            lspconfig.pyright.setup({
+            lspconfig.basedpyright.setup({
                 capabilities = lsp_capabilities,
                 on_attach = lsp_on_attach,
                 settings = {
-                    pyright = {
-                        disableOrganizeImports = true,
-                    },
-                    python = {
-                        analysis = {
-                            ignore = { "*" },
-                        },
+                    basedpyright = {
+                        typeCheckingMode = "basic",
                     },
                 },
             })

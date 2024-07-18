@@ -1,9 +1,13 @@
+% Font
 \usepackage[utf8]{inputenc} 
-\usepackage{mlmodern}
+% \usepackage{mlmodern}
+% \usepackage[T1]{fontenc}
+\usepackage{sansmathfonts}
 \usepackage[T1]{fontenc}
+\renewcommand*\familydefault{\sfdefault}
 
+% Packages
 \usepackage{amssymb}
-\usepackage{bm}
 \usepackage{graphicx}
 \usepackage[x11names]{xcolor}
 \usepackage{mathrsfs}
@@ -30,44 +34,44 @@
 \usepackage{xifthen}
 \usepackage{import}
 \usepackage{printlen}
+\usepackage{lipsum}
 \usepackage[breakable]{tcolorbox}
-\usepackage[final, colorlinks = true, linkcolor = Blue3, citecolor = Black, urlcolor = darkgray]{hyperref} 
+\usepackage[final, colorlinks=true, linkcolor=SlateBlue4, citecolor=black, urlcolor=darkgray]{hyperref} 
 \usepackage{cleveref}
 
-%%% Snippet for Inkscape figures
+% Inkscape figures
 \newcommand{\incfig}[1]{%
     \import{./figures/}{#1.pdf_tex}
 }
 \pdfsuppresswarningpagegroup=1
 
-%% TODO: Code listings
-
-%%% Lengths
+% Lengths
+\setstretch{1.1}
 \setlength\parindent{0pt}
 \renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{0pt}
-\renewcommand{\baselinestretch}{1.1} 
 
-%%% Periods after section numbers
+% Periods after section numbers
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftpartaftersnum}{.}
 \renewcommand{\cftsecaftersnum}{.}
 \renewcommand{\cftsubsecaftersnum}{.}
 
-%%% Cleveref fix
+% Cleveref fix
 \crefname{equation}{}{}
 \crefname{theorem}{}{}
 \crefname{example}{}{}
 \crefname{definition}{}{}
 
-%%% Title
+% Title
 \titlelabel{\thetitle.\quad}
 
-%%% Common math symbols and operators
+% Common math symbols and operators
 \providecommand{\ol}{\overline}
 \providecommand{\oa}{\overrightarrow}
 \providecommand{\ul}{\underline}
 \providecommand{\tl}{\widetilde}
+
 \providecommand{\NN}{\mathbb{N}}
 \providecommand{\ZZ}{\mathbb{Z}}
 \providecommand{\QQ}{\mathbb{Q}}
@@ -105,11 +109,12 @@
 \let\Re\relax
 \DeclareMathOperator{\Re}{Re}
 
-\renewcommand{\vec}{\bm}
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
 \renewcommand{\AA}{\mathcal{A}}
-\let\svlim\lim\def\lim{\svlim\limits}
 
-%%% Augmented matrix
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
 \makeatletter
 \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
   \hskip -\arraycolsep
@@ -117,10 +122,13 @@
   \array{#1}}
 \makeatother
 
-%%% Column type for math-mode tables
+% Column type for math-mode tables
 \newcolumntype{C}{>{\(}c<{\)}}
 
-%%% Lecture
+% enumerating (a), (b), ...
+\setlist[enumerate,1]{label={(\alph*)}}
+
+% Lecture env
 \makeatletter
 \def\@lecture{}%
 \newcommand{\lecture}[1]{
@@ -128,7 +136,7 @@
     \section{\@lecture}
 }
 
-%%% Footer and header
+% Footer and header
 \pagestyle{fancy} 
 \pagenumbering{arabic}
 \fancyfoot[L]{} 
@@ -139,8 +147,22 @@
 \fancyhead[R]{Wykład \thesection: \@lecture}
 \makeatother
 
-%%% Theorem-like environments
-%%% Change font in parentheses to normal (not bold like the title)
+% Colors
+\colorlet{framecolor}{LavenderBlush3!75}
+\colorlet{bkgcolor}{LavenderBlush1!20}
+
+\colorlet{exframecolor}{Azure3!75}
+\colorlet{exbkgcolor}{Azure1!20}
+
+\colorlet{algoframecolor}{Ivory3!75}
+\colorlet{algobkgcolor}{Ivory1!20}
+
+\colorlet{emphcolor}{RoyalBlue4}
+% Custom emph
+\renewcommand\emph[1]{\textcolor{emphcolor}{\textbf{#1}}}
+
+% Theorem-like environments
+% Change font in parentheses to normal (not bold like the title)
 \makeatletter
 \renewtheoremstyle{break}%
     {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
@@ -154,23 +176,6 @@
   {\item[\theorem@headerfont\hskip\labelsep ##1\theorem@separator]}%
   {\item[\theorem@headerfont\hskip \labelsep ##1\ \mdseries (##3)\theorem@separator]}
 \makeatother
-
-%%% Colors
-% \colorlet{headcolor}{Cornsilk4!50!black}
-\colorlet{framecolor}{Cornsilk3}
-\colorlet{bkgcolor}{Cornsilk1!33}
-
-% \colorlet{exheadcolor}{LavenderBlush4!50!black}
-\colorlet{exframecolor}{LavenderBlush3}
-\colorlet{exbkgcolor}{LavenderBlush1!33}
-
-\colorlet{algoframecolor}{LightSteelBlue3}
-\colorlet{algobkgcolor}{LightSteelBlue1!33}
-
-\colorlet{emphcolor}{RoyalBlue4}
-\colorlet{red}{IndianRed4}
-%%% Custom emph
-\renewcommand\emph[1]{\textcolor{emphcolor}{\textbf{#1}}}
 
 \theoremstyle{break}
 \theoremheaderfont{\bfseries}
