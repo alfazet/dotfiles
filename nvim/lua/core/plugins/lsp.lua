@@ -24,7 +24,6 @@ return {
                 vim.keymap.set("n", "<Leader>dc", ":lua vim.lsp.buf.declaration()<CR>")
                 vim.keymap.set("n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>")
                 vim.keymap.set("n", "<Leader>rf", ":lua vim.lsp.buf.references()<CR>")
-                vim.keymap.set("n", "<Leader>qf", ":lua vim.diagnostic.setqflist()<CR>")
                 vim.keymap.set("n", "<Leader>gd", ":lua vim.lsp.buf.definition()<CR>")
                 vim.cmd([[:hi DiagnosticUnderlineWarn cterm=undercurl gui=undercurl]])
                 vim.cmd([[:hi DiagnosticUnderlineError cterm=undercurl gui=undercurl]])

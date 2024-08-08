@@ -126,8 +126,8 @@
          id="rect"
          style="fill:none;stroke:black"
          usecurrent="0"
-         width="53.6841174748939"
-         height="53.6841174748939"
+         width="2560"
+         height="1440"
          ry="0" />
       <eventcontext
          id="3dbox"
@@ -164,8 +164,8 @@
          end="0"
          start="0"
          usecurrent="0"
-         rx="14.1518607852966"
-         ry="14.1518607852966"
+         rx="9.77570541261688"
+         ry="9.77570541261688"
          arc_type="0" />
       <eventcontext
          id="star"
@@ -194,7 +194,7 @@
          shape="0"
          freehand-mode="0"
          base-simplify="25"
-         dot-size="6.5"
+         dot-size="8.5"
          simplify="1" />
       <eventcontext
          id="pen"
@@ -325,7 +325,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="cm"
+       unit="px"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -573,7 +573,7 @@
        panel_mode="1"
        panel_ratio="100"
        panel_wrap="0"
-       palette="LaTeX"
+       palette="Rose Pine"
        panel_border="0">
       <group
          id="pinned"
@@ -646,7 +646,7 @@
          value="layer" />
       <group
          id="defaultdpi"
-         value="96" />
+         value="735.880004882812" />
     </group>
     <group
        id="save_as"
@@ -665,11 +665,11 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/antek/.config/inkscape/templates/" />
+       path="/home/antek/Videos/004-mat-stu-kwant/" />
     <group
        id="import"
        enable_preview="1"
-       path="/home/antek/.config/inkscape/templates/"
+       path="/home/antek/Videos/002-mat-stu-indukcja2/"
        ask="1"
        ask_svg="0"
        link="embed"
@@ -730,6 +730,9 @@
        id="selectors"
        vertical="1"
        panedpos="405" />
+    <group
+       id="symbols"
+       current-set="{?all-sets?}" />
   </group>
   <group
      id="printing">
@@ -1066,16 +1069,29 @@
      org.inkscape.output.png.inkscape.png_bitdepth="99"
      org.inkscape.output.png.inkscape.png_compression="6"
      org.inkscape.output.png.inkscape.png_antialias="2"
-     org.inkscape.generate.pdf_latex.formule="1"
      org.inkscape.output.pdf.cairorenderer.PDFversion="PDF-1.5"
      org.inkscape.output.pdf.cairorenderer.textToPath="LaTeX"
      org.inkscape.output.pdf.cairorenderer.stretch="relative"
      org.inkscape.output.pdf.cairorenderer.blurToBitmap="1"
      org.inkscape.input.svg.scale="auto"
-     org.inkscape.input.svg.do_not_ask="1" />
+     org.inkscape.input.svg.do_not_ask="1"
+     org.inkscape.generate.pdf_latex.font_size="14"
+     org.inkscape.generate.pdf_latex.page="basic"
+     org.inkscape.generate.pdf_latex.formule="$\exists$"
+     org.inkscape.effect.filter.Blend.source="BackgroundImage"
+     org.inkscape.effect.filter.Blend.mode="multiply"
+     org.inkscape.effect.filter.Outline.type="over"
+     org.inkscape.effect.filter.Outline.position="outside"
+     org.inkscape.effect.filter.Outline.tab="optionstab"
+     org.inkscape.effect.filter.Outline.__live_effect__="0"
+     org.inkscape.effect.filter.Outline.dilat1="100"
+     org.inkscape.effect.filter.Outline.width1="11.6847382486602"
+     org.inkscape.template.digital.height="1440.0"
+     org.inkscape.template.digital.unit="px"
+     org.inkscape.template.digital.width="2560.0" />
   <group
      id="desktop"
-     style="fill:#551a8b;font-size:16px;-inkscape-font-specification:'CMU Serif';font-family:'CMU Serif';line-height:1.2;stroke-miterlimit:10;letter-spacing:0px;opacity:0.55;stroke-width:0.98267717;stroke:#912cee;stroke-dasharray:1.96535437, 0.98267719">
+     style="fill:#191724;font-size:48px;-inkscape-font-specification:'CMU Serif';font-family:'CMU Serif';line-height:1.2;stroke-miterlimit:10;letter-spacing:0px;opacity:0.55;stroke-width:0.98267717;stroke:#191724;stroke-dasharray:1.96535437, 0.98267719">
     <group
        width="1900"
        height="1036"

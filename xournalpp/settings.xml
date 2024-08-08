@@ -4,9 +4,9 @@
   <property name="pressureSensitivity" value="false"/>
   <property name="minimumPressure" value="0.09"/>
   <property name="pressureMultiplier" value="1.6"/>
-  <property name="zoomGesturesEnabled" value="true"/>
+  <property name="zoomGesturesEnabled" value="false"/>
   <property name="selectedToolbar" value="Custom"/>
-  <property name="lastSavePath" value="/home/antek/Videos/001-mat-stu-indukcja"/>
+  <property name="lastSavePath" value="/home/antek/Videos/006-mat-stu-indukcja"/>
   <property name="lastOpenPath" value="D:\kody\matura\teoria"/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20"/>
@@ -23,7 +23,7 @@
   <property name="sidebarNumberingStyle" value="1"/>
   <property name="sidebarOnRight" value="false"/>
   <property name="scrollbarOnLeft" value="false"/>
-  <property name="menubarVisible" value="true"/>
+  <property name="menubarVisible" value="false"/>
   <property name="filepathShownInTitlebar" value="false"/>
   <property name="numColumns" value="1"/>
   <property name="numRows" value="1"/>
@@ -39,16 +39,16 @@
   <!--Which GUI elements are shown in default view mode, separated by a colon (,)-->
   <property name="defaultViewModeAttributes" value="showMenubar,showToolbar,showSidebar"/>
   <!--Which GUI elements are shown in fullscreen view mode, separated by a colon (,)-->
-  <property name="fullscreenViewModeAttributes" value="goFullscren,showToolbar,showSidebar"/>
+  <property name="fullscreenViewModeAttributes" value="goFullscren,showSidebar"/>
   <!--Which GUI elements are shown in presentation view mode, separated by a colon (,)-->
   <property name="presentationViewModeAttributes" value="goFullscren,showToolbar"/>
   <!--The cursor icon used with a stylus, allowed values are "none", "dot", "big", "arrow"-->
-  <property name="stylusCursorType" value="big"/>
+  <property name="stylusCursorType" value="arrow"/>
   <!--The eraser cursor visibility used with a stylus, allowed values are "never", "always", "hover", "touch"-->
   <property name="eraserVisibility" value="always"/>
   <!--The icon theme, allowed values are "iconsColor", "iconsLucide"-->
   <property name="iconTheme" value="iconsColor"/>
-  <property name="highlightPosition" value="true"/>
+  <property name="highlightPosition" value="false"/>
   <property name="cursorHighlightColor" value="2164260608"/>
   <property name="cursorHighlightBorderColor" value="2147483903"/>
   <property name="cursorHighlightRadius" value="15"/>
@@ -71,7 +71,7 @@
   <property name="addVerticalSpaceAmount" value="150"/>
   <property name="drawDirModsEnabled" value="false"/>
   <property name="drawDirModsRadius" value="50"/>
-  <property name="snapRotation" value="true"/>
+  <property name="snapRotation" value="false"/>
   <property name="snapRotationTolerance" value="0.3"/>
   <property name="snapGrid" value="false"/>
   <property name="snapGridTolerance" value="0.5"/>
@@ -94,12 +94,12 @@
   <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=plain&#10;backgroundColor=#ff191724&#10;"/>
   <property name="sizeUnit" value="cm"/>
   <property name="audioFolder" value=""/>
-  <property name="audioInputDevice" value="-1"/>
+  <property name="audioInputDevice" value="11"/>
   <property name="audioOutputDevice" value="-1"/>
   <property name="audioSampleRate" value="44100"/>
   <property name="audioGain" value="1"/>
   <property name="defaultSeekTime" value="5"/>
-  <property name="pluginEnabled" value=""/>
+  <property name="pluginEnabled" value="/home/antek/.config/xournalpp/plugins/custom_keymaps"/>
   <property name="pluginDisabled" value="/usr/share/xournalpp/plugins/MigrateFontSizes"/>
   <property name="strokeFilterIgnoreTime" value="150"/>
   <property name="strokeFilterIgnoreLength" value="1"/>
@@ -123,7 +123,7 @@
   <property name="stabilizerCuspDetection" value="true"/>
   <property name="stabilizerFinalizeStroke" value="true"/>
   <property name="latexSettings.autoCheckDependencies" value="true"/>
-  <property name="latexSettings.defaultText" value="x^2"/>
+  <property name="latexSettings.defaultText" value="sample text"/>
   <property name="latexSettings.globalTemplatePath" value="/home/antek/.config/xournalpp/default_template.tex"/>
   <property name="latexSettings.genCmd" value="pdflatex -halt-on-error -interaction=nonstopmode '{}'"/>
   <property name="latexSettings.sourceViewThemeId" value=""/>
@@ -136,7 +136,7 @@
   <property name="font" font="JetBrainsMono Nerd Font Mono Bold" size="24"/>
   <data name="buttonConfig">
     <data name="default">
-      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="color" type="hex" value="ffe0def4"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="size" type="string" value="thin"/>
       <attribute name="tool" type="string" value="pen"/>
@@ -285,8 +285,8 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="e0def4"/>
-      <attribute name="drawingType" type="string" value="default"/>
+      <attribute name="color" type="hex" value="eb6f92"/>
+      <attribute name="drawingType" type="string" value="ellipse"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
       <attribute name="size" type="string" value="THIN"/>
@@ -313,7 +313,7 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="selectRect">
-      <attribute name="drawingType" type="string" value="default"/>
+      <attribute name="drawingType" type="string" value="ellipse"/>
     </data>
     <data name="selectRegion">
       <attribute name="drawingType" type="string" value="default"/>

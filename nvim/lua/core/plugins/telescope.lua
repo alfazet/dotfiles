@@ -9,28 +9,45 @@ return {
         require("telescope").setup({
             defaults = {
                 initial_mode = "normal",
-                layout_config = {
-                    horizontal = {
-                        preview_cutoff = 0,
-                    },
-                },
+                sorting_strategy = "ascending",
+                preview = true,
+                borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                results_title = false,
                 file_ignore_patterns = {
-                    "venv",
-                    "aux",
+                    "^venv/",
+                    "^aux/",
                     ".*%.pdf",
                     ".*%.gz$",
                     ".*%.jpg$",
                     ".*%.png$",
+                    ".*%.mp3$",
+                    ".*%.mp4$",
+                    ".*%.mkv$",
                     ".*%.o$",
+                    ".*%.so$",
+                    ".*%.lock$",
+                },
+            },
+            pickers = {
+                find_files = {
+                    theme = "ivy",
+                },
+                live_grep = {
+                    theme = "ivy",
+                },
+                marks = {
+                    theme = "ivy",
+                },
+                diagnostics = {
+                    theme = "ivy",
                 },
             },
         })
+
         local builtin = require("telescope.builtin")
-        local previewers = require("telescope.previewers")
         vim.keymap.set("n", "<Leader>ff", builtin.find_files, {})
-        vim.keymap.set("n", "<Leader>bb", builtin.buffers, {})
         vim.keymap.set("n", "<Leader>gg", builtin.live_grep, {})
-        vim.keymap.set("n", "<Leader>ls", builtin.diagnostics, {})
-        vim.keymap.set("n", "<Leader>ma", builtin.marks, {})
+        vim.keymap.set("n", "<Leader>hh", builtin.marks, {})
+        vim.keymap.set("n", "<Leader>jj", builtin.diagnostics, {})
     end,
 }

@@ -11,11 +11,6 @@ return {
                 line = "gl",
                 block = "gb",
             },
-            extra = {
-                above = "glO",
-                below = "glo",
-                eol = "glA",
-            },
         })
     end,
 }

@@ -14,9 +14,6 @@ alias ls="eza --icons --group-directories-first"
 alias ll="eza --all --icons --group-directories-first -l --git"
 alias tree="ls --tree"
 
-# rip - safer rm
-alias rip="rip --graveyard ~/.local/share/trash"
-
 # cp compilation
 alias comp='make CXXFLAGS="-std=c++17 -Wall -Wextra -Wno-unused-parameter -Wshadow -Wfatal-errors -fsanitize=address,undefined -D_GLIBCXX_DEBUG"'
 

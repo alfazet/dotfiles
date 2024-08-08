@@ -31,7 +31,7 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ["<C-f>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
+                ["<C-k>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
                 ["<C-j>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
                 ["jk"] = cmp.mapping.confirm({select = true}),
                 ["<Esc>"] = cmp.mapping({

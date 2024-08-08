@@ -161,10 +161,22 @@ function showDialog()
             -- draw x-axis and y-axis
             local xAxis = { x = { mx, Mx }, y = { y0, y0 }, lineStyle = axisStyle, color = colAxis, width = lwAxis }
             local yAxis = { x = { x0, x0 }, y = { my, My }, lineStyle = axisStyle, color = colAxis, width = lwAxis }
-            local xHead = { x = { Mx - arrowLength, Mx, Mx - arrowLength }, y = { y0 - .6 * arrowLength, y0, y0 + .6 * arrowLength }, color =
-            colAxis, width = lwAxis, fill = -1 }
-            local yHead = { x = { x0 - .6 * arrowLength, x0, x0 + .6 * arrowLength }, y = { My + arrowLength, My, My + arrowLength }, color =
-            colAxis, width = lwAxis, fill = -1 }
+            local xHead = {
+                x = { Mx - arrowLength, Mx, Mx - arrowLength },
+                y = { y0 - .6 * arrowLength, y0, y0 + .6 * arrowLength },
+                color =
+                    colAxis,
+                width = lwAxis,
+                fill = -1
+            }
+            local yHead = {
+                x = { x0 - .6 * arrowLength, x0, x0 + .6 * arrowLength },
+                y = { My + arrowLength, My, My + arrowLength },
+                color =
+                    colAxis,
+                width = lwAxis,
+                fill = -1
+            }
             table.insert(strokes, xAxis)
             table.insert(strokes, yAxis)
             table.insert(strokes, xHead)
@@ -192,16 +204,26 @@ function showDialog()
                 local xval = fitX(i * wc.xUnit)
                 if xval >= Mx - 2 * arrowLength then break end
                 table.insert(strokes,
-                    { x = { xval, xval }, y = { y0 + tickHeight / 2, y0 - tickHeight / 2 }, width = lwAxis, color =
-                    colAxis })
+                    {
+                        x = { xval, xval },
+                        y = { y0 + tickHeight / 2, y0 - tickHeight / 2 },
+                        width = lwAxis,
+                        color =
+                            colAxis
+                    })
             end
             -- draw ticks on y-axis
             for i = (wc.yMin // wc.yUnit) + 1, (wc.yMax // wc.yUnit) do
                 local yval = fitY(i * wc.yUnit)
                 if yval <= My + 2 * arrowLength then break end
                 table.insert(strokes,
-                    { x = { x0 - tickHeight / 2, x0 + tickHeight / 2 }, y = { yval, yval }, width = lwAxis, color =
-                    colAxis })
+                    {
+                        x = { x0 - tickHeight / 2, x0 + tickHeight / 2 },
+                        y = { yval, yval },
+                        width = lwAxis,
+                        color =
+                            colAxis
+                    })
             end
         end
 
@@ -238,8 +260,14 @@ function showDialog()
             local xval = fitX(wc.xMax)
             local yval = fitY(wc.yMax)
             table.insert(texts, { text = xLabel, font = font, x = xval - font.size, y = y0 + font.size, color = colAxis })
-            table.insert(texts, { text = yLabel, font = font, x = x0 - 2 * font.size, y = yval - font.size, color =
-            colAxis })
+            table.insert(texts, {
+                text = yLabel,
+                font = font,
+                x = x0 - 2 * font.size,
+                y = yval - font.size,
+                color =
+                    colAxis
+            })
         end
 
         app.addTexts({ texts = texts })

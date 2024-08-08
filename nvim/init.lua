@@ -67,7 +67,7 @@ vim.opt.updatetime = 250
 vim.opt.conceallevel = 1
 
 -- hide netrw banner
-vim.cmd("let g:netrw_banner = 0")
+vim.g.netrw_banner = 0
 
 -- stop comments from continuing on the next line
 vim.api.nvim_create_autocmd("FileType", {

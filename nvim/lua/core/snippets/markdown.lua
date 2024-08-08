@@ -60,6 +60,10 @@ return {
         {
             t("\\sigma"),
         }),
+    s({ trig = ";t", snippetType = "autosnippet" },
+        {
+            t("\\theta"),
+        }),
     s({ trig = ";f", snippetType = "autosnippet" },
         {
             t("\\varphi"),
@@ -79,6 +83,10 @@ return {
     s({ trig = ";w", snippetType = "autosnippet" },
         {
             t("\\omega"),
+        }),
+    s({ trig = ";W", snippetType = "autosnippet" },
+        {
+            t("\\Omega"),
         }),
     s({ trig = "([^%a])l%(", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
         fmta(
@@ -116,6 +124,17 @@ return {
             }
         )
     ),
+    s({ trig = "eqn", snippetType = "autosnippet" },
+        fmta(
+            [[
+            $$<>$$
+      ]],
+            {
+                i(1),
+            }
+        ),
+        { condition = line_begin }
+    ),
     s({ trig = "bmat", snippetType = "autosnippet" },
         fmta(
             [[
@@ -128,36 +147,6 @@ return {
             }
         ),
         { condition = line_bgein and tex.in_mathzone }
-    ),
-    s({ trig = "([^%a])vv", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta(
-            "<>\\vec{<>}",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ),
-        { condition = tex.in_mathzone }
-    ),
-    s({ trig = "([^%a])tl", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta(
-            "<>\\tl{<>}",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ),
-        { condition = tex.in_mathzone }
-    ),
-    s({ trig = "([^%a])bar", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta(
-            "<>\\ol{<>}",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ),
-        { condition = tex.in_mathzone }
     ),
     s({ trig = "([^%a])ff", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta(
@@ -202,6 +191,15 @@ return {
         ),
         { condition = tex.in_mathzone }
     ),
+    s({ trig = "([^%a])ser", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta(
+            "<>\\sum_{n=0}^{\\infty}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+            }
+        ),
+        { condition = tex.in_mathzone }
+    ),
     s({ trig = "([^%a])prodd", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta(
             "<>\\prod_{<>}^{<>}",
@@ -220,6 +218,15 @@ return {
                 f(function(_, snip) return snip.captures[1] end),
                 i(1),
                 i(2),
+            }
+        ),
+        { condition = tex.in_mathzone }
+    ),
+    s({ trig = "([^%a])intf", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta(
+            "<>\\int_{-\\infty}^{+\\infty}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
             }
         ),
         { condition = tex.in_mathzone }
@@ -308,12 +315,12 @@ return {
         },
         { condition = tex.in_mathzone }
     ),
-    -- s({trig = "ii", snippetType="autosnippet"},
-    -- {
-    --     t("\\ii"),
-    -- },
-    -- {condition = tex.in_mathzone}
-    -- ),
+    s({ trig = "ii", snippetType = "autosnippet" },
+        {
+            t("\\ii"),
+        },
+        { condition = tex.in_mathzone }
+    ),
     s({ trig = "ee", snippetType = "autosnippet" },
         {
             t("\\ee"),
@@ -371,18 +378,6 @@ return {
     s({ trig = "xx", snippetType = "autosnippet" },
         {
             t("\\times"),
-        },
-        { condition = tex.in_mathzone }
-    ),
-    s({ trig = "aa", snippetType = "autosnippet" },
-        {
-            t("\\cap"),
-        },
-        { condition = tex.in_mathzone }
-    ),
-    s({ trig = "uu", snippetType = "autosnippet" },
-        {
-            t("\\cup"),
         },
         { condition = tex.in_mathzone }
     ),
@@ -505,16 +500,6 @@ return {
         ),
         { condition = tex.in_mathzone }
     ),
-    s({ trig = "([^%\\])mk", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta(
-            "<>$<>$",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ),
-        { condition = tex.in_text }
-    ),
     s({ trig = "([%w%)%]%}])'", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta(
             "<>^{<>}",
@@ -537,7 +522,7 @@ return {
     ),
     s({ trig = "([%w%)%]%}])__", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta(
-            "<>^{<>}_{<>}",
+            "<>_{<>}^{<>}",
             {
                 f(function(_, snip) return snip.captures[1] end),
                 i(1),
@@ -554,5 +539,17 @@ return {
             }
         ),
         { condition = tex.in_mathzone }
+    ),
+
+
+    s({ trig = "([^%\\])mk", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta(
+            "<>$<>$",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ),
+        { condition = tex.in_text }
     ),
 }

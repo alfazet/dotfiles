@@ -21,20 +21,10 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- delete to the black hole register
-vim.keymap.set("n", "<Leader>d", "\"_d")
-vim.keymap.set("v", "<Leader>d", "\"_d")
-
--- paste from/yank to system clipboard
-vim.keymap.set("n", "<Leader>p", "\"+p")
-vim.keymap.set("v", "<Leader>p", "\"+p")
-vim.keymap.set("n", "<Leader>y", "\"+y")
-vim.keymap.set("v", "<Leader>y", "\"+y")
-
 -- toggle line wrapping
 vim.keymap.set("n", "<Leader>ww", ":set wrap!<CR>")
 
--- gf creates a new file if it doesn't exist already
+-- go to file (create if it doesn't exist already)
 vim.keymap.set("n", "gf", ":e<cfile><CR>")
 
 -- quickfix list
@@ -49,7 +39,7 @@ vim.keymap.set("n", "<Leader>qq", function()
         vim.cmd("cclose")
         return
     end
-    if not vim.tbl_isempty(vim.fn.getqflist()) then
-        vim.cmd("copen")
-    end
+    vim.diagnostic.setqflist()
+    vim.cmd("sleep 100m") -- gives it time to fill the list
+    vim.cmd("copen")
 end)
