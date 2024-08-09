@@ -4,3 +4,6 @@ userstate.cbor
 *.log
 nvim/lazy-lock.json
 xournalpp/metadata/
+inkscape/cphistory.xml
+inkscape/dialogs-state-ex.ini
+inkscape/pages.csv
