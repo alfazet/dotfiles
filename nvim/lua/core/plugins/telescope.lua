@@ -8,10 +8,19 @@ return {
     config = function()
         require("telescope").setup({
             defaults = {
+                layout_strategy = "bottom_pane",
+                layout_config = {
+                    height = 0.5,
+                },
                 initial_mode = "normal",
                 sorting_strategy = "ascending",
                 preview = true,
-                borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                border = true,
+                borderchars = {
+                    prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+                    results = { " " },
+                    preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                },
                 results_title = false,
                 file_ignore_patterns = {
                     "^venv/",
@@ -28,20 +37,6 @@ return {
                     ".*%.lock$",
                 },
             },
-            pickers = {
-                find_files = {
-                    theme = "ivy",
-                },
-                live_grep = {
-                    theme = "ivy",
-                },
-                marks = {
-                    theme = "ivy",
-                },
-                diagnostics = {
-                    theme = "ivy",
-                },
-            },
         })
 
         local builtin = require("telescope.builtin")
@@ -49,5 +44,7 @@ return {
         vim.keymap.set("n", "<Leader>gg", builtin.live_grep, {})
         vim.keymap.set("n", "<Leader>hh", builtin.marks, {})
         vim.keymap.set("n", "<Leader>jj", builtin.diagnostics, {})
+
+        require("telescope").load_extension("fzf")
     end,
 }
