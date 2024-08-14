@@ -1,32 +1,14 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-percent=$(acpi -b | awk '{print $4}' | sed "$ s/.$//" | sed "$ s/.$//")
-if ! [[ $percent =~ "^[0-9]+$" ]]; then
+percent=$(acpi -b | awk '{print $4}' | sed "s/..$//")
+regex="^[0-9]+$"
+if ! [[ $percent =~ $regex ]]; then
     exit
 fi
 
-if [[ $percent -eq 100 ]]; then
-    echo -n "󰁹"
-elif [[ $percent -ge 90 ]]; then
-    echo -n "󰂂"
-elif [[ $percent -ge 80 ]]; then
-    echo -n "󰂁"
-elif [[ $percent -ge 70 ]]; then
-    echo -n "󰂀"
-elif [[ $percent -ge 60 ]]; then
-    echo -n "󰁿"
-elif [[ $percent -ge 50 ]]; then
-    echo -n "󰁾"
-elif [[ $percent -ge 40 ]]; then
-    echo -n "󰁽"
-elif [[ $percent -ge 30 ]]; then
-    echo -n "󰁼"
-elif [[ $percent -ge 20 ]]; then
-    echo -n "󰁻"
-else
-    echo -n "󰁺"
-fi
-
+symbols=(󱃍 󰁺 󰁻 󰁼 󰁽 󰁾 󰁿 󰂀 󰂁 󰂂 󰁹)
+level=$(( percent / 10 ))
+echo -n ${symbols[level]}
 echo " $percent%"
 echo
 if [[ $percent -ge 50 ]]; then

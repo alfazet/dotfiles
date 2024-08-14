@@ -1,0 +1,198 @@
+#!/usr/bin/env python
+"""Inkscape figures manager. Meant to be called automatically by e.g. an autocommand in nvim. Inspired by the work of Gilles Castel."""
+
+import logging
+import sys
+import os
+import time
+import shutil
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+import subprocess
+from daemonize import Daemonize
+import pyperclip
+
+LOG_FILE_PATH = "/tmp/inkman.log"
+INKSCAPE_TEMPLATES_PATH = "/home/antek/.config/inkscape/templates"
+MAX_LOG_SIZE = 1 << 14
+
+
+class FigureEventHandler(FileSystemEventHandler):
+    def __init__(self):
+        super().__init__()
+        self.last_action_time = int(time.time())
+        self.log = logging.getLogger(__name__)
+        if (
+            os.path.exists(LOG_FILE_PATH)
+            and os.path.getsize(LOG_FILE_PATH) > MAX_LOG_SIZE
+        ):
+            os.remove(LOG_FILE_PATH)
+        logging.basicConfig(
+            format="%(message)s", filename=LOG_FILE_PATH, level=logging.INFO
+        )
+        self.log.info(
+            20 * "-"
+            + f"\nInkman started at {time.strftime("%H:%M:%S", time.localtime())}\n"
+            + 20 * "-"
+        )
+
+    @staticmethod
+    def copy_latex_snippet(svg_path):
+        figure_name = svg_path[svg_path.rfind("/") + 1 : -4]
+        snippet = "\n".join(
+            (
+                r"\begin{figure}[h]",
+                r"    \centering",
+                rf"    \incfig{{{figure_name}}}",
+                r"\end{figure}",
+            )
+        )
+        pyperclip.copy(snippet)
+
+    def compile_to_pdf(self, svg_path: str):
+        pdf_path = svg_path[:-3] + "pdf"
+        command = [
+            "inkscape",
+            svg_path,
+            "--export-area-page",
+            "--export-dpi",
+            "300",
+            "--export-type=pdf",
+            "--export-latex",
+            "--export-filename",
+            pdf_path,
+        ]
+        self.log.info(f"Compling figure {svg_path} to pdf...")
+        result = subprocess.run(command)
+        return_code = result.returncode
+        if return_code != 0:
+            self.log.info(f"Compilation failed with return code {return_code}.\n")
+        else:
+            self.log.info("Success!\n")
+        self.copy_latex_snippet(svg_path)
+
+    def on_modified(self, event):
+        if not event.src_path.endswith(".svg"):
+            return
+        cur_time = time.time()
+        if cur_time - self.last_action_time > 1:
+            self.log.info(f"\nFile {event.src_path} modified.")
+            self.compile_to_pdf(event.src_path)
+            self.last_action_time = cur_time
+
+    def on_created(self, event):
+        if not event.src_path.endswith(".svg"):
+            return
+        cur_time = time.time()
+        if cur_time - self.last_action_time > 1:
+            self.log.info(f"\nFile {event.src_path} created.")
+            time.sleep(
+                0.1
+            )  # sleep for a tiny bit so that the file has enough time to "be created"
+            self.compile_to_pdf(event.src_path)
+            self.last_action_time = cur_time
+
+
+def setup_observer_daemon(figures_path: str):
+    def observe():
+        event_handler = FigureEventHandler()
+        while True:
+            observer = Observer()
+            observer.schedule(event_handler, path=figures_path, recursive=True)
+            observer.start()
+            time.sleep(1)  # refresh tracked files once every second
+            observer.stop()
+
+    daemon = Daemonize(app="inkman", pid="/tmp/inkman.pid", action=observe)
+    daemon.start()
+
+
+def find_all_svgs(path: str) -> list[str]:
+    return [
+        file[file.rfind("/") + 1 :]
+        for file in os.listdir(path)
+        if file.endswith(".svg")
+    ]
+
+
+def edit(figures_path: str):
+    """Choose (with rofi) a figure to edit and open it in Inkscape."""
+    command = [
+        "rofi",
+        "-sort" "-matching",
+        "fuzzy",
+        "-dmenu",
+        "-p",
+        "Select a figure to edit:",
+        "-format",
+        "s",
+        "-i",
+    ]
+    options = "\n".join([file_name[:-4] for file_name in find_all_svgs(figures_path)])
+    result = subprocess.run(command, input=options, stdout=subprocess.PIPE, text=True)
+    return_code = result.returncode
+    figure_to_edit = result.stdout.strip() + ".svg"
+    if return_code != 0:
+        return
+    subprocess.Popen(["inkscape", os.path.join(figures_path, figure_to_edit)])
+
+
+def create(figures_path: str, figure_name: str):
+    """Copy a template (picked with rofi) into a new .svg figure with given name and open it in Inkscape."""
+    figure_name += ".svg"
+    if figure_name in find_all_svgs(figures_path):  # to prevent overwriting
+        figure_name = figure_name[:-4] + "-1.svg"
+    command = [
+        "rofi",
+        "-sort" "-matching",
+        "fuzzy",
+        "-dmenu",
+        "-p",
+        "Select a template:",
+        "-format",
+        "s",
+        "-i",
+    ]
+    options = "\n".join(
+        [file_name[:-4] for file_name in find_all_svgs(INKSCAPE_TEMPLATES_PATH)]
+    )
+    result = subprocess.run(command, input=options, stdout=subprocess.PIPE, text=True)
+    return_code = result.returncode
+    if return_code != 0:
+        return
+    template_name = result.stdout.strip() + ".svg"
+
+    new_figure_path, template_path = os.path.join(
+        figures_path, figure_name
+    ), os.path.join(INKSCAPE_TEMPLATES_PATH, template_name)
+    shutil.copy(template_path, new_figure_path)
+    subprocess.Popen(["inkscape", new_figure_path])
+
+
+def kill():
+    """Kill the observer daemon (e.g. after quitting nvim)."""
+    if os.path.exists("/tmp/inkman.pid"):
+        with open("/tmp/inkman.pid", "r") as pid_file:
+            daemon_pid = pid_file.readline().strip()
+            subprocess.run(["kill", daemon_pid])
+
+
+if __name__ == "__main__":
+    """Usage: 'inkman <tex_root_path> <figures_dir> <operation>' or 'inkman kill', where:\n
+    \t* <tex_root_path> - path of the 'root' of your TeX document
+    \t* <figures_dir> - path of the directory containing .svg figures (relative to <tex_root_path>)
+    \t* <operation> - one of 'observe', 'edit', 'create' (must be followed by the new figure's name).
+    """
+    args = sys.argv
+    if args[1] == "kill":
+        kill()
+    else:
+        tex_root_path, figures_dir, operation = args[1], args[2], args[3]
+        figures_path = os.path.join(tex_root_path, figures_dir)
+        if operation == "observe":
+            setup_observer_daemon(figures_path)
+        elif operation == "edit":
+            edit(figures_path)
+        elif operation == "create":
+            figure_name = args[4]
+            create(figures_path, figure_name)

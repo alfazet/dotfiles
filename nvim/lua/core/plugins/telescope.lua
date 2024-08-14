@@ -11,6 +11,7 @@ return {
                 layout_strategy = "bottom_pane",
                 layout_config = {
                     height = 0.5,
+                    preview_cutoff = 60
                 },
                 initial_mode = "normal",
                 sorting_strategy = "ascending",
@@ -23,12 +24,12 @@ return {
                 },
                 results_title = false,
                 file_ignore_patterns = {
-                    "^venv/",
-                    "^aux/",
+                    "venv/",
                     ".*%.pdf",
                     ".*%.gz$",
                     ".*%.jpg$",
                     ".*%.png$",
+                    ".*%.webp$",
                     ".*%.mp3$",
                     ".*%.mp4$",
                     ".*%.mkv$",

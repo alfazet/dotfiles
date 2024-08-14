@@ -64,7 +64,7 @@ vim.opt.pumwidth = 10
 vim.opt.updatetime = 250
 
 -- syntax conceal
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 0
 
 -- hide netrw banner
 vim.g.netrw_banner = 0

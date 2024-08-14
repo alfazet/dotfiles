@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+selected=$(fd --min-depth 1 --max-depth 3 --type d . ~/Notes ~/Code| fzf)
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+dir_name=$(basename $selected)
+echo $dir_name
+# tmux_running=$(pgrep tmux)
+#
+# if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+#     tmux new-session -s $selected_name -c $selected
+#     exit 0
+# fi
+#
+# if ! tmux has-session -t=$selected_name 2> /dev/null; then
+#     tmux new-session -ds $selected_name -c $selected
+# fi
+#
+# tmux a -t $selected_name

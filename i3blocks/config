@@ -8,8 +8,8 @@ interval=1
 command=scripts/volume
 interval=1
 
-[ssid]
-command=scripts/ssid
+[wifi]
+command=scripts/wifi
 interval=30
 INTERFACE=wlan0
 
@@ -29,4 +29,4 @@ interval=30
 
 [time]
 command=date "+%a %d.%m.%Y %H:%M "
-interval=1
+interval=5

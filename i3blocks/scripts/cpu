@@ -1,6 +1,6 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-temp=$(cputemp)
+temp=$(sensors | grep "Package id 0:" | awk '{print $4}' | cut -c 2-)
 tempval=$(echo $temp | cut -c 2)
 echo $temp
 echo

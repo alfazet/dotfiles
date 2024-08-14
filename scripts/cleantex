@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Move all the latex temporary files into the aux directory.
+if [[ ! -d aux ]]; then
+    mkdir aux
+fi
+
+\mv -f *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.thm *.toc *.err *.inf *.pre *-[0-9].pdf aux

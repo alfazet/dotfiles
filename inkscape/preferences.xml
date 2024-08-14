@@ -325,7 +325,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="px"
+       unit="cm"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -573,7 +573,7 @@
        panel_mode="1"
        panel_ratio="100"
        panel_wrap="0"
-       palette="Rose Pine"
+       palette="LaTeX"
        panel_border="0">
       <group
          id="pinned"
@@ -665,7 +665,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/antek/Videos/004-mat-stu-kwant/" />
+       path="/home/antek/.config/inkscape/" />
     <group
        id="import"
        enable_preview="1"
@@ -1088,10 +1088,11 @@
      org.inkscape.effect.filter.Outline.width1="11.6847382486602"
      org.inkscape.template.digital.height="1440.0"
      org.inkscape.template.digital.unit="px"
-     org.inkscape.template.digital.width="2560.0" />
+     org.inkscape.template.digital.width="2560.0"
+     org.inkscape.template.from-file.filename="/home/antek/.config/inkscape/templates/petersen.svg" />
   <group
      id="desktop"
-     style="fill:#191724;font-size:48px;-inkscape-font-specification:'CMU Serif';font-family:'CMU Serif';line-height:1.2;stroke-miterlimit:10;letter-spacing:0px;opacity:0.55;stroke-width:0.98267717;stroke:#191724;stroke-dasharray:1.96535437, 0.98267719">
+     style="fill:#8b0000;font-size:48px;-inkscape-font-specification:'CMU Serif';font-family:'CMU Serif';line-height:1.2;stroke-miterlimit:10;letter-spacing:0px;opacity:0.55;stroke-width:0.98267717;stroke:#8b0000;stroke-dasharray:1.96535437, 0.98267719">
     <group
        width="1900"
        height="1036"

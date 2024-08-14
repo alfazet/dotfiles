@@ -17,7 +17,7 @@
 	active-background: @grn;
 	urgent-background: @red;
 
-    font: "JetBrainsMono Nerd Font 14";
+    font: "JetBrainsMono Nerd Font 20";
 
 	selected-background: @active-background;
 	selected-urgent-background: @urgent-background;
@@ -55,7 +55,7 @@
 }
 #element {
 	border:  0;
-	padding: 1px ;
+	padding: 5px ;
 }
 #element.normal.normal {
 	background-color: @background;

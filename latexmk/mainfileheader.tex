@@ -1,0 +1,21 @@
+\documentclass[a4paper,12pt]{article}
+\input{preamble}
+
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}} 
+\fancyhead[L]{Wykład \thesection: \leftmark}
+\renewcommand{\headrulewidth}{1pt}
+
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \includegraphics[scale=1]{logo_mini.png}
+        \vspace{0.1\textheight}
+        \\\Huge\textsf{{{classname}}\\
+            \medskip
+        \large Notatki z semestru {{semester}}\\}
+        \vspace{0.35\textheight}
+        \Large Antoni Zasada\\
+        \medskip
+        \normalsize \today
+    \end{center}
+\end{titlepage}
