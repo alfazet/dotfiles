@@ -18,13 +18,17 @@ function! TexNewFig() abort
     endif
     let l:name = substitute(l:name, " ", "-", "g")
     let l:name = substitute(l:name, "\t", "-", "g")
+    let l:temp = append(line("."), ["\\begin{figure}[h!]", "    \\centering", "    \\incfig{" . l:name . "}", "\\end{figure}"])
     let l:buf_path = expand("%:p:h") . "/"
+    if !isdirectory(l:buf_path . "figures")
+        silent execute "!mkdir " . l:buf_path . "figures"
+    endif
     silent execute "!inkman " . l:buf_path . " figures create " . l:name
 endfunction
 
 function! TexEditFig() abort
     let l:buf_path = expand("%:p:h") . "/"
-    silent execute "!inkman " . l:buf_path . " figures edit "
+    silent execute "!inkman " . l:buf_path . " figures edit"
 endfunction
 
 nnoremap <leader>af <Cmd>call TexNewFig()<CR>

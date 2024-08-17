@@ -19,7 +19,7 @@ ncmpcpp_directory = ~/.config/ncmpcpp
 ## MPD clients (eg. ncmpc) also use that location.
 ##
 #
-lyrics_directory = ~/.cache/mpd/lyrics
+lyrics_directory = ~/.config/mpd/lyrics
 #
 ##### connection settings #####
 #
@@ -232,20 +232,19 @@ message_delay_time = 3
 ## Note: colors can be nested.
 ##
 #
-#song_list_format = {%a - }{%t}|{$8%f$9}$R{$3%l$9}
+# song_list_format = {%a - }{%t}|{$8%f$9}$R{$3%l$9}
 #
-song_status_format = {{%a{ "%b"} - }{%t}}|{%f}
+song_status_format = {{%a - }{%t}}|{%f}
 #
-#song_library_format = {%n - }{%t}|{%f}
+song_library_format = {%t}|{%f}
 #
-#alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
+# alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
 #
-#alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
 alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}}|{%D}
 #
-current_item_prefix = $b$r
+current_item_prefix = $r
 #
-current_item_suffix = $9$/r$/b$(end)
+current_item_suffix = $9$/r$(end)
 #
 current_item_inactive_column_prefix = ""
 #
@@ -314,7 +313,7 @@ current_item_inactive_column_suffix = ""
 ##
 #
 #song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
-song_columns_list_format = (20)[]{aE} (50)[white]{t|f:Title} (20)[blue]{bE} (7f)[magenta]{l}
+song_columns_list_format = (30)[cyan]{aE} (50)[white]{t|f:Title} (7f)[cyan]{l:Length}
 #
 ##### various settings #####
 #
@@ -336,7 +335,7 @@ song_columns_list_format = (20)[]{aE} (50)[white]{t|f:Title} (20)[blue]{bE} (7f)
 #
 #playlist_show_remaining_time = no
 #
-#playlist_shorten_total_times = no
+playlist_shorten_total_times = yes
 #
 #playlist_separate_albums = no
 #

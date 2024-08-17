@@ -2,9 +2,6 @@
 \usepackage[utf8]{inputenc} 
 \usepackage{mlmodern}
 \usepackage[T1]{fontenc}
-% \usepackage{sansmathfonts}
-% \usepackage[T1]{fontenc}
-% \renewcommand*\familydefault{\sfdefault}
 
 % Packages
 \usepackage{amssymb}
@@ -34,6 +31,7 @@
 \usepackage{xifthen}
 \usepackage{import}
 \usepackage{printlen}
+\usepackage{parskip}
 \usepackage{lipsum}
 \usepackage[breakable]{tcolorbox}
 \usepackage[final, colorlinks=true, linkcolor=SlateBlue4, citecolor=black, urlcolor=darkgray]{hyperref} 
@@ -48,6 +46,14 @@
 % Lengths
 \setstretch{1.1}
 \setlength\parindent{0pt}
+
+% Some random code to fix a random issue
+% http://tex.stackexchange.com/questions/22119/how-can-i-change-the-spacing-before-theorems-with-amsthm
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=\parskip \thm@postskip=0pt
+}
+\makeatother
 
 % Periods after section numbers
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}

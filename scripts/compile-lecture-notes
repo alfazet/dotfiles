@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
+# Compile previous lecture notes
 
 if [[ -z $1 ]]; then
     exit 0
 fi
 
 class=$1
-semester="3"
-working_dir="$HOME/Notes/sem$semester/$class/lecture"
+working_dir="$HOME/Notes/sem$SEMESTER/$class/lecture"
 metadata_file="$working_dir/../metadata.json"
 main_file_basename="$class.tex"
 main_file="$working_dir/$main_file_basename"
@@ -39,4 +39,4 @@ sed -i '$ d' $main_file
 echo "\end{document}" >> $main_file
 
 echo "Compiling..."
-latexmk -cd $main_file -pdflatex > /dev/null 2>&1
+latexmk -cd $main_file -pdflatex > /dev/null 2>&1 && rm -f $main_file

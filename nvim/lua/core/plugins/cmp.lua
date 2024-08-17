@@ -31,9 +31,9 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ["<C-k>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
-                ["<C-j>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
-                ["jk"] = cmp.mapping.confirm({select = true}),
+                ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+                ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+                ["jk"] = cmp.mapping.confirm({ select = true }),
                 ["<Esc>"] = cmp.mapping({
                     i = function()
                         cmp.close()
@@ -42,13 +42,21 @@ return {
                 }),
             }),
             sources = cmp.config.sources({
-                {name = "nvim_lsp"},
-                {name = "luasnip"},
-                {name = "buffer", option = {keyword_pattern = [[\%C\k\+]],},},
-                {name = "nvim_lsp_signature_help"},
+                { name = "nvim_lsp" },
+                { name = "luasnip" },
+                { name = "buffer",                 option = { keyword_pattern = [[\%C\k\+]], }, },
+                { name = "nvim_lsp_signature_help" },
             }),
             completion = {
                 completeopt = "menu,menuone,noinsert",
+            },
+            window = {
+                completion = {
+                    scrollbar = false,
+                },
+                documentation = {
+                    scrollbar = false,
+                },
             },
         })
     end,

@@ -1,8 +1,11 @@
 super + Return
   alacritty
 
-super + shift + {d,f,x}
-  {rofi -sort -matching fuzzy -show drun > /dev/null 2>&1,firefox,pkill -USR1 -x sxhkd}
+super + BackSpace
+  shutdown-menu
+
+super + shift + {d,f,x,n}
+  {rofi -show drun > /dev/null 2>&1,firefox,pkill -USR1 -x sxhkd,new-lecture-note}
 
 XF86Audio{Raise,Lower}Volume
   pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%

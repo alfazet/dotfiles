@@ -1,16 +1,16 @@
-source $HOME/.config/zsh/theme.zsh
+config_dir="$HOME/.config/zsh"
+plugins_dir="$HOME/.config/zsh/plugins"
 
-source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/themes/rose-pine-zsh-syntax-highlighting.zsh
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+[ -f "$config_dir/aliases.zsh" ] && source "$config_dir/aliases.zsh"
+[ -f "$config_dir/theme.zsh" ] && source "$config_dir/theme.zsh"
+[ -f "$plugins_dir/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source "$plugins_dir/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[ -f "$plugins_dir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source "$plugins_dir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[ -f "$plugins_dir/zsh-syntax-highlighting/themes/rose-pine.zsh" ] && source "$plugins_dir/zsh-syntax-highlighting/themes/rose-pine.zsh"
+ZSH_AUTOSUGGEST_STRATEGY=(completion)
 
-[ -f "$HOME/.config/zsh/aliases" ] && source "$HOME/.config/zsh/aliases"
-
-bindkey -e
-bindkey "^[[1;3C" forward-word # <Alt-Right>
-bindkey "^[[1;3D" backward-word # <Alt-Left>
-bindkey "^ " autosuggest-accept # <C-Space>
+bindkey -v
+bindkey -v '^?' backward-delete-char # "normal" behavior of Backspace
+export KEYTIMEOUT=15
 
 unsetopt IGNORE_EOF 
 setopt APPEND_HISTORY

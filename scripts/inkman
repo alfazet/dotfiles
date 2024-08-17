@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Inkscape figures manager. Meant to be called automatically by e.g. an autocommand in nvim. Inspired by the work of Gilles Castel."""
+"""Inkscape figures manager daemon, inspired by the work of Gilles Castel"""
 
 import logging
 import sys
@@ -41,7 +41,7 @@ class FigureEventHandler(FileSystemEventHandler):
         figure_name = svg_path[svg_path.rfind("/") + 1 : -4]
         snippet = "\n".join(
             (
-                r"\begin{figure}[h]",
+                r"\begin{figure}[h!]",
                 r"    \centering",
                 rf"    \incfig{{{figure_name}}}",
                 r"\end{figure}",
@@ -69,7 +69,7 @@ class FigureEventHandler(FileSystemEventHandler):
             self.log.info(f"Compilation failed with return code {return_code}.\n")
         else:
             self.log.info("Success!\n")
-        self.copy_latex_snippet(svg_path)
+        # self.copy_latex_snippet(svg_path)
 
     def on_modified(self, event):
         if not event.src_path.endswith(".svg"):
@@ -116,10 +116,12 @@ def find_all_svgs(path: str) -> list[str]:
 
 
 def edit(figures_path: str):
-    """Choose (with rofi) a figure to edit and open it in Inkscape."""
+    """Choose a figure to edit and open it in Inkscape."""
     command = [
         "rofi",
-        "-sort" "-matching",
+        "-sort",
+        "-no-levenshtein-sort",
+        "-matching",
         "fuzzy",
         "-dmenu",
         "-p",

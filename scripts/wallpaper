@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-feh --no-fehbg --bg-fill "$HOME/Pictures/wallpapers/main.png"
-
-# current main: https://www.reddit.com/r/wallpapers/comments/fwtr02/across_the_sea_2560_1440

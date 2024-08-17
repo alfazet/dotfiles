@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# Start a new lecture note
+
+root_dir="$HOME/Notes/sem$SEMESTER"
+default_template="$HOME/.config/latexmk/newnotedefault.tex"
+class_names=""
+declare -a dirs
+for dir in $root_dir/*/; do
+    name=$(jq -r ".classname" ""$dir"metadata.json")
+    # if [[ "$name" != "null" ]]; then 
+    if [[ -n $name ]]; then 
+        class_names="$class_names""$name""\n"
+        dirs+=($(basename $dir))
+    fi
+done
+class_names=${class_names%"\n"*}
+chosen=$(echo -e "$class_names" | rofi -dmenu -format i -i)
+[[ -z $chosen || $chosen -lt 0 ]] && exit 1
+
+class=${dirs[chosen]}
+working_dir="$root_dir/$class/lecture"
+[[ -e $working_dir ]] || mkdir $working_dir
+cur_file="$working_dir/"$class"_cur.tex"
+[[ -e $cur_file ]] || echo "$(cat $default_template)" > $cur_file
+
+compare=$(cmp -s $cur_file $default_template)
+if [[ $? -ne 0 ]]; then
+    parts_dir="$working_dir/parts"
+    if [[ -e $parts_dir ]]; then
+        n_parts=$(find $parts_dir -regextype posix-egrep -regex ".*"$class"_part_[0-9]{2}.tex" | wc -l)
+    else
+        n_parts=0
+        mkdir $parts_dir 
+    fi
+    new_suffix=$(seq -w 01 $((n_parts + 1)) | tail -n 1)
+    mv $cur_file "$working_dir/parts/"$class"_part_"$new_suffix".tex"
+    echo "$(cat $default_template)" > $cur_file
+    rm -f $(echo $cur_file | sed "s/.tex/.pdf/")
+    rm -f $(echo $cur_file | sed "s/.tex/.synctex.gz/")
+    notify-send "Compiling previous notes..."
+    compile-lecture-notes $class > /dev/null 2>&1
+fi
+
+comm="tmux new-session -A -s $class -c "$working_dir""
+exec alacritty -e $comm

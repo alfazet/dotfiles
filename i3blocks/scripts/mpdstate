@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-# get the currenly playing song on MPD
 
-IFS= # so that newlines don't get lost in the next line
 mpc_out="$(mpc)"
-song=$(echo $mpc_out | sed -n "1p")
-state=$(echo $mpc_out | sed -n "2p" | grep -o "\[[a-z]*\]")
+song=$(echo "$mpc_out" | awk 'NR == 1')
+state=$(echo "$mpc_out" | awk 'NR == 2' | grep -o "\[[a-z]*\]")
 if [[ $state == "[playing]" ]]; then
     echo " $song"
 elif [[ $state == "[paused]" ]]; then

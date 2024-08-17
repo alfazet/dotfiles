@@ -1,0 +1,10 @@
+configuration {
+    dmenu: true;
+    p: "";
+    modes: "drun";
+    font: "JetBrainsMono Nerd Font 20";
+    drun-display-format: "{name}";
+    sort: true;
+    sorting-method: "fzf";
+    no-custom: true;
+}

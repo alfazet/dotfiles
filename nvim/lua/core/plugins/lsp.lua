@@ -19,12 +19,14 @@ return {
             local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lsp_on_attach = function(client)
                 client.server_capabilities.semanticTokensProvider = nil
-                vim.keymap.set("n", "<Leader>mn", ":lua vim.lsp.buf.hover()<CR> :lua vim.lsp.buf.hover()<CR>")
-                vim.keymap.set("n", "<Leader>df", ":lua vim.lsp.buf.definition()<CR>")
-                vim.keymap.set("n", "<Leader>dc", ":lua vim.lsp.buf.declaration()<CR>")
-                vim.keymap.set("n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>")
-                vim.keymap.set("n", "<Leader>rf", ":lua vim.lsp.buf.references()<CR>")
-                vim.keymap.set("n", "<Leader>gd", ":lua vim.lsp.buf.definition()<CR>")
+                vim.keymap.set("n", "<Leader>mn", function()
+                    vim.lsp.buf.hover()
+                    vim.lsp.buf.hover()
+                end)
+                vim.keymap.set("n", "<Leader>df", vim.lsp.buf.definition)
+                vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
+                vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition)
+                vim.keymap.set("n", "<Leader>rf", "<cmd> Telescope lsp_references <CR>")
                 vim.cmd([[:hi DiagnosticUnderlineWarn cterm=undercurl gui=undercurl]])
                 vim.cmd([[:hi DiagnosticUnderlineError cterm=undercurl gui=undercurl]])
                 vim.cmd([[:hi DiagnosticUnderlineHint cterm=undercurl gui=undercurl]])
@@ -37,7 +39,7 @@ return {
                         local opts = {
                             focusable = false,
                             close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-                            border = "rounded",
+                            border = "single",
                             source = "always",
                             prefix = " ",
                             scope = "cursor",
@@ -80,6 +82,13 @@ return {
             lspconfig.lua_ls.setup({
                 capabilities = lsp_capabilities,
                 on_attach = lsp_on_attach,
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" }
+                        }
+                    }
+                },
             })
         end,
     },

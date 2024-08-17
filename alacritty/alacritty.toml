@@ -23,9 +23,19 @@ family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [[keyboard.bindings]]
-action = "SpawnNewInstance"
-key = "Return"
-mods = "Control|Super"
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
 
 [mouse]
 hide_when_typing = true

@@ -8,6 +8,10 @@ font pango: JetBrainsMono Nerd Font 6
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+# wallpaper 
+# current: https://www.reddit.com/r/wallpapers/comments/fwtr02/across_the_sea_2560_1440
+exec --no-startup-id feh --no-fehbg --bg-fill "/home/antek/Pictures/wallpapers/main.png" &
+
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 for_window [floating] move position center
@@ -72,8 +76,8 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # move workspace between screens
-bindsym $mod+Shift+n move workspace to output left
-bindsym $mod+Shift+m move workspace to output right
+bindsym $mod+Shift+comma move workspace to output left
+bindsym $mod+Shift+period move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -131,27 +135,17 @@ bar {
     }
 }
 bindsym $mod+Shift+b bar mode toggle
-client.focused $pine $bkg $text $bkg $pine
+client.focused $pine $bkg $text $pine $pine
 
-# window styles 
 default_border pixel 1
-hide_edge_borders smart
+hide_edge_borders none
 gaps inner 5
 gaps outer 5
-smart_gaps on
-
-# shutdown widget
-set $mode_system System (r) reboot, (CTRL+s) shutdown
-mode "$mode_system" {
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+BackSpace mode "$mode_system"
+smart_gaps off
 
 # floating popups
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+
+# always open inkscape in its own workspace 
+assign [class="Inkscape"] 10

@@ -1,0 +1,84 @@
+* {
+	bg: #191724;
+	cur: #1f1d2e;
+	fgd: #e0def4;
+	cmt: #6e6a86;
+	cya: #9ccfd8;
+	grn: #31748f;
+	ora: #ebbcba;
+	pur: #c4a7e7;
+	red: #eb6f92;
+	yel: #f6c177;
+
+	foreground: @fgd;
+	background: @bg;
+	active-background: @grn;
+	urgent-background: @red;
+
+    font: "JetBrainsMono Nerd Font 20";
+
+	selected-background: @active-background;
+	selected-urgent-background: @urgent-background;
+	selected-active-background: @active-background;
+	separatorcolor: @active-background;
+	bordercolor: @grn;
+}
+
+#window {
+	background-color: @background;
+	border:           1;
+	border-radius:    0;
+	border-color:     @bordercolor;
+	padding:          5px;
+}
+#mainbox {
+	border:  0;
+	padding: 0px;
+}
+#textbox {
+	text-color: @foreground;
+}
+#listview {
+	fixed-height: 0;
+	border:       0px 0px 0px;
+	spacing:      0px;
+	scrollbar:    false;
+}
+#element {
+	border:  0;
+	padding: 10px ;
+}
+#element.normal.normal {
+	background-color: @background;
+	text-color:       @foreground;
+}
+#element.selected.normal {
+	background-color: @selected-background;
+	text-color:       @foreground;
+}
+#element.alternate.normal {
+	background-color: @background;
+	text-color:       @foreground;
+}
+#inputbar {
+	text-color: @foreground;
+    padding: 10px;
+}
+#case-indicator {
+    enabled: false;
+}
+#entry {
+    placeholder: "";
+	spacing:    0;
+    padding: 0px;
+	text-color: @foreground;
+}
+#prompt {
+    enabled: false;
+}
+#inputbar {
+	children:   [entry];
+}
+#textbox-prompt-colon {
+	str:        "";
+}

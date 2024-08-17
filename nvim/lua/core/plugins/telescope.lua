@@ -24,7 +24,10 @@ return {
                 },
                 results_title = false,
                 file_ignore_patterns = {
+                    "aux/",
+                    "target/",
                     "venv/",
+                    ".*%.bak",
                     ".*%.pdf",
                     ".*%.gz$",
                     ".*%.jpg$",
@@ -36,6 +39,7 @@ return {
                     ".*%.o$",
                     ".*%.so$",
                     ".*%.lock$",
+                    ".*%.xopp$",
                 },
             },
         })
