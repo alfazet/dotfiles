@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
+[[ $(hostname) == "antek-zenbook" ]] || exit
+
 percent=$(acpi -b | awk '{print $4}' | sed "s/..$//")
 regex="^[0-9]+$"
-if ! [[ $percent =~ $regex ]]; then
-    exit
-fi
 
 symbols=(󱃍 󰁺 󰁻 󰁼 󰁽 󰁾 󰁿 󰂀 󰂁 󰂂 󰁹)
 level=$(( percent / 10 ))
