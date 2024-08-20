@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# set the wallpaper
+wallpapers_dir="/home/antek/Pictures/wallpapers"
+
+# current: https://www.reddit.com/r/wallpapers/comments/fwtr02/across_the_sea_2560_1440
+feh --no-fehbg --bg-fill "$wallpapers_dir/$1" &

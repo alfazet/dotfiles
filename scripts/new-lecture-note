@@ -6,8 +6,7 @@ default_template="$HOME/.config/latexmk/newnotedefault.tex"
 class_names=""
 declare -a dirs
 for dir in $root_dir/*/; do
-    name=$(jq -r ".classname" ""$dir"metadata.json")
-    # if [[ "$name" != "null" ]]; then 
+    name=$(yq -r ".classname" ""$dir"metadata.yaml")
     if [[ -n $name ]]; then 
         class_names="$class_names""$name""\n"
         dirs+=($(basename $dir))

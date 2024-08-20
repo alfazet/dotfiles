@@ -8,10 +8,6 @@ font pango: JetBrainsMono Nerd Font 6
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# wallpaper 
-# current: https://www.reddit.com/r/wallpapers/comments/fwtr02/across_the_sea_2560_1440
-exec --no-startup-id feh --no-fehbg --bg-fill "/home/antek/Pictures/wallpapers/main.png" &
-
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 for_window [floating] move position center
@@ -137,7 +133,7 @@ bar {
 bindsym $mod+Shift+b bar mode toggle
 client.focused $pine $bkg $text $pine $pine
 
-default_border pixel 1
+for_window [class=".*"] border pixel 1
 hide_edge_borders none
 gaps inner 5
 gaps outer 5
