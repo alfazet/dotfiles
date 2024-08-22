@@ -9,19 +9,18 @@
 	pur: #c4a7e7;
 	red: #eb6f92;
 	yel: #f6c177;
+    gry: #524f67;
 
 	foreground: @fgd;
 	background: @bg;
-	active-background: @grn;
+	active-background: @gry;
 	urgent-background: @red;
-
-    font: "JetBrainsMono Nerd Font 20";
 
 	selected-background: @active-background;
 	selected-urgent-background: @urgent-background;
 	selected-active-background: @active-background;
 	separatorcolor: @active-background;
-	bordercolor: @grn;
+	bordercolor: @ora;
 }
 
 #window {

@@ -47,6 +47,19 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# odd-numbered to the left, even-numbered to the right
+workspace $ws1 output DP-0
+workspace $ws3 output DP-0
+workspace $ws5 output DP-0
+workspace $ws7 output DP-0
+workspace $ws9 output DP-0
+
+workspace $ws2 output HDMI-0
+workspace $ws4 output HDMI-0
+workspace $ws6 output HDMI-0
+workspace $ws8 output HDMI-0
+workspace $ws10 output HDMI-0
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -131,9 +144,9 @@ bar {
     }
 }
 bindsym $mod+Shift+b bar mode toggle
-client.focused $pine $bkg $text $pine $pine
+client.focused $rose $bkg $text $rose $rose
 
-for_window [class=".*"] border pixel 1
+default_border pixel 1
 hide_edge_borders none
 gaps inner 5
 gaps outer 5

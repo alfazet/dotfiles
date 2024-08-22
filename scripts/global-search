@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Search through files and open them in corresponding programs
+
+chosen=$({
+	find ~/Notes/sem$SEMESTER -mindepth 1 -type f -name "*.pdf" -not -path "*/figures/*"
+	find ~/Notes/books/ -mindepth 1 -type f -name "*.pdf"
+    find ~/Pictures -mindepth 1 -type f \( -name "*.jpg" -o -name "*.png" \)
+} | rofi -dmenu)
+
+[[ -z $chosen ]] && exit 1
+
+ext=${chosen##*.}
+if [[ "$ext" == "pdf" ]]; then
+    exec zathura $chosen
+elif [[ "$ext" == "jpg" || "$ext" == "png" ]]; then
+    exec imv $chosen
+fi

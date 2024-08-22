@@ -5,5 +5,5 @@ options=("Shutdown" "Reboot")
 commands=("systemctl poweroff -i" "systemctl reboot")
 chosen=$(printf '%s\n' "${options[@]}" | rofi -dmenu -format i -i)
 if [[ -n $chosen && $chosen -ge 0 ]]; then
-    exec ${commands[chosen]}
+	exec ${commands[chosen]}
 fi
