@@ -119,7 +119,7 @@ set $rose       #ebbcba
 set $pine       #31748f
 set $text       #e0def4
 set $bkg        #191724
-set $bar_bkg    #191724D0
+set $bar_bkg    #19172480
 set $gray1      #6e6a86
 set $gray2      #403d52
 set $gray3      #26233a

@@ -26,20 +26,3 @@ vim.keymap.set("n", "<Leader>ww", ":set wrap!<CR>")
 
 -- go to file (create if it doesn't exist already)
 vim.keymap.set("n", "gf", ":e<cfile><CR>")
-
--- quickfix list
--- vim.keymap.set("n", "<Leader>qq", function()
---     local qf_exists = false
---     for _, win in pairs(vim.fn.getwininfo()) do
---         if win["quickfix"] == 1 then
---             qf_exists = true
---         end
---     end
---     if qf_exists == true then
---         vim.cmd("cclose")
---         return
---     end
---     vim.diagnostic.setqflist()
---     vim.cmd("sleep 100m") -- gives it time to fill the list
---     vim.cmd("copen")
--- end)
