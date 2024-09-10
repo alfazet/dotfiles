@@ -22,7 +22,7 @@ working_dir="$root_dir/$class/lecture"
 cur_file="$working_dir/"$class"_cur.tex"
 [[ -e $cur_file ]] || echo "$(cat $default_template)" >$cur_file
 
-compare=$(cmp -s $cur_file $default_template)
+cmp -s $cur_file $default_template
 if [[ $? -ne 0 ]]; then
 	parts_dir="$working_dir/parts"
 	if [[ -e $parts_dir ]]; then

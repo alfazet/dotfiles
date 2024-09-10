@@ -155,6 +155,3 @@ smart_gaps off
 # floating popups
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
-
-# always open inkscape in its own workspace 
-assign [class="Inkscape"] 10

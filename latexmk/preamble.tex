@@ -2,6 +2,8 @@
 \usepackage[utf8]{inputenc} 
 \usepackage{mlmodern}
 \usepackage[T1]{fontenc}
+% Uncomment for sans
+% \renewcommand*\familydefault{\sfdefault}
 
 % Packages
 \usepackage{amssymb}
@@ -33,7 +35,8 @@
 \usepackage{printlen}
 \usepackage{parskip}
 \usepackage{lipsum}
-\usepackage[breakable]{tcolorbox}
+\usepackage[noEnd=true,indLines=false,spaceRequire=false,rightComments=false,beginComment=//~,beginLComment=//~,endLComment=]{algpseudocodex}
+\usepackage[most]{tcolorbox}
 \usepackage[final, colorlinks=true, linkcolor=SlateBlue4, citecolor=black, urlcolor=darkgray]{hyperref} 
 \usepackage{cleveref}
 
@@ -145,14 +148,17 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Colors
-\colorlet{framecolor}{LavenderBlush3!75}
-\colorlet{bkgcolor}{LavenderBlush1!20}
+\colorlet{thmframecolor}{Thistle3!75}
+\colorlet{thmbkgcolor}{Thistle2!20}
 
-\colorlet{exframecolor}{Azure3!75}
-\colorlet{exbkgcolor}{Azure1!20}
+\colorlet{defframecolor}{PeachPuff3!75}
+\colorlet{defbkgcolor}{PeachPuff2!20}
 
-\colorlet{algoframecolor}{Ivory3!75}
-\colorlet{algobkgcolor}{Ivory1!20}
+\colorlet{exaframecolor}{LemonChiffon3!75}
+\colorlet{exabkgcolor}{LemonChiffon1!20}
+
+\colorlet{algframecolor}{LightSkyBlue3!75}
+\colorlet{algbkgcolor}{LightSkyBlue1!20}
 
 \colorlet{emphcolor}{RoyalBlue4}
 % Custom emph
@@ -180,38 +186,23 @@
 \theoremsymbol{}
 \theoremseparator{.}
 \newtheorem{theorem}{Twierdzenie}[section]
-\tcolorboxenvironment{theorem}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
-
-\theoremstyle{break}
-\theoremheaderfont{\bfseries}
-\theorembodyfont{\mdseries}
-\theoremsymbol{}
-\theoremseparator{}
-\renewtheorem*{theorem*}{Twierdzenie}
-\tcolorboxenvironment{theorem*}{colframe=framecolor, colback=bkgcolor, sharp corners = all, breakable}
+\tcolorboxenvironment{theorem}{enhanced, frame hidden, borderline west={2pt}{0pt}{thmframecolor}, colframe=thmframecolor, colback=thmbkgcolor, sharp corners=all, breakable}
 
 \theoremstyle{break}
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
 \theoremseparator{.}
-\newtheorem{algorithm}[theorem]{Algorytm}
-\tcolorboxenvironment{algorithm}{colframe=algoframecolor, colback=algobkgcolor, sharp corners = all, breakable}
+\newtheorem{lemma}[theorem]{Lemat}
+\tcolorboxenvironment{lemma}{enhanced, frame hidden, borderline west={2pt}{0pt}{thmframecolor}, colframe=thmframecolor, colback=thmbkgcolor, sharp corners=all, breakable}
 
-% \vspace{-\belowdisplayskip}\[\] - put this hack at the end of proof if it doesn't want to behave
-\theoremstyle{nonumberplain}
-\theoremheaderfont{\bfseries}
-\theorembodyfont{\mdseries}
-\theoremsymbol{\ensuremath\square}
-\theoremseparator{:}
-\newtheorem{proof}{Dowód}
-
-\theoremstyle{plain}
+\theoremstyle{break}
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
 \theoremseparator{.}
 \newtheorem{definition}[theorem]{Definicja}
+\tcolorboxenvironment{definition}{enhanced, frame hidden, borderline west={2pt}{0pt}{defframecolor},, colframe=defframecolor, colback=defbkgcolor, sharp corners=all, breakable}
 
 \theoremstyle{break}
 \theoremheaderfont{\bfseries}
@@ -219,25 +210,27 @@
 \theoremsymbol{}
 \theoremseparator{.}
 \newtheorem{example}[theorem]{Przykład}
-\tcolorboxenvironment{example}{colframe=exframecolor, colback=exbkgcolor, sharp corners = all, breakable}
+\tcolorboxenvironment{example}{enhanced, frame hidden, borderline west={2pt}{0pt}{exaframecolor}, colframe=exaframecolor, colback=exabkgcolor, sharp corners=all, breakable}
 
-\theoremstyle{plain}
+\theoremstyle{break}
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\mdseries}
 \theoremsymbol{}
 \theoremseparator{.}
-\newtheorem{problem}{Zadanie}
+\newtheorem{algorithm}[theorem]{Algorytm}
+\tcolorboxenvironment{algorithm}{enhanced, frame hidden, borderline west={2pt}{0pt}{algframecolor}, colback=algbkgcolor, sharp corners=all, breakable}
 
-\theoremstyle{nonumberbreak}
-\theoremheaderfont{\bfseries}
-\theorembodyfont{\mdseries}
-\theoremsymbol{}
-\theoremseparator{}
-\newtheorem{solution}{}
-
-\theoremstyle{nonumberbreak}
+% \vspace{-\belowdisplayskip}\[\] - put this hack at the end of proof if the end-of-proof square isn't placed correctly 
+\theoremstyle{nonumberplain}
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\mdseries}
 \theoremsymbol{\ensuremath\square}
-\theoremseparator{}
-\newtheorem{solproof}{}
+\theoremseparator{:}
+\newtheorem{proof}{Dowód}
+
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{:}
+\newtheorem{solution}{Rozwiązanie}

@@ -16,13 +16,13 @@ function! TexNewFig() abort
     if match(l:name, "\s\+") != -1 || strlen(l:name) == 0 
         return
     endif
-    let l:name = substitute(l:name, " ", "-", "g")
-    let l:name = substitute(l:name, "\t", "-", "g")
-    let l:temp = append(line("."), ["\\begin{figure}[h!]", "    \\centering", "    \\incfig{" . l:name . "}", "\\end{figure}"])
     let l:buf_path = expand("%:p:h") . "/"
     if !isdirectory(l:buf_path . "figures")
         silent execute "!mkdir " . l:buf_path . "figures"
     endif
+    let l:name = substitute(l:name, " ", "-", "g")
+    let l:name = substitute(l:name, "\t", "-", "g")
+    let l:temp = append(line("."), ["\\begin{figure}[H]", "    \\centering", "    \\incfig{" . l:name . "}", "\\end{figure}"])
     silent execute "!inkman " . l:buf_path . " figures create " . l:name
 endfunction
 
