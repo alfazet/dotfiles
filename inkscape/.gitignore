@@ -1,8 +1,8 @@
-*
+/*
 
 !.gitignore
 
-!keys/*
-!palettes/*
-!templates/*
+!keys/
+!palettes/
+!templates/
 !textext-preamble.tex

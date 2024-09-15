@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Setup the drawing tablet
+
+for i in $(seq 10); do
+    if xsetwacom list devices | grep -q "Wacom"; then
+        break
+    fi
+    sleep 1
+done
+
+screen="DP-0"
+name="Wacom One by Wacom M Pen stylus"
+stylus_id=$(xinput | grep "Pen stylus" | cut -f 2 | cut -c 4-)
+
+xinput map-to-output $stylus_id $screen
+xsetwacom --set "$name" Button 2 "key +ctrl +y -y -ctrl"
+xsetwacom --set "$name" Button 3 "key +ctrl +z -z -ctrl"

@@ -50,7 +50,6 @@
 \setstretch{1.1}
 \setlength\parindent{0pt}
 
-% Some random code to fix a random issue
 % http://tex.stackexchange.com/questions/22119/how-can-i-change-the-spacing-before-theorems-with-amsthm
 \makeatletter
 \def\thm@space@setup{%
@@ -160,9 +159,36 @@
 \colorlet{algframecolor}{LightSkyBlue3!75}
 \colorlet{algbkgcolor}{LightSkyBlue1!20}
 
+\colorlet{codebkgcolor}{white}
+\colorlet{codecommentcolor}{Snow4}
+\colorlet{codekeywordcolor}{LightSkyBlue4}
+\colorlet{codenumbercolor}{Thistle4}
+\colorlet{codestringcolor}{PeachPuff4}
+
 \colorlet{emphcolor}{RoyalBlue4}
 % Custom emph
 \renewcommand\emph[1]{\textcolor{emphcolor}{\textbf{#1}}}
+
+% Code listings
+\lstdefinestyle{codestyle}{
+    backgroundcolor=\color[HTML]{FFFFFF},
+    commentstyle=\itshape\color{codecommentcolor},
+    keywordstyle=\color{codekeywordcolor},
+    numberstyle=\color{codenumbercolor},
+    stringstyle=\color{codestringcolor},
+    basicstyle=\small\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=none,
+    % numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+}
+\lstset{style=codestyle}
 
 % Theorem-like environments
 % Change font in parentheses to normal (not bold like the title)
