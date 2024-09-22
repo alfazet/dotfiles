@@ -5,6 +5,8 @@
 
 !alacritty/
 !alacritty/**
+!audioleaf/
+!audioleaf/**
 !dunst/
 !dunst/**
 !i3/

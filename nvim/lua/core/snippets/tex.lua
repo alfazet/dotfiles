@@ -761,6 +761,20 @@ return {
         ),
         { condition = tex.in_text }
     ),
+    s({ trig = "ifsta", snippetType = "autosnippet" },
+        fmta(
+            [[
+            \If{<>}
+                <>
+            \EndIf
+      ]],
+            {
+                i(1),
+                i(2),
+            }
+        ),
+        { condition = line_begin }
+    ),
     s({ trig = "forloop", snippetType = "autosnippet" },
         fmta(
             [[
@@ -781,6 +795,18 @@ return {
             \While{<>}
                 <>
             \EndWhile
+      ]],
+            {
+                i(1),
+                i(2),
+            }
+        ),
+        { condition = line_begin }
+    ),
+    s({ trig = "code", snippetType = "autosnippet" },
+        fmta(
+            [[
+            \lstinputlisting[language=<>]{figures/<>}
       ]],
             {
                 i(1),
