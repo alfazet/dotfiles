@@ -6,13 +6,10 @@ return {
             "windwp/nvim-ts-autotag",
             ft = {"html",},
         },
-        -- {
-        --     "nvim-treesitter/nvim-treesitter-context",
-        -- },
     },
     config = function()
         require("nvim-treesitter.configs").setup({
-            ensure_installed = {"c", "cpp", "css", "html", "javascript", "markdown", "markdown_inline", "lua", "python", "rust",},
+            ensure_installed = {"bash", "c", "c_sharp", "cpp", "css", "go", "html", "javascript", "lua", "markdown", "markdown_inline", "matlab", "python", "rust",},
             highlight = {
                 enable = true,
                 disable = {"latex",},

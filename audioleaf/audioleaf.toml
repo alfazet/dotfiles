@@ -1,7 +1,8 @@
 audio_device = "default"
 min_freq = 20
-max_freq = 3456
+max_freq = 4000
 default_gain = 0.5
+transition_time = 2
 hues = [
     60,
     44,
@@ -20,7 +21,7 @@ hues = [
 [nl_config]
 primary_axis = "y"
 sort_primary = "desc"
-sort_secondary = "asc"
+sort_secondary = "desc"
 active_panels = [
     1,
     2,

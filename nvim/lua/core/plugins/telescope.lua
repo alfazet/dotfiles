@@ -26,6 +26,8 @@ return {
                 file_ignore_patterns = {
                     "aux/",
                     "target/",
+                    "obj/",
+                    "Debug/",
                     "venv/",
                     ".*%.bak",
                     ".*%.pdf",
@@ -40,6 +42,7 @@ return {
                     ".*%.so$",
                     ".*%.lock$",
                     ".*%.xopp$",
+                    ".*%.csproj$",
                 },
             },
         })

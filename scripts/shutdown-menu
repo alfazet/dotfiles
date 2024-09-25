@@ -3,7 +3,7 @@
 
 options=("Shutdown" "Reboot")
 commands=("systemctl poweroff -i" "systemctl reboot")
-chosen=$(printf '%s\n' "${options[@]}" | rofi -dmenu -format i -i)
+chosen=$(printf '%s\n' "${options[@]}" | rofi -dmenu -format i -i -theme-str 'entry {enabled: false;}')
 if [[ -n $chosen && $chosen -ge 0 ]]; then
 	exec ${commands[chosen]}
 fi

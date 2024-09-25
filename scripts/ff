@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Credit: ThePrimeagen
-# Renamed to ff for convenience 
+# Credit: ThePrimeagen's tmux-sessionizer
+# Renamed to ff for convenience
 
-chosen=$(find ~/Code -mindepth 1 -maxdepth 3 -type d -not -path "*/.*" | fzf)
+chosen=$(find ~/Code/projects -mindepth 1 -maxdepth 1 -type d -not -path "*/.*" | fzf)
 
 [[ -z $chosen ]] && exit 1
 
