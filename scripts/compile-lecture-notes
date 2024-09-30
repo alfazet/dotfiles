@@ -6,8 +6,8 @@ if [[ -z $1 ]]; then
 fi
 
 class=$1
-working_dir="$HOME/Notes/sem$SEMESTER/$class/lecture"
-metadata_file="$working_dir/../metadata.yaml"
+working_dir="$HOME/Notes/sem$SEMESTER/$class"
+metadata_file="$working_dir/metadata.yaml"
 main_file_basename="$class.tex"
 main_file="$working_dir/$main_file_basename"
 main_file_header="$HOME/.config/latexmk/mainfileheader.tex"

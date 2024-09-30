@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Inkscape figures manager daemon, inspired by the work of Gilles Castel"""
+"""Inkscape figures manager daemon, inspired by https://github.com/gillescastel/inkscape-figures"""
 
 import logging
 import sys
@@ -144,25 +144,6 @@ def create(figures_path: str, figure_name: str):
     figure_name += ".svg"
     if figure_name in find_all_svgs(figures_path):  # to prevent overwriting
         figure_name = figure_name[:-4] + "-1.svg"
-    # command = [
-    #     "rofi",
-    #     "-sort" "-matching",
-    #     "fuzzy",
-    #     "-dmenu",
-    #     "-p",
-    #     "Select a template:",
-    #     "-format",
-    #     "s",
-    #     "-i",
-    # ]
-    # options = "\n".join(
-    #     [file_name[:-4] for file_name in find_all_svgs(INKSCAPE_TEMPLATES_PATH)]
-    # )
-    # result = subprocess.run(command, input=options, stdout=subprocess.PIPE, text=True)
-    # return_code = result.returncode
-    # if return_code != 0:
-    #     return
-    # template_name = result.stdout.strip() + ".svg"
 
     new_figure_path, template_path = os.path.join(
         figures_path, figure_name

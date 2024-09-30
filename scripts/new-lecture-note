@@ -17,7 +17,7 @@ chosen=$(echo -e "$class_names" | rofi -dmenu -format i -i)
 [[ -z $chosen || $chosen -lt 0 ]] && exit 1
 
 class=${dirs[chosen]}
-working_dir="$root_dir/$class/lecture"
+working_dir="$root_dir/$class"
 [[ -e $working_dir ]] || mkdir $working_dir
 cur_file="$working_dir/"$class"_cur.tex"
 [[ -e $cur_file ]] || echo "$(cat $default_template)" >$cur_file
