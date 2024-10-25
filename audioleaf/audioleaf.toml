@@ -1,6 +1,6 @@
 audio_device = "default"
 min_freq = 20
-max_freq = 4000
+max_freq = 4500
 default_gain = 0.5
 transition_time = 2
 hues = [
