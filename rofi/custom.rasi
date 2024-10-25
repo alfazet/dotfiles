@@ -5,6 +5,7 @@ configuration {
     font: "JetBrainsMono Nerd Font 20";
     drun-display-format: "{name}";
     sort: true;
+    matching: "fuzzy";
     sorting-method: "fzf";
     no-custom: true;
 }

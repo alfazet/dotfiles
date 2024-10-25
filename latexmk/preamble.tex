@@ -35,10 +35,15 @@
 \usepackage{printlen}
 \usepackage{parskip}
 \usepackage{lipsum}
+\usepackage{siunitx}
 \usepackage[noEnd=true,indLines=false,spaceRequire=false,rightComments=false,beginComment=//~,beginLComment=//~,endLComment=]{algpseudocodex}
 \usepackage[most]{tcolorbox}
 \usepackage[final, colorlinks=true, linkcolor=SlateBlue4, citecolor=black, urlcolor=darkgray]{hyperref} 
 \usepackage{cleveref}
+\crefname{equation}{}{}
+\crefname{thoerem}{}{}
+\crefname{lemma}{}{}
+\crefname{example}{}{}
 
 % Inkscape figures
 \newcommand{\incfig}[1]{%
@@ -114,6 +119,7 @@
 \DeclareMathOperator{\Im}{Im}
 \let\Re\relax
 \DeclareMathOperator{\Re}{Re}
+\DeclareMathSymbol{\hyph}{\mathord}{AMSa}{"39}
 
 \renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
 \renewcommand{\AA}{\mathcal{A}}

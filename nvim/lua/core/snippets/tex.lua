@@ -60,7 +60,7 @@ return {
         {
             t("\\sigma"),
         }, { condition = tex.in_mathzone }),
-    s({ trig = ";t", snippetType = "autosnippet" },
+    s({ trig = ";o", snippetType = "autosnippet" },
         {
             t("\\theta"),
         }, { condition = tex.in_mathzone }),
@@ -87,6 +87,10 @@ return {
     s({ trig = ";k", snippetType = "autosnippet" },
         {
             t("\\kappa"),
+        }, { condition = tex.in_mathzone }),
+    s({ trig = ";t", snippetType = "autosnippet" },
+        {
+            t("\\tau"),
         }, { condition = tex.in_mathzone }),
     s({ trig = ";W", snippetType = "autosnippet" },
         {
@@ -576,9 +580,9 @@ return {
         },
         { condition = tex.in_mathzone }
     ),
-    s({ trig = "xx", snippetType = "autosnippet" },
+    s({ trig = "_-", snippetType = "autosnippet" },
         {
-            t("\\times"),
+            t("\\hyph"),
         },
         { condition = tex.in_mathzone }
     ),
