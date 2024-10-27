@@ -2,7 +2,7 @@
 # Search through files and open them in corresponding programs
 
 chosen=$({
-	find ~/Notes/sem$SEMESTER -mindepth 1 -type f -name "*.pdf" -not -path "*/figures/*"
+	find ~/Notes/slides/ -mindepth 1 -type f -name "*.pdf"
 	find ~/Notes/books/ -mindepth 1 -type f -name "*.pdf"
     find ~/Pictures -mindepth 1 -type f \( -name "*.jpg" -o -name "*.png" \)
 } | rofi -dmenu)

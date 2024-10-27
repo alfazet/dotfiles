@@ -25,19 +25,14 @@ set completion-fg               "#ebbcba"
 set completion-highlight-fg     "#26233a"
 set completion-highlight-bg     "#ebbcba"
 
-set recolor                     "true"
+set recolor                     "false"
 set recolor-keephue             "true"
-set font                        "MapleMono"
+set font                        "JetBrainsMono Nerd Font"
 
 set selection-notification      "false"
 set guioptions                  ""
 set selection-clipboard clipboard
 set database sqlite
-
-# light theme
-# set recolor-lightcolor          "#faf4ed"
-# set recolor-darkcolor           "#575279"
-# set default-bg                  "#faf4ed"
 
 set recolor-lightcolor          "#191724"
 set recolor-darkcolor           "#e0def4"
