@@ -80,28 +80,6 @@ return {
                     },
                 },
             })
-            -- Go
-            lspconfig.gopls.setup({
-                capabilities = lsp_capabilities,
-                on_attach = lsp_on_attach,
-            })
-            -- C#
-            lspconfig.csharp_ls.setup({
-                capabilities = lsp_capabilities,
-                on_attach = lsp_on_attach,
-            })
-            -- Lua
-            -- lspconfig.lua_ls.setup({
-            --     capabilities = lsp_capabilities,
-            --     on_attach = lsp_on_attach,
-            --     settings = {
-            --         Lua = {
-            --             diagnostics = {
-            --                 globals = { "vim" }
-            --             }
-            --         }
-            --     },
-            -- })
         end,
     },
 }

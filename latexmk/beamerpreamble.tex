@@ -1,0 +1,108 @@
+\usefonttheme{professionalfonts}
+\usepackage{sourcesanspro}
+\DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
+\DeclareTextFontCommand{\textsb}{\sbseries}
+\usepackage{sourcecodepro}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{MnSymbol}
+\usepackage[cal=euler,bb=fourier]{mathalpha}
+\newcommand{\hmmax}{0} % Avoid "Too many math alphabets" error
+\newcommand{\bmmax}{0} % Avoid "Too many math alphabets" error
+\usepackage{bm}
+\usepackage[italic,eulergreek,nolessnomore,noparenthesis,noplusnominus,noequal,nohbar]{mathastext}
+\MTsetmathskips{y}{2mu}{0mu}
+\MTsetmathskips{j}{2mu}{0mu}
+
+\usetheme{Boadilla}
+\usecolortheme[]{seagull}
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{title page}[default][left,leftskip=-8pt]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+\setbeamerfont{title}{size=\huge, series=\scshape}
+\setbeamerfont{author}{size=\large}
+\setbeamerfont{frametitle}{series=\scshape}
+\setbeamertemplate{frametitle}{\vskip3mm\MakeLowercase{\insertframetitle}}
+\setbeamertemplate{frametitle continuation}{[\insertcontinuationcount]}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize} % Second level
+\setbeamerfont{itemize/enumerate subsubbody}{size=\normalsize} % Third level
+\setbeamerfont{block title}{series=\sbseries,size=\normalsize} % Title
+\setbeamerfont{button}{size=\footnotesize}
+
+\usepackage[x11names]{xcolor}
+\colorlet{BlackGray}{black!85!}
+\colorlet{DarkGray}{gray!60!}
+\colorlet{LightGray}{gray!30!}
+\setbeamercolor{title}{fg=BlackGray}
+\setbeamercolor{frametitle}{fg=BlackGray}
+\setbeamercolor{normal text}{fg=BlackGray}
+\setbeamercolor{itemize item}{fg=DarkGray} % Itemized list, first level
+\setbeamercolor{itemize subitem}{fg=DarkGray}  % Itemized list, second level
+\setbeamercolor{itemize subsubitem}{fg=DarkGray}  % Itemized list, third level
+\setbeamercolor{enumerate item}{fg=DarkGray}  % Numbered list, first level
+\setbeamercolor{enumerate subitem}{fg=DarkGray}  % Numbered list, second level
+\setbeamercolor{enumerate subsubitem}{fg=DarkGray}  % Numbered list, third level
+\setbeamercolor{block title}{fg=BlackGray,bg=LightGray} % Title
+\setbeamercolor{block body}{fg=BlackGray,bg=LightGray} % Body
+\setbeamercolor{footline}{fg=DarkGray}
+\setbeamercolor{button}{fg=DarkGray, bg=white}
+% \usepackage[final, colorlinks=true, linkcolor=SlateBlue4, citecolor=black, urlcolor=darkgray]{hyperref} 
+
+\let\oldtitle\title
+\renewcommand{\title}[1]{\oldtitle[]{\MakeLowercase{#1}\vspace{-5mm}\\\color{BlackGray}{\rule{\textwidth}{2pt}}\vspace{1cm}}}
+
+\usepackage{xparse}
+\NewDocumentCommand{\information}{o g g}{%
+\author[]{#2%
+\IfValueT{#3}{\vspace{5mm}\\#3}%
+\IfValueT{#1}{\vspace{5mm}\\\color{DarkGray}{\footnotesize Available at \url{#1}}}%
+}\date[]{}}
+
+\setbeamertemplate{itemize item}{\textbullet} % First-level item
+\setbeamertemplate{itemize subitem}{\textendash} % Second-level item
+\setbeamertemplate{itemize subsubitem}{\textsquare} % Third-level item
+\setbeamertemplate{enumerate item}[default] % First-level item
+\setbeamertemplate{enumerate subitem}{\alph{enumii}.} % Second-level item
+\setbeamertemplate{enumerate subsubitem}{\roman{enumiii}.} % Third-level item
+
+\NewDocumentCommand{\al}{o g}{%
+\IfNoValueTF{#1}{\textcolor{Red1}{#2}}%
+{\textcolor<#1>{Red1}{#2}}}
+
+\NewDocumentCommand{\alg}{o g}{%
+\IfNoValueTF{#1}{\textcolor{Green1}{#2}}%
+{\textcolor<#1>{Green1}{#2}}}
+\NewDocumentCommand{\alr}{o g}{%
+\IfNoValueTF{#1}{\textcolor{Red1}{#2}}%
+{\textcolor<#1>{Red1}{#2}}}
+\NewDocumentCommand{\alb}{o g}{%
+\IfNoValueTF{#1}{\textcolor{Blue1}{#2}}%
+{\textcolor<#1>{Blue1}{#2}}}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{caption}
+\captionsetup{labelformat=empty,size=normalsize}
+\let\oldincludegraphics\includegraphics 
+\renewcommand{\includegraphics}[2][]{\centering\oldincludegraphics[#1]{#2}}
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{remark}{Remark}
+
+\newcommand{\heading}[1]{\LARGE\scshape\color{BlackGray}\singlespacing\MakeLowercase{#1}}
+
+\newcommand{\lastslide}{{\setbeamercolor{normal text}{bg=LightGray}\begin{frame}\end{frame}}}
+
+\setbeamertemplate{footline}{}
+
+% Uncomment the line below to insert slide numbers
+% \setbeamertemplate{footline}[frame number]
+
+\usepackage{polski}
+\usepackage{cancel}

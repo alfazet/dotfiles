@@ -5,4 +5,4 @@ if [[ ! -d aux ]]; then
 	mkdir aux
 fi
 
-\mv -f *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.thm *.toc *.err *.inf *.pre *-[0-9].pdf aux
+\mv -f *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.thm *.toc *.err *.inf *.pre *.nav *.snm *-[0-9].pdf aux
