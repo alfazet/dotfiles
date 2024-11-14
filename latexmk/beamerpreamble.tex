@@ -4,8 +4,10 @@
 \DeclareTextFontCommand{\textsb}{\sbseries}
 \usepackage{sourcecodepro}
 \usepackage[T1]{fontenc}
-\usepackage{url}
+\usepackage[x11names]{xcolor}
 \usepackage{MnSymbol}
+% \usepackage[final, colorlinks=true, linkcolor=SlateBlue4, citecolor=black, urlcolor=darkgray]{hyperref} 
+\usepackage{url}
 \usepackage[cal=euler,bb=fourier]{mathalpha}
 \newcommand{\hmmax}{0} % Avoid "Too many math alphabets" error
 \newcommand{\bmmax}{0} % Avoid "Too many math alphabets" error
@@ -33,7 +35,6 @@
 \setbeamerfont{block title}{series=\sbseries,size=\normalsize} % Title
 \setbeamerfont{button}{size=\footnotesize}
 
-\usepackage[x11names]{xcolor}
 \colorlet{BlackGray}{black!85!}
 \colorlet{DarkGray}{gray!60!}
 \colorlet{LightGray}{gray!30!}
@@ -50,7 +51,6 @@
 \setbeamercolor{block body}{fg=BlackGray,bg=LightGray} % Body
 \setbeamercolor{footline}{fg=DarkGray}
 \setbeamercolor{button}{fg=DarkGray, bg=white}
-% \usepackage[final, colorlinks=true, linkcolor=SlateBlue4, citecolor=black, urlcolor=darkgray]{hyperref} 
 
 \let\oldtitle\title
 \renewcommand{\title}[1]{\oldtitle[]{\MakeLowercase{#1}\vspace{-5mm}\\\color{BlackGray}{\rule{\textwidth}{2pt}}\vspace{1cm}}}
