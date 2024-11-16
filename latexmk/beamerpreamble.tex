@@ -4,17 +4,20 @@
 \DeclareTextFontCommand{\textsb}{\sbseries}
 \usepackage{sourcecodepro}
 \usepackage[T1]{fontenc}
-\usepackage[x11names]{xcolor}
 \usepackage{MnSymbol}
-% \usepackage[final, colorlinks=true, linkcolor=SlateBlue4, citecolor=black, urlcolor=darkgray]{hyperref} 
 \usepackage{url}
+% \usepackage[final, colorlinks=true, linkcolor=SlateBlue4, citecolor=black, urlcolor=darkgray]{hyperref} 
 \usepackage[cal=euler,bb=fourier]{mathalpha}
 \newcommand{\hmmax}{0} % Avoid "Too many math alphabets" error
 \newcommand{\bmmax}{0} % Avoid "Too many math alphabets" error
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
 \usepackage{bm}
 \usepackage[italic,eulergreek,nolessnomore,noparenthesis,noplusnominus,noequal,nohbar]{mathastext}
 \MTsetmathskips{y}{2mu}{0mu}
 \MTsetmathskips{j}{2mu}{0mu}
+% \usepackage[x11names]{xcolor}
 
 \usetheme{Boadilla}
 \usecolortheme[]{seagull}
@@ -106,3 +109,53 @@
 
 \usepackage{polski}
 \usepackage{cancel}
+
+% Common math symbols and operators
+\providecommand{\ol}{\overline}
+\providecommand{\oa}{\overrightarrow}
+\providecommand{\ul}{\underline}
+\providecommand{\tl}{\widetilde}
+
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\KK}{\mathbb{K}}
+\providecommand{\BB}{\mathcal{B}}
+\providecommand{\CC}{\mathcal{C}}
+\providecommand{\LL}{\mathcal{L}}
+\providecommand{\EE}{\mathcal{E}}
+\providecommand{\PP}{\mathcal{P}}
+\providecommand{\UU}{\mathcal{U}}
+\providecommand{\VV}{\mathcal{V}}
+\providecommand{\ii}{\mathrm{i}}
+\providecommand{\ee}{\mathrm{e}}
+\providecommand{\dd}{\,\mathrm{d}}
+\providecommand{\cont}{\mathfrak{c}}
+
+\DeclareMathOperator{\arctg}{arctg}
+\DeclareMathOperator{\arcctg}{arcctg}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rd}{rd}
+\DeclareMathOperator{\fl}{fl}
+\DeclareMathOperator{\af}{af}
+\DeclareMathOperator{\spann}{span}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\DeclareMathSymbol{\hyph}{\mathord}{AMSa}{"39}
+
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
+\renewcommand{\AA}{\mathcal{A}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
