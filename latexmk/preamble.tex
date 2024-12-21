@@ -13,9 +13,11 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage{mathtools}
 \usepackage{microtype}
-\usepackage[margin=2.5cm]{geometry}
+\usepackage[paper=a4paper,margin=25mm]{geometry}
 \usepackage{framed}
 \usepackage[amsmath, thmmarks, framed]{ntheorem}
+\usepackage{tikz}
+\usetikzlibrary{angles, calc, math, through}
 \usepackage{polski}
 \usepackage{array}
 \usepackage{float}
@@ -36,14 +38,13 @@
 \usepackage{parskip}
 \usepackage{lipsum}
 \usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{matlab-prettifier}
 \usepackage[noEnd=true,indLines=false,spaceRequire=false,rightComments=false,beginComment=//~,beginLComment=//~,endLComment=]{algpseudocodex}
 \usepackage[most]{tcolorbox}
-\usepackage[final, colorlinks=true, linkcolor=SlateBlue4, citecolor=black, urlcolor=darkgray]{hyperref} 
+\usepackage[final, colorlinks=true, linkcolor=black, citecolor=black, urlcolor=darkgray]{hyperref} 
 \usepackage{cleveref}
-\crefname{equation}{}{}
-\crefname{thoerem}{}{}
-\crefname{lemma}{}{}
-\crefname{example}{}{}
 
 % Inkscape figures
 \newcommand{\incfig}[1]{%
@@ -52,7 +53,7 @@
 \pdfsuppresswarningpagegroup=1
 
 % Lengths
-\setstretch{1.1}
+\setstretch{1.15}
 \setlength\parindent{0pt}
 
 % http://tex.stackexchange.com/questions/22119/how-can-i-change-the-spacing-before-theorems-with-amsthm
@@ -71,11 +72,34 @@
 % Cleveref fix
 \crefname{equation}{}{}
 \crefname{theorem}{}{}
+\crefname{lemma}{}{}
 \crefname{example}{}{}
 \crefname{definition}{}{}
+\crefname{figure}{}{}
+\crefname{table}{}{}
+\crefname{listing}{}{}
+\crefname{lstlisting}{}{}
+\crefname{lstinputlisting}{}{}
 
-% Title
+% Title and titlepage
 \titlelabel{\thetitle.\quad}
+
+\makeatletter
+\newcommand{\printcover}{
+    \begin{titlepage}
+        \begin{center}
+            \IfFileExists{logo\_mini.png}{\includegraphics[width=0.75\textwidth]{logo_mini.png}}{\hphantom{}}
+            \vspace{0.1\textheight}
+            \\\Huge \textsf{\@title}
+            \@ifundefined{subtitle}{}{\\\Large \subtitle}
+            \@ifundefined{flavortext}{}{\\\large \flavortext}
+            \vspace{0.25\textheight}
+            \\\Large \textsf{\textbf{\@author}}
+            \@ifundefined{placedate}{}{\\\large \placedate}
+        \end{center}
+    \end{titlepage}
+}
+\makeatother
 
 % Common math symbols and operators
 \providecommand{\ol}{\overline}
@@ -152,32 +176,14 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Colors
-\colorlet{thmframecolor}{Thistle3!75}
-\colorlet{thmbkgcolor}{Thistle2!20}
-
-\colorlet{defframecolor}{PeachPuff3!75}
-\colorlet{defbkgcolor}{PeachPuff2!20}
-
-\colorlet{exaframecolor}{LemonChiffon3!75}
-\colorlet{exabkgcolor}{LemonChiffon1!20}
-
-\colorlet{algframecolor}{LightSkyBlue3!75}
-\colorlet{algbkgcolor}{LightSkyBlue1!20}
-
 \colorlet{codebkgcolor}{white}
 \colorlet{codecommentcolor}{Snow4}
 \colorlet{codekeywordcolor}{LightSkyBlue4}
 \colorlet{codenumbercolor}{Thistle4}
 \colorlet{codestringcolor}{PeachPuff4}
 
-\colorlet{emphcolor}{RoyalBlue4}
-% Custom emph
-\renewcommand\emph[1]{\textcolor{emphcolor}{\textbf{#1}}}
-
 % Code listings
 \lstdefinestyle{codestyle}{
-    backgroundcolor=\color[HTML]{FFFFFF},
     commentstyle=\itshape\color{codecommentcolor},
     keywordstyle=\color{codekeywordcolor},
     numberstyle=\color{codenumbercolor},
@@ -188,16 +194,36 @@
     captionpos=b,
     keepspaces=true,
     numbers=none,
-    % numbersep=5pt,
     showspaces=false,
     showstringspaces=false,
     showtabs=false,
     tabsize=4,
 }
-\lstset{style=codestyle}
+\lstset{
+    style=codestyle,
+    escapeinside={\%*}{*)},
+    extendedchars=false,
+    inputencoding=utf8,
+    backgroundcolor=\color{codebkgcolor},
+    frame=single,
+    literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\EUR}}1 {£}{{\pounds}}1
+    {ą}{{\k a}}1 {Ą}{{\k A}}1 {ć}{{\' c}}1 {Ć}{{\' C}}1 {ę}{{\k e}}1
+    {Ę}{{\k E}}1 {ł}{{\l}}1 {Ł}{{\L}}1 {ń}{{\' n}}1 {Ń}{{\' N}}1
+    {ś}{{\' s}}1 {Ś}{{\' S}}1 {ż}{{\. z}}1 {Ż}{{\. Z}}1
+    {ź}{{\' z}}1 {Ź}{{\' Z}}1
+}
 
 % Theorem-like environments
-% Change font in parentheses to normal (not bold like the title)
 \makeatletter
 \renewtheoremstyle{break}%
     {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
@@ -206,10 +232,10 @@
 ##1\ ##2\theorem@separator \mdseries\ (##3)}\hbox{\strut}}}]}
 \renewtheoremstyle{plain}%
   {\item[\hskip\labelsep \theorem@headerfont ##1\ ##2\theorem@separator]}%
-  {\item[\hskip\labelsep \theorem@headerfont ##1\ ##2 \mdseries (##3)\theorem@separator]}
+{\item[\hskip\labelsep \theorem@headerfont ##1\ ##2\theorem@separator\  \mdseries(##3)]}
 \renewtheoremstyle{nonumberplain}%
   {\item[\theorem@headerfont\hskip\labelsep ##1\theorem@separator]}%
-  {\item[\theorem@headerfont\hskip \labelsep ##1\ \mdseries (##3)\theorem@separator]}
+{\item[\hskip\labelsep \theorem@headerfont ##1\ \mdseries(##3)\theorem@separator]}
 \makeatother
 
 \theoremstyle{break}
@@ -218,7 +244,6 @@
 \theoremsymbol{}
 \theoremseparator{.}
 \newtheorem{theorem}{Twierdzenie}[section]
-\tcolorboxenvironment{theorem}{enhanced, frame hidden, borderline west={2pt}{0pt}{thmframecolor}, colframe=thmframecolor, colback=thmbkgcolor, sharp corners=all, breakable}
 
 \theoremstyle{break}
 \theoremheaderfont{\bfseries}
@@ -226,7 +251,13 @@
 \theoremsymbol{}
 \theoremseparator{.}
 \newtheorem{lemma}[theorem]{Lemat}
-\tcolorboxenvironment{lemma}{enhanced, frame hidden, borderline west={2pt}{0pt}{thmframecolor}, colframe=thmframecolor, colback=thmbkgcolor, sharp corners=all, breakable}
+
+\theoremstyle{break}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{.}
+\newtheorem{corollary}[theorem]{Wniosek}
 
 \theoremstyle{break}
 \theoremheaderfont{\bfseries}
@@ -234,7 +265,6 @@
 \theoremsymbol{}
 \theoremseparator{.}
 \newtheorem{definition}[theorem]{Definicja}
-\tcolorboxenvironment{definition}{enhanced, frame hidden, borderline west={2pt}{0pt}{defframecolor},, colframe=defframecolor, colback=defbkgcolor, sharp corners=all, breakable}
 
 \theoremstyle{break}
 \theoremheaderfont{\bfseries}
@@ -242,7 +272,6 @@
 \theoremsymbol{}
 \theoremseparator{.}
 \newtheorem{example}[theorem]{Przykład}
-\tcolorboxenvironment{example}{enhanced, frame hidden, borderline west={2pt}{0pt}{exaframecolor}, colframe=exaframecolor, colback=exabkgcolor, sharp corners=all, breakable}
 
 \theoremstyle{break}
 \theoremheaderfont{\bfseries}
@@ -250,7 +279,13 @@
 \theoremsymbol{}
 \theoremseparator{.}
 \newtheorem{algorithm}[theorem]{Algorytm}
-\tcolorboxenvironment{algorithm}{enhanced, frame hidden, borderline west={2pt}{0pt}{algframecolor}, colback=algbkgcolor, sharp corners=all, breakable}
+
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{:}
+\newtheorem{remark}{Uwaga}
 
 % \vspace{-\belowdisplayskip}\[\] - put this hack at the end of proof if the end-of-proof square isn't placed correctly 
 \theoremstyle{nonumberplain}
@@ -259,10 +294,3 @@
 \theoremsymbol{\ensuremath\square}
 \theoremseparator{:}
 \newtheorem{proof}{Dowód}
-
-\theoremstyle{nonumberplain}
-\theoremheaderfont{\bfseries}
-\theorembodyfont{\mdseries}
-\theoremsymbol{}
-\theoremseparator{:}
-\newtheorem{solution}{Rozwiązanie}

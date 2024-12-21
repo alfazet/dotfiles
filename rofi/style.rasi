@@ -38,14 +38,14 @@
 	text-color: @foreground;
 }
 #listview {
-	fixed-height: 0;
+	fixed-height: false;
 	border:       0px 0px 0px;
 	spacing:      0px;
 	scrollbar:    false;
 }
 #element {
-	border:  0;
-	padding: 10px ;
+	border: 0;
+	padding: 10px;
 }
 #element.normal.normal {
 	background-color: @background;
@@ -68,7 +68,7 @@
 }
 #entry {
     placeholder: "";
-	spacing:    0;
+	spacing: 0;
     padding: 0px;
 	text-color: @foreground;
 }
