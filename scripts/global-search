@@ -2,8 +2,10 @@
 # Search through files and open them in corresponding programs
 
 chosen=$({
-	find ~/Notes/slides/ -mindepth 1 -type f -name "*.pdf"
+	find ~/Notes/lectures/ -mindepth 1 -type f -name "*.pdf"
 	find ~/Notes/books/ -mindepth 1 -type f -name "*.pdf"
+	find ~/Notes/notes/ -mindepth 1 -type f -name "*.pdf"
+    find ~/Notes/projects/ -mindepth 1 -type f \( -name "*.pdf" -o -name "*.jpg" -o -name "*.png" \)
     find ~/Pictures -mindepth 1 -type f \( -name "*.jpg" -o -name "*.png" \)
 } | rofi -dmenu)
 

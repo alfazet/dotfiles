@@ -359,6 +359,16 @@ return {
         ),
         { condition = tex.in_mathzone }
     ),
+    s({ trig = "([^%a])hat", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta(
+            "<>\\hat{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ),
+        { condition = tex.in_mathzone }
+    ),
     s({ trig = "([^%a])ff", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta(
             "<>\\frac{<>}{<>}",

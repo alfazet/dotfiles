@@ -17,7 +17,7 @@
 \usepackage{framed}
 \usepackage[amsmath, thmmarks, framed]{ntheorem}
 \usepackage{tikz}
-\usetikzlibrary{angles, calc, math, through}
+\usetikzlibrary{angles, calc, graphs, math, shapes.geometric, through}
 \usepackage{polski}
 \usepackage{array}
 \usepackage{float}
@@ -70,6 +70,9 @@
 \renewcommand{\cftsubsecaftersnum}{.}
 
 % Cleveref fix
+\crefname{section}{}{}
+\crefname{subsection}{}{}
+\crefname{subsubsection}{}{}
 \crefname{equation}{}{}
 \crefname{theorem}{}{}
 \crefname{lemma}{}{}
@@ -147,6 +150,8 @@
 
 \renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
 \renewcommand{\AA}{\mathcal{A}}
+\newcommand{\opbox}{\mathbin{\Box}}
+\newcommand{\optri}{\mathbin{\Delta}}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
@@ -181,10 +186,14 @@
 \colorlet{codekeywordcolor}{LightSkyBlue4}
 \colorlet{codenumbercolor}{Thistle4}
 \colorlet{codestringcolor}{PeachPuff4}
+\renewcommand{\emph}[1]{\textcolor{blue}{#1}}
+
+% Tikz
+\tikzstyle{graphvertex}=[circle,fill,minimum size=0.25cm,inner sep=0]
+\tikzstyle{graphedge}=[sloped,above,font=\footnotesize]
 
 % Code listings
 \lstdefinestyle{codestyle}{
-    commentstyle=\itshape\color{codecommentcolor},
     keywordstyle=\color{codekeywordcolor},
     numberstyle=\color{codenumbercolor},
     stringstyle=\color{codestringcolor},
@@ -202,7 +211,7 @@
 \lstset{
     style=codestyle,
     escapeinside={\%*}{*)},
-    extendedchars=false,
+    extendedchars=true,
     inputencoding=utf8,
     backgroundcolor=\color{codebkgcolor},
     frame=single,
@@ -294,3 +303,10 @@
 \theoremsymbol{\ensuremath\square}
 \theoremseparator{:}
 \newtheorem{proof}{Dowód}
+
+\theoremstyle{plain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{.}
+\newtheorem{problem}[theorem]{Zadanie}
