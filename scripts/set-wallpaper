@@ -2,5 +2,5 @@
 # set the wallpaper
 wallpapers_dir="/home/antek/Pictures/wallpapers"
 
-# current: https://wallhaven.cc/w/95x6pd
+# current: https://www.reddit.com/r/wallpaper/comments/kkxxqi/purple_sky2560x1440/
 feh --no-fehbg --bg-fill "$wallpapers_dir/$1" &
