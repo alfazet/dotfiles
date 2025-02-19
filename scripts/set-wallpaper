@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# set the wallpaper
-wallpapers_dir="/home/antek/Pictures/wallpapers"
 
-# current: https://www.reddit.com/r/wallpaper/comments/kkxxqi/purple_sky2560x1440/
+wallpapers_dir="/home/antek/Pictures/wallpapers"
 feh --no-fehbg --bg-fill "$wallpapers_dir/$1" &

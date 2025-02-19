@@ -27,7 +27,7 @@ set completion-highlight-bg     "#ebbcba"
 
 set recolor                     "false"
 set recolor-keephue             "true"
-set font                        "JetBrainsMono Nerd Font"
+set font                        "Maple Mono Normal NL NF"
 
 set selection-notification      "false"
 set guioptions                  ""

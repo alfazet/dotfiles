@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
-# Search through files and open them in corresponding programs
 
 chosen=$({
 	find ~/Sync/lectures/ -mindepth 1 -type f -name "*.pdf"
-	find ~/Sync/books/ -mindepth 1 -type f -name "*.pdf"
 	find ~/Sync/notes/ -mindepth 1 -type f -name "*.pdf"
     find ~/Sync/projects/ -mindepth 1 -type f \( -name "*.pdf" -o -name "*.jpg" -o -name "*.png" \)
     find ~/Pictures -mindepth 1 -type f \( -name "*.jpg" -o -name "*.png" \)
@@ -15,5 +13,5 @@ ext=${chosen##*.}
 if [[ "$ext" == "pdf" ]]; then
     exec zathura $chosen
 elif [[ "$ext" == "jpg" || "$ext" == "png" ]]; then
-    exec imv $chosen
+    exec imv -d $chosen
 fi

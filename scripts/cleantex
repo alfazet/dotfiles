@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Move latex temporary compilation files into ./_aux/.
 
 if [[ ! -d _aux ]]; then
 	mkdir _aux

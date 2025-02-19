@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# A shutdown menu based on rofi
 
 options=("Shutdown" "Reboot")
 commands=("systemctl poweroff -i" "systemctl reboot")

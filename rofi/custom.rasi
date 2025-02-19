@@ -2,7 +2,7 @@ configuration {
     dmenu: true;
     p: "";
     modes: "drun";
-    font: "JetBrainsMono Nerd Font 20";
+    font: "Maple Mono Normal NL NF 20";
     drun-display-format: "{name}";
     sort: true;
     matching: "fuzzy";

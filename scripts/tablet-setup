@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Setup the drawing tablet
 
 for i in $(seq 10); do
     if xsetwacom list devices | grep -q "Wacom"; then
