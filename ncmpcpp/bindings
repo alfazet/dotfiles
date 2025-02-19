@@ -586,3 +586,12 @@ def_key "p"
 
 def_key "d"
   delete_playlist_items
+
+def_key "left"
+  previous_column
+
+def_key "right"
+    next_column
+
+def_key "="
+    volume_up

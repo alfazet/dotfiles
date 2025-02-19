@@ -5,4 +5,4 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' formats '%b'
 
 PROMPT='%F{magenta}[%~] %F{white}%% '
-RPROMPT='%F{yellow}${vcs_info_msg_0_}'
+RPROMPT='%F{cyan}${vcs_info_msg_0_}'

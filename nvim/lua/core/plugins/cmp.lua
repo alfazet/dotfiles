@@ -4,9 +4,6 @@ return {
     dependencies = {
         {
             "L3MON4D3/LuaSnip",
-        },
-        {
-            "saadparwaiz1/cmp_luasnip",
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
@@ -22,7 +19,7 @@ return {
                 if vim.api.nvim_get_mode().mode == "c" then
                     return true
                 else
-                    return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
+                    return not context.in_treesitter_capture("comment")
                 end
             end,
             snippet = {
@@ -33,19 +30,16 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
                 ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-                ["jk"] = cmp.mapping.confirm({ select = true }),
-                ["<Esc>"] = cmp.mapping({
-                    i = function()
-                        cmp.close()
-                        vim.cmd.stopinsert()
-                    end,
-                }),
+                ["<C-f>"] = cmp.mapping.confirm({ select = true }),
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
-                { name = "luasnip" },
-                { name = "buffer",                 option = { keyword_pattern = [[\%C\k\+]], }, },
                 { name = "nvim_lsp_signature_help" },
+                { name = "luasnip", },
+                {
+                    name = "buffer",
+                    option = { keyword_pattern = [[\%C\k\+]], },
+                },
             }),
             completion = {
                 completeopt = "menu,menuone,noinsert",
@@ -53,9 +47,11 @@ return {
             window = {
                 completion = {
                     scrollbar = false,
+                    winhighlight = "Normal:CmpNormal",
                 },
                 documentation = {
                     scrollbar = false,
+                    winhighlight = "Normal:CmpNormal",
                 },
             },
         })

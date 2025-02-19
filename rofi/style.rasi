@@ -1,6 +1,6 @@
 * {
-	bg: #191724;
-	cur: #1f1d2e;
+	bg: #19172480;
+	cur: #524f6780;
 	fgd: #e0def4;
 	cmt: #6e6a86;
 	cya: #9ccfd8;
@@ -9,11 +9,10 @@
 	pur: #c4a7e7;
 	red: #eb6f92;
 	yel: #f6c177;
-    gry: #524f67;
 
 	foreground: @fgd;
 	background: @bg;
-	active-background: @gry;
+	active-background: @cur;
 	urgent-background: @red;
 
 	selected-background: @active-background;
@@ -60,7 +59,8 @@
 	text-color:       @foreground;
 }
 #inputbar {
-	text-color: @foreground;
+    text-color: @foreground;
+    background-color: @background;
     padding: 10px;
 }
 #case-indicator {

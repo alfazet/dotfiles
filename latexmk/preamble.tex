@@ -17,7 +17,8 @@
 \usepackage{framed}
 \usepackage[amsmath, thmmarks, framed]{ntheorem}
 \usepackage{tikz}
-\usetikzlibrary{angles, calc, graphs, math, shapes.geometric, through}
+\usepackage{tikz-qtree}
+\usetikzlibrary{angles, arrows.meta, calc, graphs, math, shapes.geometric, through, trees}
 \usepackage{polski}
 \usepackage{array}
 \usepackage{float}
@@ -43,7 +44,7 @@
 \usepackage{matlab-prettifier}
 \usepackage[noEnd=true,indLines=false,spaceRequire=false,rightComments=false,beginComment=//~,beginLComment=//~,endLComment=]{algpseudocodex}
 \usepackage[most]{tcolorbox}
-\usepackage[final, colorlinks=true, linkcolor=black, citecolor=black, urlcolor=darkgray]{hyperref} 
+\usepackage[final, colorlinks=true, linkcolor=black, citecolor=black, urlcolor=darkgray, pdfauthor={Antoni Zasada}]{hyperref} 
 \usepackage{cleveref}
 
 % Inkscape figures
@@ -55,6 +56,11 @@
 % Lengths
 \setstretch{1.15}
 \setlength\parindent{0pt}
+
+% table of contents on the titlepage
+\makeatletter
+\newcommand*{\tocsamepage}{\@starttoc{toc}}
+\makeatother
 
 % http://tex.stackexchange.com/questions/22119/how-can-i-change-the-spacing-before-theorems-with-amsthm
 \makeatletter
@@ -123,6 +129,7 @@
 \providecommand{\PP}{\mathcal{P}}
 \providecommand{\UU}{\mathcal{U}}
 \providecommand{\VV}{\mathcal{V}}
+\providecommand{\OO}{\mathcal{O}}
 \providecommand{\ii}{\mathrm{i}}
 \providecommand{\ee}{\mathrm{e}}
 \providecommand{\dd}{\,\mathrm{d}}

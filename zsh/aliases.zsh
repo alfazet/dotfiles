@@ -12,3 +12,5 @@ alias vim="nvim"
 alias py="python"
 alias ncmpcpp="ncmpcpp -q"
 alias newsboat="newsboat -q"
+
+alias import_as_comp='beet import . --set albumartist="Various Artists"'

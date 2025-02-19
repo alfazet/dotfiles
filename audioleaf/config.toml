@@ -1,0 +1,31 @@
+default_nl_device_name = "Canvas 2E50"
+
+[tui_config]
+colorful_effect_names = true
+
+[visualizer_config]
+audio_backend = "default"
+freq_range = [
+    20,
+    4500,
+]
+hues = [
+    50,
+    30,
+    10,
+    350,
+    330,
+    310,
+    290,
+    270,
+    250,
+    230,
+    210,
+    190
+]
+default_gain = 1.0
+transition_time = 2
+time_window = 0.1875
+primary_axis = "Y"
+sort_primary = "Asc"
+sort_secondary = "Asc"
