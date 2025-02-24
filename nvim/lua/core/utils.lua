@@ -21,4 +21,14 @@ M.git_root = function()
     return dir
 end
 
+M.random_hex_id = function(n)
+    local chars = "012345689abcdef"
+    local s = ""
+    for _ = 1, n do
+        local i = math.random(1, #chars)
+        s = s .. chars:sub(i, i)
+    end
+    return s
+end
+
 return M

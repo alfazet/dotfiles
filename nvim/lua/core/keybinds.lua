@@ -46,7 +46,12 @@ vim.keymap.set("v", "gl", "<Cmd>norm gc<CR>")
 
 -- pasting / deleting without overwriting the register
 vim.keymap.set("x", "<Leader>p", [["_dP]])
-vim.keymap.set({"n", "v"}, "<Leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<Leader>d", [["_d]])
 
 -- to avoid missclicking <C-d>
 vim.keymap.set("i", "<C-d>", "<NOP>")
+
+-- random hex identifier for stuff
+vim.keymap.set("n", "<Leader>hx", function()
+    print(require("core.utils").random_hex_id(6))
+end)

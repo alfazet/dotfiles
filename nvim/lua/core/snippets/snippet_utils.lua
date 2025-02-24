@@ -11,6 +11,14 @@ M.fmt = require("luasnip.extras.fmt").fmt
 M.fmta = require("luasnip.extras.fmt").fmta
 M.rep = require("luasnip.extras").rep
 
+function M.get_visual(_, parent)
+    if (#parent.snippet.env.LS_SELECT_RAW > 0) then
+        return M.sn(nil, M.i(1, parent.snippet.env.LS_SELECT_RAW))
+    else
+        return M.sn(nil, M.i(1, ''))
+    end
+end
+
 -- some magic code to recognize math blocks in Markdown
 -- source: https://github.com/nvim-treesitter/nvim-treesitter/issues/1184#issuecomment-830388856
 local MATH_ENVIRONMENTS = {
