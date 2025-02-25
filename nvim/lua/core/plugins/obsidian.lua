@@ -35,10 +35,7 @@ return {
                 return require("core.utils").random_hex_id(6)
             end,
             note_frontmatter_func = function(note)
-                if note.title == nil then
-                    note.title = note.id
-                end
-                local out = { id = note.id, title = note.title, tags = note.tags }
+                local out = { id = note.id, tags = note.tags }
                 if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
                     for k, v in pairs(note.metadata) do
                         out[k] = v

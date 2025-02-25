@@ -1,4 +1,4 @@
-default_nl_device_name = "Canvas DD79"
+default_nl_device_name = "Canvas 2E50"
 
 [tui_config]
 colorful_effect_names = true
@@ -10,18 +10,18 @@ freq_range = [
     4500,
 ]
 hues = [
-    50,
-    30,
-    10,
-    350,
-    330,
-    310,
-    290,
-    270,
-    250,
-    230,
-    210,
-    190
+    35,
+    15,
+    355,
+    335,
+    315,
+    295,
+    275,
+    255,
+    235,
+    215,
+    195,
+    175,
 ]
 default_gain = 1.0
 transition_time = 2
