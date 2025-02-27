@@ -279,7 +279,7 @@ return {
             snippetType = "autosnippet",
         },
         {
-            t("\\mathbf{N}")
+            t("\\mathbb{N}")
         },
         {
             condition = in_math
@@ -289,7 +289,7 @@ return {
             snippetType = "autosnippet",
         },
         {
-            t("\\mathbf{Z}")
+            t("\\mathbb{Z}")
         },
         {
             condition = in_math
@@ -299,7 +299,7 @@ return {
             snippetType = "autosnippet",
         },
         {
-            t("\\mathbf{Q}")
+            t("\\mathbb{Q}")
         },
         {
             condition = in_math
@@ -309,7 +309,7 @@ return {
             snippetType = "autosnippet",
         },
         {
-            t("\\mathbf{R}")
+            t("\\mathbb{R}")
         },
         {
             condition = in_math
@@ -319,7 +319,7 @@ return {
             snippetType = "autosnippet",
         },
         {
-            t("\\mathbf{C}")
+            t("\\mathbb{C}")
         },
         {
             condition = in_math
@@ -335,11 +335,31 @@ return {
             condition = in_math
         }),
     s({
+            trig = "FF",
+            snippetType = "autosnippet",
+        },
+        {
+            t("\\mathcal{F}")
+        },
+        {
+            condition = in_math
+        }),
+    s({
             trig = "oo",
             snippetType = "autosnippet",
         },
         {
             t("\\infty")
+        },
+        {
+            condition = in_math
+        }),
+    s({
+            trig = "sbs",
+            snippetType = "autosnippet",
+        },
+        {
+            t("\\subseteq")
         },
         {
             condition = in_math

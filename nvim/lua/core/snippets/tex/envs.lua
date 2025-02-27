@@ -85,7 +85,7 @@ return {
         ),
         { condition = line_begin }
     ),
-    s({ trig = "mat", snippetType = "autosnippet" },
+    s({ trig = "matt", snippetType = "autosnippet" },
         fmta(
             [[
         \begin{bmatrix}
@@ -98,7 +98,7 @@ return {
         ),
         { condition = line_begin and in_math }
     ),
-    s({ trig = "([^%\\])set", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    s({ trig = "([^%\\])sett", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta(
             "<>\\{<>\\}",
             {
@@ -129,7 +129,7 @@ return {
         ),
         { condition = in_math }
     ),
-    s({ trig = "([^%\\])tt", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    s({ trig = "([^%\\])txt", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta(
             "<>\\text{<>}",
             {
