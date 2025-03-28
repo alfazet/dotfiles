@@ -133,6 +133,16 @@ return {
         ),
         { condition = in_math }
     ),
+    s({ trig = "([^%\\])var", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta(
+            "<>\\sqrt{<>}",
+            {
+                f(function(_, snip) return snip.captures[1] end),
+                d(1, get_visual),
+            }
+        ),
+        { condition = in_math }
+    ),
     s({ trig = "([^%a%\\])lim", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
         fmta(
             "<>\\lim_{<>\\to<>}",

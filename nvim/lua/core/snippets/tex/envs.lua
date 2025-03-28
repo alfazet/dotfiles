@@ -19,7 +19,7 @@ return {
                 d(1, get_visual),
             }
         ),
-        { condition = in_text }
+        { condition = in_text or line_begin }
     ),
     s({ trig = "([^%a])l%(", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
         fmta(
@@ -84,6 +84,19 @@ return {
             }
         ),
         { condition = line_begin }
+    ),
+    s({ trig = "aln", snippetType = "autosnippet" },
+        fmta(
+            [[
+        \begin{aligned}
+            <>
+        \end{aligned}
+      ]],
+            {
+                i(1),
+            }
+        ),
+        { condition = line_begin and in_math }
     ),
     s({ trig = "matt", snippetType = "autosnippet" },
         fmta(

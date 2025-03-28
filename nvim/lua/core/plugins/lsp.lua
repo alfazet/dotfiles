@@ -26,7 +26,7 @@ return {
             cmd = {
                 "clangd",
                 "--clang-tidy",
-                "--fallback-style=Google",
+                "--fallback-style=Microsoft",
                 "--offset-encoding=utf-16",
             },
         })
