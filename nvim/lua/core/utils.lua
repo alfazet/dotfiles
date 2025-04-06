@@ -21,7 +21,17 @@ M.git_root = function()
     return dir
 end
 
-M.random_hex_id = function(n)
+M.random_hex_id = function(seed, n)
+    if seed ~= nil then
+        local P = 23
+        local p, mod = P, 1000000009
+        local h = 0
+        for i = 1, n do
+            h = (h + p * string.byte(seed, i, i)) % mod
+            p = p * P
+        end
+        math.randomseed(h)
+    end
     local chars = "012345689abcdef"
     local s = ""
     for _ = 1, n do

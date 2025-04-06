@@ -32,7 +32,7 @@ return {
                 end
             },
             note_id_func = function(_)
-                return require("core.utils").random_hex_id(6)
+                return require("core.utils").random_hex_id(nil, 6)
             end,
             note_frontmatter_func = function(note)
                 local out = { id = note.id, tags = note.tags }
@@ -51,9 +51,5 @@ return {
         end)
         vim.keymap.set("n", "<Leader>ot", "<Cmd>ObsidianTags<CR>")
         vim.keymap.set("n", "<Leader>og", "<Cmd>ObsidianSearch<CR>")
-        vim.keymap.set("n", "<Leader>oi", function()
-            local filename = vim.fn.expand("%:r:t") .. "-f" .. require("core.utils").random_hex_id(2)
-            vim.cmd("ObsidianPasteImg " .. filename)
-        end)
     end
 }

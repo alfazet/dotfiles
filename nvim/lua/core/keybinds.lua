@@ -51,7 +51,7 @@ vim.keymap.set({ "n", "v" }, "<Leader>d", [["_d]])
 -- to avoid missclicking <C-d>
 vim.keymap.set("i", "<C-d>", "<NOP>")
 
--- random hex identifier for stuff
+-- random hex identifier
 vim.keymap.set("n", "<Leader>hx", function()
-    print(require("core.utils").random_hex_id(6))
+    print(require("core.utils").random_hex_id(vim.fn.expand("%:t"), 6))
 end)
