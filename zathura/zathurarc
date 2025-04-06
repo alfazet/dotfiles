@@ -1,4 +1,4 @@
-set default-bg                  "#191724"
+set default-bg                  "#201c2c"
 set default-fg                  "#e0def4"
 
 set statusbar-fg                "#e0def4"
@@ -34,6 +34,5 @@ set guioptions                  ""
 set selection-clipboard clipboard
 set database sqlite
 
-set recolor-lightcolor          "#191724"
+set recolor-lightcolor          "#201c2c"
 set recolor-darkcolor           "#e0def4"
-set default-bg                  "#191724"

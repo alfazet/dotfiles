@@ -71,8 +71,8 @@ function M.in_math()
             return true
         elseif node_type == "math_environment" or node_type == "generic_environment" then
             local begin = node:child(0)
-            local names = begin and begin:field "name"
-            if names and names[1] and MATH_ENVIRONMENTS[query.get_node_text(names[1], buf):match "[A-Za-z]+"] then
+            local names = begin and begin:field("name")
+            if names and names[1] and (query.get_node_text == nil or MATH_ENVIRONMENTS[query.get_node_text(names[1], buf):match("[A-Za-z]+")]) then
                 return true
             end
         end

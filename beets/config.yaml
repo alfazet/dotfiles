@@ -1,0 +1,82 @@
+plugins: 
+  - edit
+  - fetchart
+  - lyrics
+  - inline
+  - embedart
+  - duplicates
+  - info
+  - missing
+  - ftintitle
+
+directory: ~/Music/tracks
+library: ~/.config/beets/library.db
+asciify_paths: yes
+
+import:
+  set_fields:
+    album: %if{$album,$album,[singles]}
+  log: ~/.config/beets/beets.log
+
+item_fields:
+  disc_and_track: u'%02i%02i' % (disc, track) if disctotal > 1 else u'%04i' % (track)
+  first_artist: artist.split(',')[0]
+
+replace:
+  '[\\/]': _
+  '^\.': _
+  '[\x00-\x1f]': _
+  '[<>:"\?\*\|]': _
+  '\.$': _
+  '\s+$': ''
+  '^\s+': ''
+  '^-': _
+  '\ ': _
+  "'": ''
+  '[\.\(\)]': ''
+
+paths:
+  default: albums/$albumartist/$album%aunique{}/${disc_and_track} $title
+  comp: compilations/$album/${disc_and_track} $artist $title
+  singleton: singles/${first_artist}/$title
+  albumtype:soundtrack: soundtracks/$album/${disc_and_track} $title
+  albumtype:unknown_comp: compilations/$album/$artist $title
+
+ftintitle:
+  format: (feat. {0})
+
+embedart:
+  auto: yes
+  remove_art_file: yes
+  maxwidth: 600
+
+fetchart:
+  minwidth: 600
+  maxwidth: 600
+  enforce_ratio: yes
+  auto: yes
+  sources: filesystem coverart itunes amazon albumart fanarttv
+  cover_format: JPEG
+
+match:
+  strong_rec_thresh: 0.05
+  max_rec:
+    source: strong
+    artist: strong
+    album: strong
+    media: strong
+    mediums: strong
+    year: strong
+    country: strong
+    label: strong
+    catalognum: strong
+    albumdisambig: strong
+    album_id: strong
+    tracks: strong
+    missing_tracks: medium
+    unmatched_tracks: medium
+    track_title: strong
+    track_artist: strong
+    track_index: strong
+    track_length: strong
+    track_id: strong
