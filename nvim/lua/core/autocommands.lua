@@ -43,3 +43,9 @@ vim.api.nvim_create_autocmd("TermLeave", {
         vim.opt.laststatus = 3
     end
 })
+
+-- treesitter
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "bash", "c", "cpp", "css", "html", "make", "markdown", "python", "r", "rust" },
+    callback = function() vim.treesitter.start() end,
+})

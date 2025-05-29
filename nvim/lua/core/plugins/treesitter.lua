@@ -8,7 +8,7 @@ return {
                 install_dir = vim.fn.stdpath("data") .. "/site"
             })
             require("nvim-treesitter").install({
-                "bash", "c", "cpp", "css", "html", "make",
+                "bash", "c", "cpp", "css", "html", "latex", "make",
                 "markdown", "markdown-inline", "python", "r", "rust"
             })
         end,
