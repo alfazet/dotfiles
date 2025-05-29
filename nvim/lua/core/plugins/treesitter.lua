@@ -2,16 +2,14 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        branch = "main",
         config = function()
-            require("nvim-treesitter.configs").setup({
-                ensure_installed = { "bash", "c", "c_sharp", "cpp", "css", "go", "html", "javascript", "lua", "latex", "markdown", "markdown_inline", "matlab", "python", "rust", },
-                highlight = {
-                    enable = true,
-                    disable = { "latex", },
-                },
-                indent = {
-                    enable = false,
-                },
+            require("nvim-treesitter").setup({
+                install_dir = vim.fn.stdpath("data") .. "/site"
+            })
+            require("nvim-treesitter").install({
+                "bash", "c", "cpp", "css", "html", "make",
+                "markdown", "markdown-inline", "python", "r", "rust"
             })
         end,
     },

@@ -56,5 +56,13 @@ return {
                 },
             },
         })
+        nvim_lsp.html.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+        nvim_lsp.cssls.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
     end,
 }

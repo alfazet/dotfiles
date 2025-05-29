@@ -85,6 +85,19 @@ return {
         ),
         { condition = line_begin }
     ),
+    s({ trig = "eqn", snippetType = "autosnippet" },
+        fmta(
+            [[
+        \begin{equation*}
+            <>
+        \end{equation*}
+      ]],
+            {
+                i(1),
+            }
+        ),
+        { condition = line_begin }
+    ),
     s({ trig = "aln", snippetType = "autosnippet" },
         fmta(
             [[
@@ -160,6 +173,6 @@ return {
                 d(1, get_visual),
             }
         ),
-        { condition = in_math }
+        { condition = in_text or in_math }
     ),
 }

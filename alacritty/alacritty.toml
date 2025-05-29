@@ -5,7 +5,7 @@ import = ["/home/antek/.config/alacritty/rose-pine.toml"]
 TERM = "alacritty"
 
 [font]
-size = 18
+size = 16
 
 [font.normal]
 family = "Maple Mono Normal NL NF"
