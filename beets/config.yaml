@@ -38,9 +38,9 @@ replace:
 paths:
   default: albums/$albumartist/$album%aunique{}/${disc_and_track} $title
   comp: compilations/$album/${disc_and_track} $artist $title
-  singleton: singles/${first_artist}/$title
   albumtype:soundtrack: soundtracks/$album/${disc_and_track} $title
   albumtype:unknown_comp: compilations/$album/$artist $title
+  singleton: singles/${first_artist}/$title
 
 ftintitle:
   format: (feat. {0})

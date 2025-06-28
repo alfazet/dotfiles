@@ -173,6 +173,6 @@ return {
                 d(1, get_visual),
             }
         ),
-        { condition = in_text or in_math }
+        { condition = in_math }
     ),
 }

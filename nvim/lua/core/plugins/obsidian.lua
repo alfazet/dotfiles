@@ -23,6 +23,11 @@ return {
             completion = {
                 min_chars = 0,
             },
+            mappings = {
+                ["<leader>ch"] = {
+                    action = function() end
+                }
+            },
             attachments = {
                 img_folder = "assets/images",
                 confirm_img_paste = false,
@@ -32,7 +37,14 @@ return {
                 end
             },
             note_id_func = function(_)
-                return require("core.utils").random_hex_id(nil, 6)
+                math.randomseed(os.time())
+                local chars = "0123456789abcdef"
+                local id = ""
+                for _ = 1, 6 do
+                    local i = math.random(1, #chars)
+                    id = id .. chars:sub(i, i)
+                end
+                return id
             end,
             note_frontmatter_func = function(note)
                 local out = { id = note.id, tags = note.tags }
