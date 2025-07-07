@@ -4,9 +4,9 @@ return {
         require("ibl").setup({
             exclude = {
                 filetypes = { "help", "terminal", "lazy", "lspinfo", "" },
-                buftypes = { "terminal" }
+                buftypes = { "terminal" },
             },
-            indent = { char = "▏", },
+            indent = { char = "▏" },
             scope = { enabled = false },
         })
     end,

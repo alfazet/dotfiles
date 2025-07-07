@@ -1,0 +1,7 @@
+vim.keymap.set("n", "<Leader>ll", function()
+    local buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_set_current_buf(buf)
+    vim.cmd("silent r!cargo build")
+    vim.api.nvim_buf_set_option(buf, "modifiable", false)
+end)
+vim.keymap.set("n", "<Leader>fm", "<Cmd>silent !cargo fmt<CR>")

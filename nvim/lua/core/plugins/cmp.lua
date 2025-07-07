@@ -3,12 +3,8 @@ return {
     event = "InsertEnter",
     dependencies = {
         {
-            "L3MON4D3/LuaSnip",
-            "hrsh7th/cmp-nvim-lua",
-            "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
-            "hrsh7th/cmp-nvim-lsp-signature-help",
         },
     },
     config = function()
@@ -33,12 +29,9 @@ return {
                 ["<C-f>"] = cmp.mapping.confirm({ select = true }),
             }),
             sources = cmp.config.sources({
-                { name = "nvim_lsp" },
-                { name = "nvim_lsp_signature_help" },
-                { name = "luasnip", },
                 {
                     name = "buffer",
-                    option = { keyword_pattern = [[\%C\k\+]], },
+                    option = { keyword_pattern = [[\%C\k\+]] },
                 },
             }),
             completion = {

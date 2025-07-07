@@ -10,10 +10,10 @@ return {
         vim.g.vimtex_log_verbose = 1
         vim.g.vimtex_view_automatic = 0
         vim.g.vimtex_view_forward_search_on_start = 0
-        vim.g.vimtex_quickfix_mode = 0
+        vim.g.vimtex_quickfix_mode = 2
         vim.g.vimtex_compiler_silent = 1
         vim.g.vimtex_compiler_latexmk = {
             ["continuous"] = 0,
         }
-    end
+    end,
 }

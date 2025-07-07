@@ -4,16 +4,24 @@ return {
         build = ":TSUpdate",
         branch = "main",
         config = function()
-            require("nvim-treesitter").install({
-                "bash", "c", "cpp", "css", "html", "latex", "make",
-                "markdown", "markdown-inline", "python", "r", "rust"
+            require("nvim-treesitter").setup({
+                install_dir = vim.fn.stdpath("data") .. "/site",
             })
-        end,
-    },
-    {
-        "windwp/nvim-ts-autotag",
-        config = function()
-            require("nvim-ts-autotag").setup()
+            require("nvim-treesitter").install({
+                "bash",
+                "c",
+                "cpp",
+                "css",
+                "html",
+                "latex",
+                "make",
+                "markdown",
+                "markdown-inline",
+                "python",
+                "r",
+                "rust",
+                "typst",
+            })
         end,
     },
 }

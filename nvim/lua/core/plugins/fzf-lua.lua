@@ -29,7 +29,7 @@ return {
                 actions = {
                     ["ctrl-h"] = { fzf.actions.toggle_hidden },
                     ["ctrl-i"] = { fzf.actions.toggle_ignore },
-                }
+                },
             },
             grep = {
                 cwd = utils.git_root(),
@@ -38,21 +38,16 @@ return {
                 actions = {
                     ["ctrl-h"] = { fzf.actions.toggle_hidden },
                     ["ctrl-i"] = { fzf.actions.toggle_ignore },
-                }
+                },
             },
         })
         vim.keymap.set("n", "<C-f>", function()
             fzf.files({
-                winopts = { preview = { hidden = "hidden" } }
-            })
-        end)
-        vim.keymap.set("n", "<C-b>", function()
-            fzf.buffers({
-                winopts = { preview = { hidden = "hidden" } }
+                winopts = { preview = { hidden = "hidden" } },
             })
         end)
         vim.keymap.set("n", "<C-g>", function()
             fzf.live_grep_glob()
         end)
-    end
+    end,
 }
