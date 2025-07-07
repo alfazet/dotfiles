@@ -11,53 +11,58 @@ local in_text = utils.in_text
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
 
 return {
-    s({ trig = "([^%\\])mk", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta(
-            "<>\\(<>\\)",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ),
-        { condition = in_text or line_begin }
+    s(
+        { trig = "([^%\\]) mk", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta("<> \\(<>\\)", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+        }),
+        { condition = in_text }
     ),
-    s({ trig = "([^%a])l%(", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-        fmta(
-            "<>\\left(<>\\right)",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ), { condition = in_math }
+    s(
+        { trig = "([^%a])l%(", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\left(<>\\right)", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+        }),
+        { condition = in_math }
     ),
-    s({ trig = "([^%a])l%[", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-        fmta(
-            "<>\\left[<>\\right]",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ), { condition = in_math }
+    s(
+        { trig = "([^%a])l%[", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\left[<>\\right]", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+        }),
+        { condition = in_math }
     ),
-    s({ trig = "([^%a])l%{", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-        fmta(
-            "<>\\left\\{<>\\right\\}",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ), { condition = in_math }
+    s(
+        { trig = "([^%a])l%{", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\left\\{<>\\right\\}", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+        }),
+        { condition = in_math }
     ),
-    s({ trig = "([^%a])l%|", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-        fmta(
-            "<>\\left|<>\\right|",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ), { condition = in_math }
+    s(
+        { trig = "([^%a])l%|", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\left|<>\\right|", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+        }),
+        { condition = in_math }
     ),
-    s({ trig = "env", snippetType = "autosnippet" },
+    s(
+        { trig = "env", snippetType = "autosnippet" },
         fmta(
             [[
         \begin{<>}
@@ -72,7 +77,8 @@ return {
         ),
         { condition = line_begin }
     ),
-    s({ trig = "itt", snippetType = "autosnippet" },
+    s(
+        { trig = "itt", snippetType = "autosnippet" },
         fmta(
             [[
         \begin{itemize}
@@ -85,7 +91,8 @@ return {
         ),
         { condition = line_begin }
     ),
-    s({ trig = "eqn", snippetType = "autosnippet" },
+    s(
+        { trig = "eqn", snippetType = "autosnippet" },
         fmta(
             [[
         \begin{equation*}
@@ -98,7 +105,8 @@ return {
         ),
         { condition = line_begin }
     ),
-    s({ trig = "aln", snippetType = "autosnippet" },
+    s(
+        { trig = "aln", snippetType = "autosnippet" },
         fmta(
             [[
         \begin{aligned}
@@ -111,7 +119,8 @@ return {
         ),
         { condition = line_begin and in_math }
     ),
-    s({ trig = "matt", snippetType = "autosnippet" },
+    s(
+        { trig = "matt", snippetType = "autosnippet" },
         fmta(
             [[
         \begin{bmatrix}
@@ -124,55 +133,55 @@ return {
         ),
         { condition = line_begin and in_math }
     ),
-    s({ trig = "([^%\\])sett", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta(
-            "<>\\{<>\\}",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ),
+    s(
+        { trig = "([^%\\])sett", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta("<>\\{<>\\}", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+        }),
         { condition = in_math }
     ),
-    s({ trig = "([^%\\])ang", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta(
-            "<>\\langle<>\\rangle",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ),
+    s(
+        { trig = "([^%\\])ang", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta("<>\\langle<>\\rangle", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+        }),
         { condition = in_math }
     ),
-    s({ trig = "([^%\\])bnn", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta(
-            "<>\\binom{<>}{<>}",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-                d(2, get_visual),
-            }
-        ),
+    s(
+        { trig = "([^%\\])bnn", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta("<>\\binom{<>}{<>}", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+            d(2, get_visual),
+        }),
         { condition = in_math }
     ),
-    s({ trig = "([^%\\])txt", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta(
-            "<>\\text{<>}",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ),
+    s(
+        { trig = "([^%\\])txt", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta("<>\\text{<>}", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+        }),
         { condition = in_math }
     ),
-    s({ trig = "([^%\\])var", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta(
-            "<>\\texttt{<>}",
-            {
-                f(function(_, snip) return snip.captures[1] end),
-                d(1, get_visual),
-            }
-        ),
+    s(
+        { trig = "([^%\\])var", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta("<>\\texttt{<>}", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+        }),
         { condition = in_math }
     ),
 }

@@ -30,18 +30,13 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
-vim.opt.signcolumn = "yes"
-vim.opt.conceallevel = 0
 vim.opt.laststatus = 3
 vim.opt.statusline = "%t %m %= %y %l:%c"
 vim.opt.cmdheight = 0
-vim.opt.pumheight = 8
-vim.opt.pumwidth = 10
 vim.opt.pumblend = 15
 
 -- misc
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim_undodir"
 vim.opt.swapfile = false
-vim.opt.updatetime = 100
 vim.opt.inccommand = "split"

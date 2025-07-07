@@ -12,10 +12,10 @@ M.fmta = require("luasnip.extras.fmt").fmta
 M.rep = require("luasnip.extras").rep
 
 function M.get_visual(_, parent)
-    if (#parent.snippet.env.LS_SELECT_RAW > 0) then
+    if #parent.snippet.env.LS_SELECT_RAW > 0 then
         return M.sn(nil, M.i(1, parent.snippet.env.LS_SELECT_RAW))
     else
-        return M.sn(nil, M.i(1, ''))
+        return M.sn(nil, M.i(1, ""))
     end
 end
 
@@ -51,12 +51,7 @@ local function get_node_at_cursor()
         return
     end
 
-    return root:named_descendant_for_range(
-        cursor_range[1],
-        cursor_range[2],
-        cursor_range[1],
-        cursor_range[2]
-    )
+    return root:named_descendant_for_range(cursor_range[1], cursor_range[2], cursor_range[1], cursor_range[2])
 end
 
 function M.in_math()
@@ -72,7 +67,14 @@ function M.in_math()
         elseif node_type == "math_environment" or node_type == "generic_environment" then
             local begin = node:child(0)
             local names = begin and begin:field("name")
-            if names and names[1] and (query.get_node_text == nil or MATH_ENVIRONMENTS[query.get_node_text(names[1], buf):match("[A-Za-z]+")]) then
+            if
+                names
+                and names[1]
+                and (
+                    query.get_node_text == nil
+                    or MATH_ENVIRONMENTS[query.get_node_text(names[1], buf):match("[A-Za-z]+")]
+                )
+            then
                 return true
             end
         end
