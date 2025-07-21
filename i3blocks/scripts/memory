@@ -6,9 +6,9 @@ percent=$(((100 * used) / total))
 echo "$percent%"
 echo
 if [[ $percent -le 25 ]]; then
-    echo "#9CCFD8"
+    echo "#DA6080"
 elif [[ $percent -le 50 ]]; then
-    echo "#F6C177"
+    echo "#B47F91"
 else
-    echo "#EB6F92"
+    echo "#FBF785"
 fi

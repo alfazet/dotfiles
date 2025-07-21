@@ -12,9 +12,9 @@ tempval=$(echo $temp | cut -c 2)
 echo $temp
 echo
 if [[ $tempval -ge $thresh_hot ]]; then
-    echo "#EB6F92"
+    echo "#FBF785"
 elif [[ $tempval -ge $thresh_warm ]]; then
-    echo "#F6C177"
+    echo "#B47F91"
 else
-    echo "#9CCFD8"
+    echo "#DA6080"
 fi

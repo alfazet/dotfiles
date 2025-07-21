@@ -21,3 +21,21 @@ return {
         vim.cmd.colorscheme("rose-pine")
     end,
 }
+
+-- return {
+--     dir = "/home/antek/.local/share/nvim/lazy/one-shot-dark",
+--     config = function()
+--         local theme = require("one-shot-dark/init")
+--         theme.setup({
+--             transparent = true,
+--             italics = {
+--                 comments = false,
+--                 keywords = true,
+--                 functions = true,
+--                 strings = false,
+--                 variables = true,
+--             },
+--         })
+--         theme.colorscheme()
+--     end,
+-- }

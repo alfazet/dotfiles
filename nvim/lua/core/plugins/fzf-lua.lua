@@ -47,7 +47,7 @@ return {
             })
         end)
         vim.keymap.set("n", "<C-g>", function()
-            fzf.live_grep_glob()
+            fzf.live_grep()
         end)
     end,
 }

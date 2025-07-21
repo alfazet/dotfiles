@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-cd "$HOME"
-chosen=$(find . -type d \( -path "./.local" -o -path "./.cache" \) -prune -o -name "\.git" -exec dirname {} \; 2>/dev/null | fzf)
+chosen=$(fd --type d --hidden --exclude=".git" --search-path "$HOME/Code" 2>/dev/null | fzf)
 [[ -z $chosen ]] && exit 1
+chosen=${chosen::-1}
 
-chosen_name=$(basename "$chosen" | tr . _)
+chosen_name=$(basename "$chosen" | tr "[:space:]" _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then

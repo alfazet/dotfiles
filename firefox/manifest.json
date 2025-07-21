@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "version": "2.1",
+    "name": "RedPhosphor",
+    "theme": {
+        "colors": {
+            "toolbar": "rgb(16, 0, 16)",
+            "toolbar_text": "rgb(255, 240, 255)",
+            "frame": "rgb(8, 0, 8)",
+            "tab_background_text": "rgb(255, 255, 255)",
+            "toolbar_field": "rgb(24, 0, 24)",
+            "toolbar_field_text": "rgb(255, 220, 255)",
+            "tab_line": "rgb(64, 0, 64)",
+            "popup": "rgb(32, 0, 48)",
+            "popup_text": "rgb(255, 240, 255)",
+            "frame_inactive": "rgb(10, 0, 10)",
+            "icons": "rgb(200, 160, 230)",
+            "ntp_text": "rgb(255, 240, 255)",
+            "popup_border": "rgb(48, 0, 24)",
+            "tab_loading": "rgb(64, 0, 64)"
+        }
+    }
+}
