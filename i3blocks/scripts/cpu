@@ -8,7 +8,7 @@ else
     thresh_hot=65
     thresh_warm=55
 fi
-tempval=$(echo $temp | cut -c 2)
+tempval=$(echo $temp | cut -c -2)
 echo $temp
 echo
 if [[ $tempval -ge $thresh_hot ]]; then
