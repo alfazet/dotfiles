@@ -56,8 +56,8 @@
     per_monitor_dpi = false
 
 [urgency_normal]
-    background = "#191619"
+    background = "#230513"
     foreground = "#FFFFFF"
     highlight = "#FBF785"
-    frame_color = "#C8225F"
+    frame_color = "#B21B3C"
     timeout = 5

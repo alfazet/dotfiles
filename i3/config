@@ -109,37 +109,40 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 set $transparent        #00000000
-set $bkg1       	#000000
-set $bkg2       	#191619
-set $bkg3       	#352925
-set $bkg4       	#553855
-set $bkg5       	#784578
-set $text1      	#ffffff
-set $text2      	#eebbee
-set $text3      	#e099e0
-set $text4      	#cf7bcf
-set $text5      	#bb60bb
-set $purple1    	#10040c
-set $purple2    	#2b0c21
-set $purple3    	#441635
-set $purple4    	#5c2148
-set $purple5    	#722e5b
-set $red1       	#c8225f
-set $red2       	#d1466f
-set $red3       	#da6080
-set $red4       	#e17991
-set $red5       	#e890a2
-set $tan1    	        #9d5c74
-set $tan2    	        #a86d82
-set $tan3    	        #b47f91
-set $tan4    	        #bf91a0
-set $tan5    	        #caa2af
-set $highlight  	#fbf785
+set $bg1       	        #000000
+set $bg2       	        #230513
+set $bg3       	        #470b26
+set $bg4       	        #6a1039
+set $bg5       	        #8d154c
+set $fg1      	        #ffffff
+set $fg2      	        #e3c5d2
+set $fg3      	        #c68aa5
+set $fg4      	        #aa5079
+set $fg5      	        #8d154c
+set $purple1    	#5a0f43
+set $purple2    	#66114c
+set $purple3    	#711354
+set $purple4    	#7f2b65
+set $purple5    	#8d4276
+set $red1       	#a01b4c
+set $red2       	#b41f56
+set $red3       	#c8225f
+set $red4       	#ce386f
+set $red5       	#d34e7f
+set $pink1              #d94278
+set $pink2              #f14985
+set $pink3              #f25b91
+set $orange1    	#f97046
+set $orange2    	#fa7e59
+set $orange3    	#fa8d6b
+set $orange4    	#fb9b7e
+set $orange5    	#fba990
+set $highlight  	#fcf16d
 
-client.focused          $purple5 $bkg1 $text $purple5 $purple5
-client.focused_inactive $bkg1 $bkg1 $text $bkg1 $bkg1
-client.unfocused        $bkg1 $bkg1 $text $bkg1 $bkg1
-client.urgent           $highlight $bkg1 $text $highlight $highlight
+client.focused          $purple4 $bg1 $fg1 $purple4 $purple4
+client.focused_inactive $bg1 $bg1 $fg1 $bg1 $bg1
+client.unfocused        $bg1 $bg1 $fg1 $bg1 $bg1
+client.urgent           $highlight $bg1 $fg1 $highlight $highlight
 
 # i3-bar
 bar {
@@ -147,13 +150,13 @@ bar {
     status_command i3blocks
     tray_output none
     colors {
-        background $bkg1 
-        statusline $text1
-        separator  $bkg3
-        focused_workspace       $bkg1 $bkg1 $text1
-        active_workspace        $bkg1 $bkg1 $purple5
-        inactive_workspace      $bkg1 $bkg1 $purple4
-        urgent_workspace        $bkg1 $highlight $bkg1
+        background $bg1 
+        statusline $fg1
+        separator  $bg3
+        focused_workspace       $bg1 $bg1 $fg1
+        active_workspace        $bg1 $bg1 $red3
+        inactive_workspace      $bg1 $bg1 $red1
+        urgent_workspace        $bg1 $highlight $bg1
     }
 }
 bindsym $mod+Shift+b bar mode toggle

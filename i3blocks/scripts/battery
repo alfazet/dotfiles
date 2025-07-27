@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
-
 [[ $(hostname) == "antek-zenbook" ]] || exit
 
 percent=$(acpi -b | awk '{print $4}' | sed "s/..$//")
-regex="^[0-9]+$"
 
 symbols=(󱃍 󰁺 󰁻 󰁼 󰁽 󰁾 󰁿 󰂀 󰂁 󰂂 󰁹)
 level=$(( percent / 10 ))
@@ -11,9 +9,9 @@ echo -n ${symbols[level]}
 echo " $percent%"
 echo
 if [[ $percent -ge 50 ]]; then
-    echo "#DA6080"
+    echo "#B21B3C"
 elif [[ $percent -ge 25 ]]; then
-    echo "#B47F91"
+    echo "#F14985"
 else
-    echo "#FBF785"
+    echo "#FCF16D"
 fi

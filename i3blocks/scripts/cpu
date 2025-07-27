@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 if [[ "$(hostname)" == "antek-zenbook" ]]; then
     temp=$(sensors | grep "Package id 0:" | awk '{print $4}' | tr -d '+')
-    thresh_hot=60
-    thresh_warm=50
+    hot=60
+    warm=50
 else
     temp=$(sensors | grep "^Tctl" | awk '{print $2}' | tr -d '+')
-    thresh_hot=65
-    thresh_warm=55
+    hot=65
+    warm=55
 fi
 tempval=$(echo $temp | cut -c -2)
 echo $temp
 echo
-if [[ $tempval -ge $thresh_hot ]]; then
-    echo "#FBF785"
-elif [[ $tempval -ge $thresh_warm ]]; then
-    echo "#B47F91"
+if [[ $tempval -ge $hot ]]; then
+    echo "#FCF16D"
+elif [[ $tempval -ge $warm ]]; then
+    echo "#F14985"
 else
-    echo "#DA6080"
+    echo "#B21B3C"
 fi

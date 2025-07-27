@@ -1,5 +1,5 @@
 [general]
-import = ["./one-shot-dark.toml"]
+import = ["./red-phosphor.toml"]
 
 [env]
 TERM = "alacritty"

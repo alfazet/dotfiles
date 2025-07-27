@@ -1,8 +1,8 @@
 * {
 	bkg: #00000000;
-	cur: #2b0c21a0;
+	cur: #7f2b6580;
 	text: #ffffff;
-        border: #10040c;
+        border: #7f2b65;
 
 	foreground: @text;
 	background: @bkg;

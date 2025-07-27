@@ -6,19 +6,19 @@ set guioptions                  "s"
 set selection-clipboard         "clipboard"
 set database                    "sqlite"
 
-set default-bg                  "#191619"
+set default-bg                  "#230513"
 set default-fg                  "#ffffff"
 
-set statusbar-bg                "#352925"
+set statusbar-bg                "#470b26"
 set statusbar-fg                "#ffffff"
 
-set inputbar-bg                 "#553855"
+set inputbar-bg                 "#6a1039"
 set inputbar-fg                 "#ffffff"
 
-set completion-bg               "#784578"
+set completion-bg               "#000000"
 set completion-fg               "#ffffff"
-set completion-highlight-bg     "#441635"
+set completion-highlight-bg     "#711354"
 set completion-highlight-fg     "#ffffff"
 
-set highlight-color             "rgba(202, 162, 175, 0.33)"
-set highlight-active-color      "rgba(251, 247, 133, 0.33)"
+set highlight-color             "rgba(241, 73, 133, 0.33)"
+set highlight-active-color      "rgba(251, 155, 126, 0.33)"
