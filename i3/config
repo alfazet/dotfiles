@@ -155,7 +155,7 @@ bar {
         separator  $bg3
         focused_workspace       $bg1 $bg1 $fg1
         active_workspace        $bg1 $bg1 $red3
-        inactive_workspace      $bg1 $bg1 $red1
+        inactive_workspace      $bg1 $bg1 $purple3
         urgent_workspace        $bg1 $highlight $bg1
     }
 }

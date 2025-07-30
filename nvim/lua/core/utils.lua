@@ -16,7 +16,7 @@ end
 M.git_root = function()
     local dir = vim.fs.root(0, { ".git" })
     if dir == nil then
-        return os.getenv("HOME")
+        return vim.uv.cwd()
     end
     return dir
 end

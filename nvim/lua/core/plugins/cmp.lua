@@ -40,11 +40,9 @@ return {
             window = {
                 completion = {
                     scrollbar = false,
-                    winhighlight = "Normal:CmpNormal",
                 },
                 documentation = {
                     scrollbar = false,
-                    winhighlight = "Normal:CmpNormal",
                 },
             },
         })
