@@ -31,9 +31,11 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 vim.opt.laststatus = 3
-vim.opt.statusline = "%t %m %= %y %l:%c"
+vim.opt.statusline = "%f %m %= %y %l:%c %{mode()}"
 vim.opt.cmdheight = 0
 vim.opt.pumblend = 15
+vim.opt.list = true
+vim.opt.listchars = "trail:~"
 
 -- misc
 vim.opt.undofile = true
