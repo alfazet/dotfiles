@@ -18,9 +18,7 @@ return {
                 "markdown",
                 "markdown-inline",
                 "python",
-                "r",
                 "rust",
-                "typst",
             })
         end,
     },

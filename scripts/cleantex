@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if [[ ! -d _aux ]]; then
-	mkdir _aux
-fi
-
-\mv -f *.aux *.bbl *.blg *.dvi *.fdb_latexmk *.fls *.log *.out *.thm *.toc *.err *.inf *.pre *.nav *.snm *-[0-9].pdf _aux 2>/dev/null

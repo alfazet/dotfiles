@@ -21,4 +21,9 @@ M.git_root = function()
     return dir
 end
 
+M.open_pdf = function()
+    local name = vim.fn.expand("%:t:r")
+    vim.system({ "zathura", name .. ".pdf" })
+end
+
 return M

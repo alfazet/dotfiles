@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-flameshot gui -p ~/Pictures/screenshots -c
+dir="${HOME}/Main/pictures/screenshots"
+filepath="$dir"/"$(date +%Y-%m-%d_%H-%M-%S).png"
+maim -osu "$filepath"
+xclip -selection clipboard -t image/png "$filepath"
+notify-send "Screenshot saved to ${filepath}"

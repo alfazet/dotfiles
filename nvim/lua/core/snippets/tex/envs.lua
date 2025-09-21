@@ -1,5 +1,6 @@
 local utils = require("core.snippets.snippet_utils")
 local s = utils.s
+local t = utils.t
 local i = utils.i
 local d = utils.d
 local f = utils.f

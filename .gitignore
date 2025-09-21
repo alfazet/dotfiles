@@ -15,12 +15,8 @@
 !i3/**
 !i3blocks/
 !i3blocks/**
-!latexmk/
-!latexmk/**
-!mpd/
-!mpd/**
-!ncmpcpp/
-!ncmpcpp/**
+!latex/
+!latex/**
 !nvim/
 !nvim/**
 !picom/

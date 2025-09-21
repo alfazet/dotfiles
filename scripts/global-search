@@ -1,17 +1,82 @@
 #!/usr/bin/env bash
 
-chosen=$({
-	find ~/Sync/lectures/ -mindepth 1 -type f -name "*.pdf"
-	find ~/Sync/notes/ -mindepth 1 -type f -name "*.pdf"
-    find ~/Sync/projects/ -mindepth 1 -type f \( -name "*.pdf" -o -name "*.jpg" -o -name "*.png" \)
-    find ~/Pictures -mindepth 1 -type f \( -name "*.jpg" -o -name "*.png" \)
-} | rofi -dmenu)
+# expands ** into any number of subdirs
+shopt -s globstar
+# if no file matches the glob it returns nothing
+# instead of returning the original string
+shopt -s nullglob
+root="$HOME/Main"
 
-[[ -z $chosen ]] && exit 1
+pdf_search() {
+    options=""
+    for file in "$root"/**/*.pdf; do
+        options+="${file#${root}/}"$'\n'
+    done
+    file=$(echo -n "$options" | rofi -i -dmenu)
+    full_path="${root}/${file}"
+    [[ -z "$file" ]] && exit 0
+    [[ ! -f "$full_path" ]] && exit 0
 
-ext=${chosen##*.}
-if [[ "$ext" == "pdf" ]]; then
-    exec zathura $chosen
-elif [[ "$ext" == "jpg" || "$ext" == "png" ]]; then
-    exec imv -d $chosen
-fi
+    zathura "$full_path" &
+}
+
+repo_search() {
+    options=""
+    for repo in "$root"/repos/*; do
+        options+="${repo#${root}/}"$'\n'
+    done
+    repo=$(echo -n "$options" | rofi -i -dmenu)
+    [[ -z "$repo" ]] && exit 0
+
+    repo="${root}/${repo}"
+    session_name=$(basename -z "$repo" | tr "[:space:]" _)
+    tmux_on=$(pgrep tmux)
+    if [[ -z $TMUX ]] && [[ -z $tmux_on ]]; then
+        setsid -f "$TERMINAL" -e tmux new-session -s $session_name -c $repo
+        exit 0
+    fi
+    if ! tmux has-session -t=$session_name; then
+        setsid -f "$TERMINAL" -e tmux new-session -ds $session_name -c $repo
+    fi
+    if [[ -z $TMUX ]]; then
+        setsid -f "$TERMINAL" -e tmux attach-session -t $session_name
+    else
+        setsid -f "$TERMINAL" -e tmux switch-client -t $session_name
+    fi
+}
+
+note_search() {
+    declare -A filenames
+    options=""
+    for file in "$root"/notes/*.md; do
+        header=$(grep -E "^# " "$file" | head -n1 | cut -d ' ' -f1 --complement)
+        options+="${header:-<no title>}"$'\n'
+        filenames["$header"]="$file"
+    done
+    header=$(echo -n "$options" | rofi -i -dmenu)
+    [[ -z "$header" ]] && exit 0
+    file=${filenames["$header"]}
+    # make a new note given its header
+    if [[ ! -f "$file" ]]; then
+        file="$root"/notes/"$(head -c3 /dev/urandom | xxd -p)".md
+        echo "# ${header}" >> "$file"
+    fi
+
+    setsid -f "$TERMINAL" -e nvim "$file"
+}
+
+search_for=$(printf "pdf\nrepo\nnote" | rofi -i -dmenu)
+case "$search_for" in
+"pdf")
+    pdf_search
+    ;;
+"repo")
+    repo_search
+    ;;
+"note")
+    note_search
+    ;;
+*)
+    exit 0
+    ;;
+esac

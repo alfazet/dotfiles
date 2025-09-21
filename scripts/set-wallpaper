@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-wallpapers_dir="/home/antek/Pictures/wallpapers"
-feh --no-fehbg --bg-fill "$wallpapers_dir/$1" &
+feh --no-fehbg --bg-fill "$1" &

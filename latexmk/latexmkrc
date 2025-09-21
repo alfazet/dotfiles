@@ -1,3 +1,0 @@
-ensure_path("TEXINPUTS", "~/.config/latexmk//");
-$success_cmd = "cleantex";
-$pdflatex = "pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1";

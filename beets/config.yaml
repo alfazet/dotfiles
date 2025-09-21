@@ -1,4 +1,4 @@
-plugins: 
+plugins:
   - edit
   - fetchart
   - lyrics
@@ -9,14 +9,17 @@ plugins:
   - missing
   - ftintitle
 
-directory: ~/Music/tracks
-library: ~/.config/beets/library.db
+directory: ~/Main/music
+library: ~/Main/music/library.db
 asciify_paths: yes
 
 import:
+  from_scratch: yes
+  timid: yes
+  log: ~/.cache/beets.log
   set_fields:
     album: %if{$album,$album,[singles]}
-  log: ~/.config/beets/beets.log
+    albumartist: %if{$albumartist,$albumartist,$artist}
 
 item_fields:
   disc_and_track: u'%02i%02i' % (disc, track) if disctotal > 1 else u'%04i' % (track)
@@ -37,9 +40,8 @@ replace:
 
 paths:
   default: albums/$albumartist/$album%aunique{}/${disc_and_track} $title
-  comp: compilations/$album/${disc_and_track} $artist $title
+  albumtype:compilation: compilations/$album%aunique{}/$artist $title
   albumtype:soundtrack: soundtracks/$album/${disc_and_track} $title
-  albumtype:unknown_comp: compilations/$album/$artist $title
   singleton: singles/${first_artist}/$title
 
 ftintitle:
@@ -51,7 +53,7 @@ embedart:
   maxwidth: 600
 
 fetchart:
-  minwidth: 600
+  minwidth: 500
   maxwidth: 600
   enforce_ratio: yes
   auto: yes

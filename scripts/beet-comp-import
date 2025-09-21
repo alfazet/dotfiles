@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-beet import $1 --set albumartist="Various Artists" --set album="$2" --set albumtype="unknown_comp"

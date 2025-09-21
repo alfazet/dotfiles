@@ -1,24 +1,40 @@
-config_dir="$HOME/.config/zsh"
-plugins_dir="$HOME/.config/zsh/plugins"
+config_dir="${HOME}/.config/zsh"
+plugins_dir="${HOME}/.config/zsh/plugins"
 
-[[ -f "$config_dir/aliases.zsh" ]] && source "$config_dir/aliases.zsh"
-[[ -f "$config_dir/theme.zsh" ]] && source "$config_dir/theme.zsh"
-[[ -f "$plugins_dir/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$plugins_dir/zsh-autosuggestions/zsh-autosuggestions.zsh"
-[[ -f "$plugins_dir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "$plugins_dir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+theme="${config_dir}/theme.zsh"
+[[ -f ${theme} ]] && source ${theme}
+
+aliases_="${config_dir}/aliases.zsh"
+[[ -f ${aliases_} ]] && source ${aliases_}
+
+autosuggestions="${plugins_dir}/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[[ -f ${autosuggestions} ]] && source ${autosuggestions}
 ZSH_AUTOSUGGEST_STRATEGY=(completion)
-fpath=("$plugins_dir/zsh-completions/src" $fpath)
 
-bindkey -v
-bindkey -v '^?' backward-delete-char # "normal" behavior of Backspace
-bindkey -v '^R' history-incremental-search-backward
-export KEYTIMEOUT=15
-
-unsetopt IGNORE_EOF 
-setopt APPEND_HISTORY
+highlighting="${plugins_dir}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[[ -f ${highlighting} ]] && source ${highlighting}
 
 ZSH_DISABLE_COMPFIX=true
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
+zmodload zsh/complist
+_comp_options+=(globdots)
+
+bindkey -v
+bindkey -v '^?' backward-delete-char
+bindkey -v '^R' history-incremental-search-backward
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+export KEYTIMEOUT=15
+
+HISTFILE="${HOME}/.local/state/zsh/history"
+HISTSIZE=10000
+SAVEHIST=10000
+
+unsetopt IGNORE_EOF
+setopt INC_APPEND_HISTORY
 
 precmd() {
     if [[ -z $first_prompt ]]; then

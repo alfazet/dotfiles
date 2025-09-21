@@ -42,3 +42,4 @@ vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim_undodir"
 vim.opt.swapfile = false
 vim.opt.inccommand = "split"
+vim.opt.updatetime = 500

@@ -5,8 +5,11 @@ local i = utils.i
 local d = utils.d
 local f = utils.f
 local fmta = utils.fmta
+local rep = utils.rep
 local get_visual = utils.get_visual
 local in_math = utils.in_math
+local in_text = utils.in_text
+local line_begin = require("luasnip.extras.expand_conditions").line_begin
 
 return {
     s({ trig = "sin", snippetType = "autosnippet" }, {

@@ -30,8 +30,23 @@ vim.api.nvim_create_autocmd("TermLeave", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "bash", "c", "cpp", "css", "html", "javascript", "make", "markdown", "python", "r", "rust" },
+    pattern = { "bash", "c", "cpp", "css", "html", "make", "markdown", "python", "rust", "tex" },
     callback = function()
         vim.treesitter.start()
+    end,
+})
+
+vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+        local opts = {
+            focusable = false,
+            close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+            border = "single",
+            source = "always",
+            prefix = " ",
+            scope = "cursor",
+        }
+        vim.diagnostic.open_float(nil, opts)
     end,
 })

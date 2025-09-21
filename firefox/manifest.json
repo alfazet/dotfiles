@@ -1,23 +1,44 @@
 {
-    "manifest_version": 2,
-    "version": "2.1",
-    "name": "RedPhosphor",
-    "theme": {
-        "colors": {
-            "toolbar": "rgb(16, 0, 16)",
-            "toolbar_text": "rgb(255, 240, 255)",
-            "frame": "rgb(8, 0, 8)",
-            "tab_background_text": "rgb(255, 255, 255)",
-            "toolbar_field": "rgb(24, 0, 24)",
-            "toolbar_field_text": "rgb(255, 220, 255)",
-            "tab_line": "rgb(64, 0, 64)",
-            "popup": "rgb(32, 0, 48)",
-            "popup_text": "rgb(255, 240, 255)",
-            "frame_inactive": "rgb(10, 0, 10)",
-            "icons": "rgb(200, 160, 230)",
-            "ntp_text": "rgb(255, 240, 255)",
-            "popup_border": "rgb(48, 0, 24)",
-            "tab_loading": "rgb(64, 0, 64)"
-        }
+  "manifest_version": 2,
+  "version": "2.2",
+  "name": "Red Phosphor",
+  "theme": {
+    "images": {
+      "additional_backgrounds": [
+        "images/bg-000-5672c42860d5b06e1058dc477397f3ef.svg"
+      ]
+    },
+    "properties": {
+      "additional_backgrounds_alignment": [
+        "top"
+      ],
+      "additional_backgrounds_tiling": [
+        "repeat"
+      ]
+    },
+    "colors": {
+      "bookmark_text": "#fffff",
+      "icons": "#f25b91",
+      "icons_attention": "#fcf16d",
+      "frame": "#000000",
+      "frame_inactive": "#000000",
+      "ntp_background": "#000000",
+      "ntp_card_background": "#230513",
+      "ntp_text": "#ffffff",
+      "popup": "#000000",
+      "popup_border": "#230513",
+      "popup_highlight": "#470b26",
+      "popup_highlight_text": "#ffffff",
+      "popup_text": "#ffffff",
+      "tab_background_text": "#ffffff",
+      "tab_line": "#230513",
+      "tab_loading": "#f25b91",
+      "tab_text": "#e3c5d2",
+      "toolbar": "#000000",
+      "toolbar_field": "#230513",
+      "toolbar_field_border_focus": "#470b26",
+      "toolbar_field_text": "#e3c5d2",
+      "toolbar_text": "#ffffff",
     }
+  }
 }
