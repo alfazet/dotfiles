@@ -1,8 +1,8 @@
 separator_block_width=15
 
-[musing]
-command=scripts/musing
-interval=3
+[musing-control]
+command=musing-control
+interval=1
 
 [volume]
 command=scripts/volume

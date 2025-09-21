@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import sys
 import json
 import socket
 
@@ -43,20 +44,25 @@ s.connect(("localhost", PORT))
 response_len = int.from_bytes(s.recv(4), "big")
 response = s.recv(response_len)
 
-request = json.dumps({"kind": "state"})
-response_state = json.loads(get_response(request))
+if len(sys.argv) == 1 or sys.argv[1] == "--state":
+    request = json.dumps({"kind": "state"})
+    response_state = json.loads(get_response(request))
 
-state = parse_state(response_state)
-if state == "stopped":
-    print("musing off")
-else:
-    if state == "playing":
-        print(" ", end="")
+    state = parse_state(response_state)
+    if state == "stopped":
+        print("musing off")
     else:
-        print(" ", end="")
-    song = parse_song(response_state)
-    tags = ["artist", "tracktitle"]
-    request = json.dumps({"kind": "metadata", "paths": [song], "tags": tags})
-    response_metadata = json.loads(get_response(request))
-    (artist, title) = parse_metadata(response_metadata, tags)
-    print(f"{artist} - {title}")
+        if state == "playing":
+            print(" ", end="")
+        else:
+            print(" ", end="")
+        song = parse_song(response_state)
+        tags = ["artist", "tracktitle"]
+        request = json.dumps({"kind": "metadata", "paths": [song], "tags": tags})
+        response_metadata = json.loads(get_response(request))
+        (artist, title) = parse_metadata(response_metadata, tags)
+        print(f"{artist} - {title}")
+else:
+    cmd = sys.argv[1][2:]
+    request = json.dumps({"kind": cmd})
+    _ = json.loads(get_response(request))
