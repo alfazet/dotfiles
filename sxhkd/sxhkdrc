@@ -16,8 +16,8 @@ XF86AudioMute
 XF86MonBrightness{Up,Down}
   brightnessctl set {+2%,2%-}
 
-XF86Audio{Stop,Play,Pause,Next,Prev}
-  musing-control {--stop,--resume,--pause,--next,--previous}
+XF86Audio{Stop,Play,Next,Prev}
+  musing-control {--stop,--toggle,--next,--previous}
 
 Print
   screenshot

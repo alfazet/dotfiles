@@ -36,7 +36,8 @@ repo_search() {
         exit 0
     fi
     if ! tmux has-session -t=$session_name; then
-        setsid -f "$TERMINAL" -e tmux new-session -ds $session_name -c $repo
+        setsid -f "$TERMINAL" -e tmux new-session -s $session_name -c $repo
+        exit 0
     fi
     if [[ -z $TMUX ]]; then
         setsid -f "$TERMINAL" -e tmux attach-session -t $session_name
