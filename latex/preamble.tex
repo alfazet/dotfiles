@@ -1,12 +1,198 @@
-\usepackage[polish]{babel}
-\usepackage{polski}
-
-\usepackage{fullpage}
-\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
-\usepackage{float}
+\usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage[x11names]{xcolor}
+\usepackage{mathrsfs}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage[paper=a4paper, margin=25mm]{geometry}
+\usepackage[amsmath, thmmarks]{ntheorem}
+\usepackage{polski}
+\usepackage{array}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage{tabto}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{tocloft}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{cancel}
+\usepackage{pdfpages}
+\usepackage{parskip}
 \usepackage{lipsum}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage[final, colorlinks=true, linkcolor=red, citecolor=black, urlcolor=black]{hyperref}
+\usepackage{cleveref}
 
 \usepackage{tikz}
-\usetikzlibrary{intersections}
+
+% Lengths
+\setstretch{1.1}
+\setlength\parindent{0pt}
+
+% table of contents on the titlepage
+\makeatletter
+\newcommand*{\tocsamepage}{\@starttoc{toc}}
+\makeatother
+
+% http://tex.stackexchange.com/questions/22119/how-can-i-change-the-spacing-before-theorems-with-amsthm
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=\parskip \thm@postskip=0pt
+}
+\makeatother
+
+% Periods after section numbers
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftpartaftersnum}{.}
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecaftersnum}{.}
+
+% Cleveref fix
+\crefname{section}{}{}
+\crefname{subsection}{}{}
+\crefname{subsubsection}{}{}
+\crefname{equation}{}{}
+\crefname{theorem}{}{}
+\crefname{lemma}{}{}
+\crefname{example}{}{}
+\crefname{definition}{}{}
+\crefname{figure}{}{}
+\crefname{table}{}{}
+\crefname{listing}{}{}
+\crefname{lstlisting}{}{}
+\crefname{lstinputlisting}{}{}
+
+% Title and titlepage
+\titlelabel{\thetitle.\quad}
+
+% Common math symbols and operators
+\providecommand{\ol}{\overline}
+\providecommand{\oa}{\overrightarrow}
+\providecommand{\ul}{\underline}
+\providecommand{\tl}{\widetilde}
+
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\OO}{\mathcal{O}}
+\providecommand{\ii}{\mathrm{i}}
+\providecommand{\ee}{\mathrm{e}}
+\providecommand{\dd}{\,\mathrm{d}}
+
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
+\renewcommand{\AA}{\mathcal{A}}
+\newcommand{\opbox}{\mathbin{\Box}}
+\newcommand{\optri}{\mathbin{\Delta}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+% Column type for math-mode tables
+\newcolumntype{C}{>{\(}c<{\)}}
+
+% enumerating (a), (b), ...
+\setlist[enumerate,1]{label={(\alph*)}}
+
+% Footer and header
+\pagestyle{fancy} 
+\pagenumbering{arabic}
+\fancyfoot[L]{}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Theorem-like environments
+\makeatletter
+\renewtheoremstyle{break}%
+    {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+##1\ ##2\theorem@separator}\hbox{\strut}}}]}%
+    {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+##1\ ##2\theorem@separator \mdseries\ (##3)}\hbox{\strut}}}]}
+\renewtheoremstyle{plain}%
+  {\item[\hskip\labelsep \theorem@headerfont ##1\ ##2\theorem@separator]}%
+{\item[\hskip\labelsep \theorem@headerfont ##1\ ##2\theorem@separator\  \mdseries(##3)]}
+\renewtheoremstyle{nonumberplain}%
+  {\item[\theorem@headerfont\hskip\labelsep ##1\theorem@separator]}%
+{\item[\hskip\labelsep \theorem@headerfont ##1\ \mdseries(##3)\theorem@separator]}
+\makeatother
+
+\theoremstyle{break}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{.}
+\newtheorem{theorem}{Twierdzenie}[section]
+
+\theoremstyle{break}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{.}
+\newtheorem{lemma}[theorem]{Lemat}
+
+\theoremstyle{break}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{.}
+\newtheorem{corollary}[theorem]{Wniosek}
+
+\theoremstyle{break}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{.}
+\newtheorem{definition}[theorem]{Definicja}
+
+\theoremstyle{break}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{.}
+\newtheorem{example}[theorem]{Przykład}
+
+\theoremstyle{break}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{.}
+\newtheorem{algorithm}[theorem]{Algorytm}
+
+% \vspace{-\belowdisplayskip}\[\] - put this hack at the end of proof if the end-of-proof square isn't placed correctly 
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{\ensuremath\square}
+\theoremseparator{:}
+\newtheorem{proof}{Dowód}
+
+\theoremstyle{plain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{.}
+\newtheorem{problem}[theorem]{Zadanie}
+
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\mdseries}
+\theoremsymbol{}
+\theoremseparator{:}
+\newtheorem{solution}{Rozwiązanie}
