@@ -8,6 +8,7 @@ plugins:
   - info
   - missing
   - ftintitle
+  - musicbrainz
 
 directory: ~/Main/music
 library: ~/Main/music/library.db

@@ -172,6 +172,14 @@ return {
         condition = in_math,
     }),
     s({
+        trig = ";S",
+        snippetType = "autosnippet",
+    }, {
+        t("\\Sigma"),
+    }, {
+        condition = in_math,
+    }),
+    s({
         trig = ";t",
         snippetType = "autosnippet",
     }, {

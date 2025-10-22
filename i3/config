@@ -156,6 +156,7 @@ bar {
         }
 }
 bindsym $mod+Shift+b bar mode toggle
+bindsym $mod+Shift+t floating toggle
 
 default_border pixel 1
 hide_edge_borders none
