@@ -9,7 +9,7 @@ root="$HOME/Main"
 
 pdf_search() {
     options=""
-    for file in "$root"/**/*.pdf; do
+    for file in "$root"/{heap,mini,notes,personal}/**/*.pdf; do
         options+="${file#${root}/}"$'\n'
     done
     file=$(echo -n "$options" | rofi -i -dmenu)
@@ -49,7 +49,7 @@ repo_search() {
 note_search() {
     declare -A filenames
     options=""
-    for file in "$root"/notes/*.md; do
+    for file in "$root"/{mini,notes}/*.md; do
         header=$(grep -E "^# " "$file" | head -n1 | cut -d ' ' -f1 --complement)
         options+="${header:-<no title>}"$'\n'
         filenames["$header"]="$file"

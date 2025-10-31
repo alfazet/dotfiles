@@ -36,6 +36,7 @@ vim.opt.cmdheight = 0
 vim.opt.pumblend = 15
 vim.opt.list = true
 vim.opt.listchars = "trail:~"
+vim.opt.pumheight = 10
 
 -- misc
 vim.opt.undofile = true
@@ -43,3 +44,4 @@ vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim_undodir"
 vim.opt.swapfile = false
 vim.opt.inccommand = "split"
 vim.opt.updatetime = 500
+vim.filetype.add({ extension = { ispc = "ispc" } })

@@ -5,6 +5,7 @@ return {
         {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
+            "hrsh7th/cmp-nvim-lsp",
         },
     },
     config = function()
@@ -33,6 +34,9 @@ return {
                     name = "buffer",
                     option = { keyword_pattern = [[\%C\k\+]] },
                 },
+                {
+                    name = "nvim_lsp",
+                },
             }),
             completion = {
                 completeopt = "menu,menuone,noinsert",
@@ -45,6 +49,11 @@ return {
                     scrollbar = false,
                 },
             },
+        })
+
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        vim.lsp.config("*", {
+            capabilities = capabilities,
         })
     end,
 }
