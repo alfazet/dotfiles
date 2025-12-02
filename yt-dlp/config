@@ -6,3 +6,4 @@
 --embed-metadata
 -o %(title)s.%(ext)s
 --cookies-from-browser firefox
+--remote-components ejs:npm

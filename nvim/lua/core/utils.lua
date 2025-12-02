@@ -14,7 +14,7 @@ M.toggle_qf = function()
 end
 
 M.git_root = function()
-    local dir = vim.fs.root(0, { ".git" })
+    local dir = vim.fs.root(0, { { ".root" }, { ".git" } })
     if dir == nil then
         return vim.uv.cwd()
     end
