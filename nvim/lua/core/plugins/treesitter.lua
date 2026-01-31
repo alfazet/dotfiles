@@ -19,7 +19,6 @@ return {
                 "latex",
                 "make",
                 "markdown",
-                "markdown-inline",
                 "python",
                 "rust",
             })

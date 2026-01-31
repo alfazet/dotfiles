@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-options=("shutdown" "reboot")
-commands=("systemctl poweroff -i" "systemctl reboot")
-chosen=$(printf '%s\n' "${options[@]}" | rofi -dmenu -format i -i -theme-str 'mainbox {children: [listview];}')
-if [[ -n $chosen && $chosen -ge 0 ]]; then
-    exec ${commands[chosen]}
-fi

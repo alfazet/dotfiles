@@ -1,0 +1,17 @@
+* {
+    font-family: "Lilex Nerd Font Mono";
+    font-size: 8px;
+    min-height: 0;
+    min-width: 0;
+    background-color: rgba(0, 0, 0, 1);
+}
+
+#workspaces button {
+    padding: 0.125rem 0.125rem;
+    margin: 0.125rem 0.125rem;
+    color: rgba(128, 0, 128, 1);
+}
+
+#workspaces button.active {
+    color: rgba(255, 255, 255, 1);
+}

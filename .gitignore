@@ -2,6 +2,7 @@
 
 !.gitignore
 !README.md
+!electron-flags.conf
 
 !alacritty/
 !alacritty/**
@@ -11,24 +12,20 @@
 !dunst/**
 !firefox/
 !firefox/**
-!i3/
-!i3/**
-!i3blocks/
-!i3blocks/**
+!hypr/
+!hypr/**
 !latex/
 !latex/**
 !nvim/
 !nvim/**
-!picom/
-!picom/**
-!rofi/
-!rofi/**
 !scripts/
 !scripts/**
-!sxhkd/
-!sxhkd/**
 !tmux/
 !tmux/**
+!waybar/
+!waybar/**
+!wofi/
+!wofi/**
 !yt-dlp/
 !yt-dlp/**
 !zathura/

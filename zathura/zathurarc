@@ -1,6 +1,6 @@
 set recolor                     "false"
 set recolor-keephue             "true"
-set font                        "Maple Mono Normal NL NF"
+set font                        "Lilex Nerd Font Mono"
 set selection-notification      "false"
 set guioptions                  "s"
 set selection-clipboard         "clipboard"

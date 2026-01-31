@@ -1,0 +1,58 @@
+{
+    "position": "bottom",
+    "spacing": 8,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "battery",
+        "clock"
+    ],
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{id}",
+        "all-outputs": true,
+        "disable-scroll": false,
+        "active-only": false
+    },
+    "cpu": {
+        "state": {
+            "high": 50,
+            "mid": 25,
+            "low": 0
+        },
+        "format": "CPU: {usage}%"
+    },
+    "memory": {
+        "state": {
+            "high": 50,
+            "mid": 25,
+            "low": 0
+        },
+        "format": "RAM: {percentage}%"
+    },
+    "pulseaudio": {
+        "format": "󰕾 {volume}%",
+        "format-bluetooth": "󰂰 {volume}%",
+        "format-muted": "󰝟 (muted)",
+        "on-click": "pavucontrol"
+    },
+    "battery": {
+        "states": {
+            "full": 100,
+            "high": 80,
+            "mid": 60,
+            "low": 40,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["󱃍", "󰁼", "󰁾", "󰂀", "󰁹"]
+    },
+    "clock": {
+        "format": "{:%a %d.%m.%Y %H:%M}",
+        "tooltip": false
+    }
+}

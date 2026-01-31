@@ -8,19 +8,19 @@ TERM = "alacritty"
 size = 16
 
 [font.normal]
-family = "Maple Mono Normal NL NF"
+family = "Lilex Nerd Font Mono"
 style = "Regular"
 
 [font.bold]
-family = "Maple Mono Normal NL NF"
+family = "Lilex Nerd Font Mono"
 style = "Bold"
 
 [font.italic]
-family = "Maple Mono Normal NL NF"
+family = "Lilex Nerd Font Mono"
 style = "Italic"
 
 [font.bold_italic]
-family = "Maple Mono Normal NL NF"
+family = "Lilex Nerd Font Mono"
 style = "Bold Italic"
 
 [scrolling]
