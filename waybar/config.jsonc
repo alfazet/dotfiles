@@ -5,9 +5,9 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
+        "pulseaudio",
         "cpu",
         "memory",
-        "pulseaudio",
         "battery",
         "clock"
     ],
@@ -18,8 +18,14 @@
         "disable-scroll": false,
         "active-only": false
     },
+    "pulseaudio": {
+        "format": "󰕾 {volume}%",
+        "format-bluetooth": "󰂰 {volume}%",
+        "format-muted": "󰝟 (muted)",
+        "on-click": "pavucontrol"
+    },
     "cpu": {
-        "state": {
+        "states": {
             "high": 50,
             "mid": 25,
             "low": 0
@@ -27,18 +33,12 @@
         "format": "CPU: {usage}%"
     },
     "memory": {
-        "state": {
+        "states": {
             "high": 50,
             "mid": 25,
             "low": 0
         },
         "format": "RAM: {percentage}%"
-    },
-    "pulseaudio": {
-        "format": "󰕾 {volume}%",
-        "format-bluetooth": "󰂰 {volume}%",
-        "format-muted": "󰝟 (muted)",
-        "on-click": "pavucontrol"
     },
     "battery": {
         "states": {

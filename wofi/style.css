@@ -1,15 +1,15 @@
 #window {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: #000000;
     border-radius: 0rem;
-    border: 1px solid rgba(80, 0, 80, 1);
+    border: 1px solid #5b1fc0;
     font-size: 12px;
     font-family: "Lilex Nerd Font Mono"
 }
 
 #input {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: #000000;
     border-radius: 0rem;
-    border: 1px solid rgba(80, 0, 80, 1);
+    border: 1px solid #5b1fc0;
     font-size: 12px;
     font-family: "Lilex Nerd Font Mono";
     padding: 0.5rem 0.5rem;
@@ -28,8 +28,8 @@
 }
 
 #entry {
-    color: rgba(163, 163, 163, 1);
-    background-color: rgba(0, 0, 0, 1);
+    color: #a3a3a3;
+    background-color: #000000;
     padding: 0.5rem 0.5rem;
 }
 
@@ -38,6 +38,6 @@
 }
 
 #text:selected {
-    color: rgba(80, 0, 80, 1);
+    color: #5b1fc0;
     font-weight: 600;
 }

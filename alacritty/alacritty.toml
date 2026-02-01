@@ -1,5 +1,5 @@
 [general]
-import = ["./red-phosphor.toml"]
+import = ["./twm.toml"]
 
 [env]
 TERM = "alacritty"

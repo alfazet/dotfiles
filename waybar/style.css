@@ -3,15 +3,35 @@
     font-size: 8px;
     min-height: 0;
     min-width: 0;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: #000000;
 }
 
 #workspaces button {
     padding: 0.125rem 0.125rem;
     margin: 0.125rem 0.125rem;
-    color: rgba(128, 0, 128, 1);
+    color: #5b1fc0;
 }
 
 #workspaces button.active {
-    color: rgba(255, 255, 255, 1);
+    color: #ffffff;
+}
+
+#cpu.high,
+#memory.high,
+#battery.critical {
+    color: #c94a67;
+}
+
+#cpu.mid,
+#memory.mid,
+#battery.high,
+#battery.mid,
+#battery.low {
+    color: #2ea592;
+}
+
+#cpu.low,
+#memory.low,
+#battery.full {
+    color: #8f93db;
 }
