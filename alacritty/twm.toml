@@ -1,6 +1,6 @@
 [colors.normal]
 black = "#000000"
-red = "#c94a67"
+red = "#d75a89"
 green = "#2ea592"
 yellow = "#faf4b8"
 blue = "#8f93db"
@@ -10,7 +10,7 @@ white = "#ffffff"
 
 [colors.bright]
 black = "#5b1fc0"
-red = "#c94a67"
+red = "#d75a89"
 green = "#2ea592"
 yellow = "#faf4b8"
 blue = "#8f93db"
@@ -20,7 +20,7 @@ white = "#ffffff"
 
 [colors.dim]
 black = "#5b1fc0"
-red = "#c94a67"
+red = "#d75a89"
 green = "#2ea592"
 yellow = "#faf4b8"
 blue = "#8f93db"

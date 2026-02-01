@@ -1,7 +1,7 @@
 return {
-    "alfazet/red-phosphor.nvim",
+    url = "https://codeberg.org/alfazet/twm.nvim",
     config = function()
-        local theme = require("red-phosphor/init")
+        local theme = require("twm/init")
         theme.setup({
             integrations = { "fzf" },
         })
