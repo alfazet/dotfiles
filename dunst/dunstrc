@@ -58,6 +58,6 @@
 [urgency_normal]
     background = "#000000"
     foreground = "#FFFFFF"
-    highlight = "#FAF4B8"
-    frame_color = "#5B1FC0"
+    highlight = "#fcde4e"
+    frame_color = "#931c4d"
     timeout = 5

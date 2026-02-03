@@ -9,7 +9,7 @@
 #workspaces button {
     padding: 0.125rem 0.125rem;
     margin: 0.125rem 0.125rem;
-    color: #5b1fc0;
+    color: #931c4d;
 }
 
 #workspaces button.active {
@@ -19,7 +19,7 @@
 #cpu.high,
 #memory.high,
 #battery.critical {
-    color: #d75a89;
+    color: #fcde4e;
 }
 
 #cpu.mid,
@@ -27,11 +27,11 @@
 #battery.high,
 #battery.mid,
 #battery.low {
-    color: #2ea592;
+    color: #f98989;
 }
 
 #cpu.low,
 #memory.low,
 #battery.full {
-    color: #8f93db;
+    color: #a14a7d;
 }
