@@ -1,6 +1,6 @@
 * {
     font-family: "Lilex Nerd Font Mono";
-    font-size: 8px;
+    font-size: 0.75rem;
     min-height: 0;
     min-width: 0;
     background-color: #000000;
@@ -13,6 +13,10 @@
 }
 
 #workspaces button.active {
+    color: #ffffff;
+}
+
+#pulseaudio {
     color: #ffffff;
 }
 
@@ -34,4 +38,8 @@
 #memory.low,
 #battery.full {
     color: #a14a7d;
+}
+
+#clock {
+    color: #ffffff;
 }

@@ -18,14 +18,14 @@
 !latex/**
 !nvim/
 !nvim/**
+!rofi/
+!rofi/**
 !scripts/
 !scripts/**
 !tmux/
 !tmux/**
 !waybar/
 !waybar/**
-!wofi/
-!wofi/**
 !yt-dlp/
 !yt-dlp/**
 !zathura/

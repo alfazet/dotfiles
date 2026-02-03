@@ -1,0 +1,73 @@
+* {
+	bkg: #000000a0;
+	cur: #8b4978a0;
+	text: #ffffff;
+        border: #931c4d;
+
+	foreground: @text;
+	background: @bkg;
+	active-background: @cur;
+        selected-background: @active-background;
+	separatorcolor: @active-background;
+	bordercolor: @border;
+}
+
+#window {
+	background-color: @background;
+	border:           2;
+	border-radius:    0;
+	border-color:     @bordercolor;
+	padding:          5px;
+}
+#mainbox {
+	border:  0;
+	padding: 0px;
+}
+#textbox {
+	text-color: @foreground;
+}
+#listview {
+	fixed-height: false;
+	border:       0px 0px 0px;
+	spacing:      0px;
+	scrollbar:    false;
+}
+#element {
+	border: 0;
+	padding: 10px;
+}
+#element.normal.normal {
+	background-color: @background;
+	text-color:       @foreground;
+}
+#element.selected.normal {
+	background-color: @selected-background;
+	text-color:       @foreground;
+}
+#element.alternate.normal {
+	background-color: @background;
+	text-color:       @foreground;
+}
+#inputbar {
+    text-color: @foreground;
+    background-color: @background;
+    padding: 10px;
+}
+#case-indicator {
+    enabled: false;
+}
+#entry {
+    placeholder: "";
+	spacing: 0;
+    padding: 0px;
+	text-color: @foreground;
+}
+#prompt {
+    enabled: false;
+}
+#inputbar {
+	children:   [entry];
+}
+#textbox-prompt-colon {
+	str:        "";
+}

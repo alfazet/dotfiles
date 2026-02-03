@@ -1,0 +1,11 @@
+configuration {
+    dmenu: true;
+    p: "";
+    modes: "drun";
+    font: "Lilex Nerd Font Mono 20";
+    drun-display-format: "{name}";
+    sort: true;
+    matching: "fuzzy";
+    sorting-method: "fzf";
+    no-custom: true;
+}

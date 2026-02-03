@@ -12,7 +12,7 @@ pdf_search() {
     for file in "$root"/{heap,mini,notes,personal}/**/*.pdf; do
         options+="${file#${root}/}"$'\n'
     done
-    file=$(echo -n "$options" | wofi -i --show dmenu)
+    file=$(echo -n "$options" | rofi -i -dmenu)
     full_path="${root}/${file}"
     [[ -z "$file" ]] && exit 0
     [[ ! -f "$full_path" ]] && exit 0
@@ -25,7 +25,7 @@ repo_search() {
     for repo in "$root"/repos/*; do
         options+="${repo#${root}/}"$'\n'
     done
-    repo=$(echo -n "$options" | wofi -i --show dmenu)
+    repo=$(echo -n "$options" | rofi -i -dmenu)
     [[ -z "$repo" ]] && exit 0
 
     repo="${root}/${repo}"
@@ -54,7 +54,7 @@ note_search() {
         options+="${header:-<no title>}"$'\n'
         filenames["$header"]="$file"
     done
-    header=$(echo -n "$options" | wofi -i --show dmenu)
+    header=$(echo -n "$options" | rofi -i -dmenu)
     [[ -z "$header" ]] && exit 0
     file=${filenames["$header"]}
     # make a new note given its header
@@ -66,7 +66,7 @@ note_search() {
     setsid -f "$TERMINAL" -e nvim "$file"
 }
 
-search_for=$(printf "pdf\nrepo\nnote" | wofi -i --show dmenu)
+search_for=$(printf "pdf\nrepo\nnote" | rofi -i -dmenu)
 case "$search_for" in
 "pdf")
     pdf_search
