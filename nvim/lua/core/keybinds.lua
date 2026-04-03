@@ -1,0 +1,19 @@
+vim.keymap.set("", "<Space>", "<NOP>")
+
+vim.keymap.set("n", "j", "gj", { silent = true })
+vim.keymap.set("n", "k", "gk", { silent = true })
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("n", "J", "mzJ`z")
+
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+
+vim.keymap.set("n", "<C-q>", [[<Cmd>lua require("core.utils").toggle_qf()<CR>]])
+vim.keymap.set("n", "<C-n>", "<Cmd>try | cnext | catch | cfirst | catch | endtry<CR>")
+vim.keymap.set("n", "<C-m>", "<Cmd>try | cprev | catch | clast | catch | endtry<CR>")

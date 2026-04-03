@@ -1,0 +1,47 @@
+[general]
+import = ["./red-phosphor.toml"]
+
+[font]
+size = 14
+
+[font.normal]
+family = "Lilex Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "Lilex Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Lilex Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "Lilex Nerd Font"
+style = "Bold Italic"
+
+[window]
+opacity = 0.9
+dynamic_padding = true
+
+[window.class]
+general = "Alacritty"
+
+[window.padding]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"

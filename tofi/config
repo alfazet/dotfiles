@@ -1,0 +1,16 @@
+font = /usr/share/fonts/TTF/LilexNerdFontMono-Regular.ttf
+font-size = 16
+
+background-color = #000000F0
+text-color = #99305e
+selection-color = #f3b3a3
+selection-match-color = #db5780
+
+width = 33%
+height = 33%
+border-width = 0
+outline-width = 0
+result-spacing = 10
+
+prompt-text = ""
+num-results = 5

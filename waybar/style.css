@@ -1,0 +1,48 @@
+* {
+    font-family: Lilex Nerd Font Mono;
+    font-size: 0.75rem;
+    min-height: 0;
+    min-width: 0;
+    border: none;
+    border-radius: 0;
+    background-color: #260a30;
+}
+
+#workspaces button {
+    padding: 0.125rem 0.125rem;
+    margin: 0.125rem 0.125rem;
+    color: #931c4d;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+}
+
+#pulseaudio {
+    color: #ffffff;
+}
+
+#cpu.high,
+#memory.high,
+#battery.critical {
+    color: #fcde4e;
+}
+
+#pulseaudio.muted,
+#cpu.mid,
+#memory.mid,
+#battery.high,
+#battery.mid,
+#battery.low {
+    color: #f98989;
+}
+
+#cpu.low,
+#memory.low,
+#battery.full {
+    color: #a14a7d;
+}
+
+#clock {
+    color: #ffffff;
+}

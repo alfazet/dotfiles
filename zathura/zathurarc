@@ -1,0 +1,24 @@
+set recolor                     "false"
+set recolor-keephue             "true"
+set font                        "Lilex Nerd Font Mono"
+set selection-notification      "false"
+set guioptions                  ""
+set selection-clipboard         "clipboard"
+set database                    "sqlite"
+
+set default-bg                  "#000000"
+set default-fg                  "#ffffff"
+
+set statusbar-bg                "#640c4b"
+set statusbar-fg                "#ffffff"
+
+set inputbar-bg                 "#931c4d"
+set inputbar-fg                 "#ffffff"
+
+set completion-bg               "#000000"
+set completion-fg               "#ffffff"
+set completion-highlight-bg     "#931c4d"
+set completion-highlight-fg     "#ffffff"
+
+set highlight-color             "rgba(226, 24, 111, 0.33)"
+set highlight-active-color      "rgba(249, 137, 137, 0.33)"
