@@ -3,25 +3,34 @@
 Made to match my wallpaper ([source](https://www.deviantart.com/siriushd/art/OneShot-Niko-and-Rue-691813593)).
 Colors in each category are subjectively ordered from darkest to lightest.
 
-TODO: add more shades
-
-## Background (black)
+## Background
 - `#000000`
+- `#120517`
+- `#1d0825`
+- `#240a2e`
+- `#3a2343`
 
-## Text (white)
-- `#FFFFFF`
+## Text
+- `#ffffff`
+- `#eae3e5`
+- `#d4c8cd`
+- `#bfaeb6`
+- `#a994a0`
 
-## Base (purple)
-- `#49113D`
+## Accent 1
+- `#7a264a`
+- `#982f5c`
+- `#a2446c`
 
-## Accent 1 (rose / red-pink mix)
-- `#DB5780`
+## Accent 2
+- `#f474bc`
+- `#f689c6`
+- `#f79ed0`
 
-## Accent 2 (lavender)
-- `#A65C8C`
+## Accent 3
+- `#daa194`
+- `#f2b3a4`
+- `#f3bbad`
 
-## Accent 3 (wine red)
-- `#99305E`
-
-## Highlight (yellow / beige)
-- `#F3B3A3`
+## Highlight
+- `#f7e59b`

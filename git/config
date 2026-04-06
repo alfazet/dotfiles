@@ -1,0 +1,9 @@
+[user]
+    email = zsd.antoni@gmail.com
+    name = Antoni Zasada
+
+[core]
+    editor = nvim
+
+[init]
+    defaultbranch = main

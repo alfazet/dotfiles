@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# a script to start/attach to a tmux session in a git repo
+# requirements: tmux, tofi
+
+repos_dir=$HOME/Main/repos
+mapfile -t repos < <(
+    find "$repos_dir" -type d -name ".git" |
+        sed "s|/.git$||" |
+        sort
+)
+
+repo_names=()
+for repo in "${repos[@]}"; do
+    repo_names+=("${repo#"$repos_dir/"}")
+done
+chosen_name=$(printf "%s\n" "${repo_names[@]}" | tofi)
+
+[[ -z "$chosen_name" ]] && exit 0
+
+repo="$repos_dir/$chosen_name"
+session_name="${chosen_name//[.:]/_}"
+tmux_on=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_on ]]; then
+    setsid -f "$TERMINAL" -e tmux new-session -s $session_name -c $repo
+    exit 0
+fi
+if ! tmux has-session -t=$session_name; then
+    setsid -f "$TERMINAL" -e tmux new-session -s $session_name -c $repo
+    exit 0
+fi
+if [[ -z $TMUX ]]; then
+    setsid -f "$TERMINAL" -e tmux attach-session -t $session_name
+else
+    setsid -f "$TERMINAL" -e tmux switch-client -t $session_name
+fi

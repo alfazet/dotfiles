@@ -13,17 +13,14 @@ M.toggle_qf = function()
     vim.cmd("copen")
 end
 
-M.git_root = function()
-    local dir = vim.fs.root(0, { { ".root" }, { ".git" } })
-    if dir == nil then
-        return vim.uv.cwd()
-    end
-    return dir
-end
-
 M.open_pdf = function()
     local name = vim.fn.expand("%:t:r")
     vim.system({ "zathura", name .. ".pdf" })
+end
+
+M.is_cmdline_type_find = function()
+    local cmdline_cmd = vim.fn.split(vim.fn.getcmdline(), ' ')[1]
+    return cmdline_cmd == "find"
 end
 
 return M

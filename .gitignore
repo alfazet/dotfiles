@@ -10,6 +10,8 @@
 !beets/**
 !dunst/
 !dunst/**
+!git/
+!git/**
 !hypr/
 !hypr/**
 !nvim/

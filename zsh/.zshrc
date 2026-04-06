@@ -1,7 +1,3 @@
-export EDITOR=nvim
-export TERMINAL=alacritty
-export BROWSER=firefox
-
 config_dir="${HOME}/.config/zsh"
 plugins_dir="${HOME}/.config/zsh/plugins"
 

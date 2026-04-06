@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# a launcher menu script
+# requirements: tofi and whatever is used to launch stuff
+
+options=("pdf" "image" "audio")
+chosen=$(printf '%s\n' "${options[@]}" | tofi)
+
+[[ -z "$chosen" ]] && exit 0
+
+case $chosen in
+"pdf") echo "todo" ;; # zathura
+"image") echo "todo" ;; # imv
+"audio") echo "todo" ;; # foksal add-and-play
+*) exit 0 ;;
+esac
