@@ -2,9 +2,9 @@ font = /usr/share/fonts/TTF/LilexNerdFontMono-Regular.ttf
 font-size = 16
 
 background-color = #000000F0
-text-color = #99305e
-selection-color = #f3b3a3
-selection-match-color = #db5780
+text-color = #982f5c
+selection-color = #f7e59b
+selection-match-color = #f689c6
 
 width = 33%
 height = 33%

@@ -9,16 +9,16 @@ set database                    "sqlite"
 set default-bg                  "#000000"
 set default-fg                  "#ffffff"
 
-set statusbar-bg                "#640c4b"
+set statusbar-bg                "#7a264a"
 set statusbar-fg                "#ffffff"
 
-set inputbar-bg                 "#931c4d"
+set inputbar-bg                 "#7a264a"
 set inputbar-fg                 "#ffffff"
 
 set completion-bg               "#000000"
 set completion-fg               "#ffffff"
-set completion-highlight-bg     "#931c4d"
+set completion-highlight-bg     "#7a264a"
 set completion-highlight-fg     "#ffffff"
 
-set highlight-color             "rgba(226, 24, 111, 0.33)"
-set highlight-active-color      "rgba(249, 137, 137, 0.33)"
+set highlight-color             "rgba(218, 161, 148, 0.33)"
+set highlight-active-color      "rgba(247, 229, 155, 0.33)"

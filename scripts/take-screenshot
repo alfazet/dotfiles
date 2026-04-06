@@ -1,4 +1,5 @@
 #! /usr/bin/env bash
+
 name=$(date -Iseconds | tr ':' '_' | head -c -7)
 grim -g "$(slurp -d)" - | tee "$HOME/Main/pictures/screenshots/$name.png" | wl-copy
 notify-send -t 1000 "Screenshot" "Saved and copied to clipboard"

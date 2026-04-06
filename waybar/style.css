@@ -5,13 +5,13 @@
     min-width: 0;
     border: none;
     border-radius: 0;
-    background-color: #260a30;
+    background-color: #240a2e;
 }
 
 #workspaces button {
     padding: 0.125rem 0.125rem;
     margin: 0.125rem 0.125rem;
-    color: #931c4d;
+    color: #982f5c;
 }
 
 #workspaces button.active {
@@ -25,22 +25,21 @@
 #cpu.high,
 #memory.high,
 #battery.critical {
-    color: #fcde4e;
+    color: #f7e59b;
 }
 
-#pulseaudio.muted,
 #cpu.mid,
 #memory.mid,
 #battery.high,
 #battery.mid,
 #battery.low {
-    color: #f98989;
+    color: #f474bc;
 }
 
 #cpu.low,
 #memory.low,
 #battery.full {
-    color: #a14a7d;
+    color: #982f5c;
 }
 
 #clock {

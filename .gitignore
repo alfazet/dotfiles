@@ -10,6 +10,8 @@
 !beets/**
 !dunst/
 !dunst/**
+!foksal/
+!foksal/**
 !git/
 !git/**
 !hypr/
