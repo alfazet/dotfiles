@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# a script to start/attach to a tmux session in a git repo
-# requirements: tmux, tofi
 
 repos_dir=$HOME/Main/repos
 mapfile -t repos < <(

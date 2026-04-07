@@ -1,6 +1,6 @@
 # My color palette (Red Phosphor)
 
-Made to match my wallpaper ([source](https://www.deviantart.com/siriushd/art/OneShot-Niko-and-Rue-691813593)).
+Made to match my wallpaper (`WALLPAPER.png` in this repo, [source](https://www.deviantart.com/siriushd/art/OneShot-Niko-and-Rue-691813593)).
 Colors in each category are subjectively ordered from darkest to lightest.
 
 ## Background

@@ -1,15 +1,64 @@
 #!/usr/bin/env bash
-# a launcher menu script
-# requirements: tofi and whatever is used to launch stuff
 
+shopt -s globstar
+shopt -s nullglob
+root="$HOME/Main"
 options=("pdf" "image" "audio")
-chosen=$(printf '%s\n' "${options[@]}" | tofi)
+func=$(printf "%s\n" "${options[@]}" | tofi)
 
-[[ -z "$chosen" ]] && exit 0
+[[ -z "$func" ]] && exit 0
 
-case $chosen in
-"pdf") echo "todo" ;; # zathura
-"image") echo "todo" ;; # imv
-"audio") echo "todo" ;; # foksal add-and-play
-*) exit 0 ;;
+file_options=
+
+choose_pdf() {
+    for file in "${root}"/{mini,personal,reading}/**/*.pdf; do
+        file_options+="${file#${root}/}"$'\n'
+    done
+}
+
+choose_image() {
+    for file in "${root}"/pictures/**/*.{jpg,png,webp}; do
+        file_options+="${file#${root}/}"$'\n'
+    done
+}
+
+choose_audio() {
+    for file in "${root}"/music/**/*.{mp3,m4a,flac,wav}; do
+        file_options+="${file#${root}/}"$'\n'
+    done
+}
+
+case $func in
+"pdf")
+    choose_pdf
+    ;;
+"image")
+    choose_image
+    ;;
+"audio")
+    choose_audio
+    ;;
+*)
+    exit 0
+    ;;
+esac
+
+file=$(echo -n "$file_options" | tofi)
+full_path="${root}/${file}"
+[[ -z "$file" ]] && exit 0
+[[ ! -f "$full_path" ]] && exit 0
+
+case $func in
+"pdf")
+    zathura "$full_path" &
+    ;;
+"image")
+    imv "$full_path" &
+    ;;
+"audio")
+    foksal-ctl add "$full_path"
+    ;;
+*)
+    exit 0
+    ;;
 esac
