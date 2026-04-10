@@ -1,0 +1,3 @@
+audio_backend = "pipewire"
+music_root = "/home/antek/Main/music"
+n_jobs = 1

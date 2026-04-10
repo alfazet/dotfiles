@@ -16,6 +16,7 @@
 
 #workspaces button.active {
     color: #ffffff;
+    font-weight: bold;
 }
 
 #pulseaudio {

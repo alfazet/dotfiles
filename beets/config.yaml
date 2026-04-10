@@ -1,0 +1,59 @@
+plugins:
+  - duplicates
+  - edit
+  - embedart
+  - fetchart
+  - ftintitle
+  - info
+  - inline
+  - missing
+  - musicbrainz
+
+directory: ~/Main/music
+library: ~/Main/music/library.db
+asciify_paths: yes
+
+import:
+  from_scratch: yes
+  timid: yes
+  log: ~/.cache/beets.log
+  set_fields:
+    album: %if{$album,$album,~singles~}
+    albumartist: %ifdef{mix,~mixes~,$albumartist}
+
+item_fields:
+  disc_and_track: u'%02i%02i' % (disc, track) if disctotal > 1 else u'%04i' % (track)
+  first_artist: artist.split(',')[0]
+
+paths:
+  default: albums/$albumartist/$album%aunique{}/${disc_and_track}_$title
+  albumtype:mix: mixes/$album%aunique{}/${artist}_$title
+  albumtype:soundtrack: soundtracks/$album/${disc_and_track}_$title
+  singleton: singles/${first_artist}/$title
+
+replace:
+  '[\\/]': _
+  '[\x00-\x1f]': _
+  '[<>:"\?\*\|,\.!~]': _
+  '\s+$': ''
+  '^\s+': ''
+  '^-': _
+  '\ ': _
+  "'": ''
+  '[\.\(\)]': ''
+  '&': 'and'
+
+embedart:
+  auto: yes
+  remove_art_file: yes
+  maxwidth: 600
+
+fetchart:
+  minwidth: 500
+  maxwidth: 600
+  enforce_ratio: yes
+  auto: yes
+  cover_format: JPEG
+
+ftintitle:
+  format: (feat. {0})

@@ -1,5 +1,5 @@
 font = /usr/share/fonts/TTF/LilexNerdFontMono-Regular.ttf
-font-size = 16
+font-size = 14
 
 background-color = #000000F0
 text-color = #982f5c
@@ -14,3 +14,4 @@ result-spacing = 10
 
 prompt-text = ""
 num-results = 5
+matching-algorithm = fuzzy

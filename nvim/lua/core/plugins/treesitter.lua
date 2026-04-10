@@ -15,6 +15,7 @@ return {
                 "cuda",
                 "dart",
                 "html",
+                "hyprlang",
                 "json",
                 "latex",
                 "lua",

@@ -56,7 +56,7 @@ case $func in
     imv "$full_path" &
     ;;
 "audio")
-    foksal-ctl add "$full_path"
+    foksal-ctl add-play "$full_path"
     ;;
 *)
     exit 0
