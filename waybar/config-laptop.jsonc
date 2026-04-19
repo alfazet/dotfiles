@@ -1,6 +1,10 @@
 {
     "output": "eDP-1",
+    "layer": "top",
+    "position": "bottom",
+    "spacing": 8,
     "reload_style_on_change": true,
+
     "modules-left": [
         "hyprland/workspaces"
     ],
@@ -13,11 +17,13 @@
         "filter": [1, 3, 5, 7, 9],
         "on-click": "activate",
     },
-
-    "layer": "top",
-    "position": "bottom",
-    "spacing": 8,
-    "reload_style_on_change": true,
+    "modules-center": [
+        "custom/foksal"
+    ],
+    "custom/foksal": {
+        "exec": "foksal-state",
+        "interval": 2,
+    },
     "modules-right": [
         "pulseaudio",
         "cpu",

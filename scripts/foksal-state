@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+output=$(foksal-ctl state)
+state=$(echo "$output" | jq -r ".playback_state")
+
+case "$state" in
+"paused")
+    icon=""
+    ;;
+"playing")
+    icon=""
+    ;;
+*)
+    echo ""
+    exit 0
+    ;;
+esac
+
+pos=$(echo "$output" | jq ".queue_pos")
+metadata=$(echo "$output" | jq ".queue[${pos}].metadata")
+artist=$(echo "$metadata" | jq -r ".artist")
+tracktitle=$(echo "$metadata" | jq -r ".tracktitle")
+
+echo "${icon} ${artist} - ${tracktitle}"
