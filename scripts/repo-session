@@ -2,7 +2,7 @@
 
 repos_dir=$HOME/Main/repos
 mapfile -t repos < <(
-    find "$repos_dir" -type d -name ".git" |
+    find "$repos_dir" -maxdepth 2 -type d -name ".git" |
         sed "s|/.git$||" |
         sort
 )

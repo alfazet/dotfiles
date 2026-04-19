@@ -14,6 +14,8 @@ ZSH_AUTOSUGGEST_STRATEGY=(completion)
 highlighting="${plugins_dir}/highlighting/zsh-syntax-highlighting.zsh"
 [[ -f ${highlighting} ]] && source ${highlighting}
 
+source <(fzf --zsh)
+
 ZSH_DISABLE_COMPFIX=true
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select

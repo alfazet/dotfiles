@@ -14,8 +14,13 @@
     color: #982f5c;
 }
 
-#workspaces button.active {
+#workspaces button.visible, button.active {
     color: #ffffff;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: #f7e59b;
     font-weight: bold;
 }
 
