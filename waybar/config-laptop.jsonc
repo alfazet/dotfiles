@@ -1,0 +1,65 @@
+{
+    "output": "eDP-1",
+    "reload_style_on_change": true,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "active-only": false,
+        "all-outputs": false,
+        "disable-scroll": true,
+        "sort-by-number": true,
+        "filter": [1, 3, 5, 7, 9],
+        "on-click": "activate",
+    },
+
+    "layer": "top",
+    "position": "bottom",
+    "spacing": 8,
+    "reload_style_on_change": true,
+    "modules-right": [
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "battery",
+        "clock"
+    ],
+    "pulseaudio": {
+        "format": "󰕾 {volume}%",
+        "format-bluetooth": "󰂰 {volume}%",
+        "format-muted": "󰝟",
+        "on-click": "pavucontrol-qt"
+    },
+    "cpu": {
+        "states": {
+            "high": 50,
+            "mid": 25,
+            "low": 0
+        },
+        "format": "CPU: {usage}%"
+    },
+    "memory": {
+        "states": {
+            "high": 50,
+            "mid": 25,
+            "low": 0
+        },
+        "format": "RAM: {percentage}%"
+    },
+    "battery": {
+        "states": {
+            "full": 100,
+            "high": 80,
+            "mid": 60,
+            "low": 40,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["󱃍", "󰁼", "󰁾", "󰂀", "󰁹"]
+    },
+    "clock": {
+        "format": "{:%a %d.%m.%Y %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    }
+}
