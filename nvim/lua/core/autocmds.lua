@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = { "c", "cpp", "cuda" },
     callback = function()
         vim.schedule(function()
-            vim.keymap.set("n", "<Leader>fm", "<Cmd>silent !clang-format -i --fallback-style=Google %<CR>")
+            vim.keymap.set("n", "<Leader>fm", "<Cmd>silent !clang-format -i --fallback-style=LLVM %<CR>")
         end)
     end,
 })

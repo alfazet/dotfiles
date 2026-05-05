@@ -1,5 +1,5 @@
 {
-    "output": "DP-2",
+    "output": "DP-1",
     "layer": "top",
     "position": "bottom",
     "spacing": 8,
@@ -17,6 +17,15 @@
         "filter": [1, 3, 5, 7, 9],
         "on-click": "activate",
     },
+
+    "modules-center": [
+        "custom/foksal"
+    ],
+    "custom/foksal": {
+        "exec": "foksal-state",
+        "interval": 2,
+    },
+
     "modules-right": [
         "pulseaudio",
         "cpu",

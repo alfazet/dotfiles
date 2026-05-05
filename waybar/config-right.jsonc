@@ -17,6 +17,7 @@
         "filter": [2, 4, 6, 8, 10],
         "on-click": "activate",
     },
+
     "modules-center": [
         "custom/foksal"
     ],
