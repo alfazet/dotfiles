@@ -18,7 +18,7 @@ vim.keymap.set("c", "<C-j>", "<C-n>")
 vim.keymap.set("c", "<C-k>", "<C-p>")
 vim.keymap.set("c", "<C-f>", "<Cr>")
 
-vim.keymap.set("n", "<C-q>", [[<Cmd>lua require("core.utils").toggle_qf()<CR>]])
+vim.keymap.set("n", "<C-q>", [[<Cmd>lua require("utils").toggle_qf()<CR>]])
 vim.keymap.set("n", "<C-n>", "<Cmd>try | cnext | catch | cfirst | catch | endtry<CR>")
 vim.keymap.set("n", "<C-m>", "<Cmd>try | cprev | catch | clast | catch | endtry<CR>")
 vim.keymap.set("n", "<C-g>", "<Cmd>lua FzfLua.live_grep_native({ resume = true })<CR>")

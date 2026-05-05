@@ -26,6 +26,7 @@ return {
                 "rust",
                 "toml",
                 "typst",
+                "xml",
                 "yaml",
             })
         end,

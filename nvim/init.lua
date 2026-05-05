@@ -11,10 +11,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("core.options")
-require("core.keybinds")
-require("core.autocmds")
-require("lazy").setup("core.plugins", {
+require("options")
+require("keybinds")
+require("autocmds")
+require("lazy").setup("plugins", {
     change_detection = {
         enabled = true,
         notify = false,
