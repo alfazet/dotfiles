@@ -20,6 +20,9 @@ formatters = {
     sh = function()
         vim.cmd("!shfmt -i 4 -w %")
     end,
+    tex = function()
+        vim.cmd("!tex-fmt %")
+    end,
 }
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -34,9 +37,20 @@ vim.api.nvim_create_autocmd("FileType", {
             noremap = true,
             silent = true,
             callback = function()
-                vim.schedule(function()
-                    formatter()
-                end)
+                formatter()
+            end,
+        })
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "tex",
+    callback = function(args)
+        vim.api.nvim_buf_set_keymap(0, "n", "<leader>ll", "", {
+            noremap = true,
+            silent = true,
+            callback = function()
+                vim.cmd("!tectonic %")
             end,
         })
     end,

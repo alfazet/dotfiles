@@ -34,22 +34,7 @@ vim.o.pumheight = 10
 vim.o.signcolumn = "yes"
 
 vim.o.cmdheight = 0
-require("vim._core.ui2").enable({
-    enable = true,
-    cmd = {
-        height = 0.5,
-    },
-    dialog = {
-        height = 0.5,
-    },
-    msg = {
-        height = 0.5,
-        timeout = 2000,
-    },
-    pager = {
-        height = 0.5,
-    },
-})
+require("vim._core.ui2").enable()
 
 vim.o.undofile = true
 vim.o.undodir = os.getenv("HOME") .. "/.cache/nvim_undodir"
@@ -69,4 +54,3 @@ end
 vim.o.findfunc = "v:lua.find_files"
 
 vim.cmd("syntax off")
-vim.cmd("command! -nargs=+ Grep execute 'silent grep! <args>' | copen")

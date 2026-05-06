@@ -9,12 +9,12 @@ return {
             keymap = {
                 fzf = {
                     ["ctrl-q"] = "select-all+accept",
-                }
+                },
             },
             hls = {
                 header_text = "Keyword",
                 header_bind = "Keyword",
-            }
+            },
         })
     end,
 }
