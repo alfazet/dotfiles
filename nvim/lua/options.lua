@@ -52,5 +52,3 @@ function _G.find_files(match, _)
     end
 end
 vim.o.findfunc = "v:lua.find_files"
-
-vim.cmd("syntax off")

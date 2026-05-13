@@ -14,7 +14,6 @@ return {
             ty = {},
         }
         local base_capabilities = vim.lsp.protocol.make_client_capabilities()
-        -- local default_on_attach = function(client, bufnr) end,
         for server, config in pairs(servers) do
             if config.capabilities then
                 config.capabilities = vim.tbl_deep_extend("force", base_capabilities, config.capabilities)
@@ -23,8 +22,6 @@ return {
             end
             local custom_on_attach = config.on_attach
             config.on_attach = function(client, bufnr)
-                -- default_on_attach(client, bufnr)
-
                 if custom_on_attach then
                     custom_on_attach(client, bufnr)
                 end
